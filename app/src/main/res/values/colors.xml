@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="boton_cancelar">#FF0000</color>
+    <color name="boton_foto">#00FF00</color>
+    <color name="boton_grabar">#00FFFF</color>
+</resources>

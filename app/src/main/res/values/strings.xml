@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <string name="app_name">Inventario</string>
+
+    <string name="boton_alta">Alta</string>
+    <string name="boton_buscar">Buscar</string>
+    <string name="boton_consulta">Consulta</string>
+    <string name="boton_grabar">Grabar</string>
+    <string name="boton_foto">Foto</string>
+    <string name="boton_cancelar">Cancelar</string>
+
+    <string name="habitacion">Habitación</string>
+    <string name="descripcion">descripción</string>
+    <string name="notas">notas</string>
+    <string name="claves">claves</string>
+
+    <string name="msg_nombreVacio">Falta nombre</string>
+    <string name="msg_sin_almacenamiento">Sin acceso a almacenamiento</string>
+    <string name="title_activity_alta">Inventario</string>
+
     <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
