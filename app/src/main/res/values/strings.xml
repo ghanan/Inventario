@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <string name="app_name">Inventarioo</string>
+    <string name="app_name">Inventariooo</string>
 
     <string name="boton_alta">Alta</string>
     <string name="boton_buscar">Buscar</string>
