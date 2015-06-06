@@ -14,7 +14,7 @@ ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManife
 		INJECTED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml
 		INJECTED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml
 application
-ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:5:5-25:19
+ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:5:5-24:19
 	android:label
 		ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:8:9-41
 	android:allowBackup
@@ -45,6 +45,10 @@ ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManife
 		ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:21:13-56
 	android:name
 		ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:20:13-41
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:25:5-81
+	android:name
+		ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:25:22-78
 uses-sdk
 INJECTED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 	android:targetSdkVersion

@@ -2,6 +2,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <string name="app_name">Inventario</string>
+    <string name="directorio">DirectorioCasa</string>
+    <string name="fichero">InventarioCasa.csv</string>
 
     <string name="boton_alta">Alta</string>
     <string name="boton_buscar">Buscar</string>
@@ -19,6 +21,9 @@
     <string name="msg_sin_almacenamiento">Sin acceso a almacenamiento</string>
     <string name="msg_no_existe_fichero">No existe el fichero </string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
+    <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
+    <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
+    <string name="msg_no_creado_dir">No puedo crear directorio</string>
     <string name="title_activity_alta">Inventario</string>
 
     <string name="hello_world">Hello world!</string>
