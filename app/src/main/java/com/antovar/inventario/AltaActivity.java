@@ -109,20 +109,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             Toast.makeText(this, R.string.msg_nombreVacio, Toast.LENGTH_LONG).show();
             return;
         }
-//              if (!isExternalStorageWritable()) {
-//              Toast.makeText(this, R.string.msg_sin_almacenamiento, Toast.LENGTH_LONG).show();
-//                      return;
-//              }
-//              if (this.claves.getText().toString().equals("")) return;
-
-    }
-
-    public boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
     }
 
 }

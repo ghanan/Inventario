@@ -26,6 +26,8 @@
             android:name="com.antovar.inventario.AltaActivity"
             android:label="@string/title_activity_alta" >
         </activity>
+        <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+
     </application>
 
 </manifest>

@@ -62,10 +62,11 @@ public final class R {
         public static final int habitacion=0x7f07000a;
         public static final int hello_world=0x7f07000b;
         public static final int msg_no_existe_fichero=0x7f07000c;
-        public static final int msg_nombreVacio=0x7f07000d;
-        public static final int msg_sin_almacenamiento=0x7f07000e;
-        public static final int notas=0x7f07000f;
-        public static final int title_activity_alta=0x7f070010;
+        public static final int msg_no_puedo_escribir_ext=0x7f07000d;
+        public static final int msg_nombreVacio=0x7f07000e;
+        public static final int msg_sin_almacenamiento=0x7f07000f;
+        public static final int notas=0x7f070010;
+        public static final int title_activity_alta=0x7f070011;
     }
     public static final class style {
         public static final int AppTheme=0x7f040000;

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:2:1-25:12
+ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:2:1-27:12
 	xmlns:android
 		ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:2:11-69
 	package
@@ -14,7 +14,7 @@ ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManife
 		INJECTED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml
 		INJECTED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml
 application
-ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:5:5-23:19
+ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:5:5-25:19
 	android:label
 		ADDED from /home/atc/AndroidStudioProjects/Inventario/app/src/main/AndroidManifest.xml:8:9-41
 	android:allowBackup

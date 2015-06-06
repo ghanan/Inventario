@@ -23,6 +23,10 @@ public class BDatos {
         return false;
     }
 
+    public void alta(String[] registro) {
+        
+    }
+
     private void aviso_db(String nombre) {
         System.out.println("No existe el fichero " + nombre);
         Toast.makeText(vista, R.string.msg_no_existe_fichero, Toast.LENGTH_LONG).show();
