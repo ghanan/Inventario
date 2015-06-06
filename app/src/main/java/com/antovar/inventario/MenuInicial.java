@@ -49,6 +49,7 @@ public class MenuInicial extends Activity {
             }
         }
         almacenamiento_disponible = true;
+
 //        } catch (Exception e) {
 //            if (!dir.isDirectory()) {
 //                Toast.makeText(this, R.string.msg_no_creado_dir, Toast.LENGTH_LONG).show();
@@ -65,8 +66,9 @@ public class MenuInicial extends Activity {
                 Toast.makeText(this, R.string.msg_no_puedo_escribir_ext, Toast.LENGTH_LONG).show();
                 return;
             }
-            Intent pantalla = new Intent(this, AltaActivity.class);
-            startActivity(pantalla);
+            Intent pantalla_alta = new Intent(this, AltaActivity.class);
+            pantalla_alta.putExtra("fich", fichero);
+            startActivity(pantalla_alta);
         }
     }
 
@@ -78,4 +80,7 @@ public class MenuInicial extends Activity {
         return false;
     }
 
+    public File getFichero() {
+        return fichero;
+    }
 }

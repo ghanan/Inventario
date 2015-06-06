@@ -28,6 +28,8 @@
     <string name="title_activity_alta">Inventario</string>
     <string name="msg_dir_creado">Creado directorio </string>
     <string name="msg_fich_creado">Creado fichero </string>
+    <string name="msg_error_crear_fwriter">Error al abrir para escribir</string>
+    <string name="msg_error_escribiendo">Error al escribir</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

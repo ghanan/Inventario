@@ -12,17 +12,25 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.os.Environment;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
     BDatos bd;
     EditText nombre;
     EditText nota;
     EditText claves;
+    File fichero;
+    FileWriter fw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alta);
+        Bundle extras = getIntent().getExtras();
+        fichero = (File) extras.getSerializable("fich");
 
         this.nombre = (EditText) findViewById(R.id.nombre);
         this.nota = (EditText) findViewById(R.id.nota);
@@ -72,7 +80,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         adapta_fila_col.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_fila_col.setAdapter(adapta_fila_col);
 
-        bd = new BDatos(this, "Inventario-Casa.cvs");
+        bd = new BDatos(this, "InventarioCasa.cvs");
 	}
 
 	@Override
@@ -107,6 +115,19 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     private void grabar() {
         if (this.nombre.getText().toString().equals("")) {
             Toast.makeText(this, R.string.msg_nombreVacio, Toast.LENGTH_LONG).show();
+            return;
+        }
+        try {
+            fw = new FileWriter(fichero, true);
+        } catch (IOException e) {
+            Toast.makeText(this, R.string.msg_error_crear_fwriter, Toast.LENGTH_LONG).show();
+            return;
+        }
+        try {
+            Toast.makeText(this, "escribiendo", Toast.LENGTH_LONG).show();
+            fw.append(this.nombre.getText().toString());
+        } catch (IOException e) {
+            Toast.makeText(this, R.string.msg_error_escribiendo, Toast.LENGTH_LONG).show();
             return;
         }
     }

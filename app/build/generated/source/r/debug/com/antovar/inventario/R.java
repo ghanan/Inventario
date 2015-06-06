@@ -64,17 +64,19 @@ public final class R {
         public static final int habitacion=0x7f07000c;
         public static final int hello_world=0x7f07000d;
         public static final int msg_dir_creado=0x7f07000e;
-        public static final int msg_fich_creado=0x7f07000f;
-        public static final int msg_no_acceso_dir=0x7f070010;
-        public static final int msg_no_acceso_ext=0x7f070011;
-        public static final int msg_no_creado_dir=0x7f070012;
-        public static final int msg_no_creado_fich=0x7f070013;
-        public static final int msg_no_existe_fichero=0x7f070014;
-        public static final int msg_no_puedo_escribir_ext=0x7f070015;
-        public static final int msg_nombreVacio=0x7f070016;
-        public static final int msg_sin_almacenamiento=0x7f070017;
-        public static final int notas=0x7f070018;
-        public static final int title_activity_alta=0x7f070019;
+        public static final int msg_error_crear_fwriter=0x7f07000f;
+        public static final int msg_error_escribiendo=0x7f070010;
+        public static final int msg_fich_creado=0x7f070011;
+        public static final int msg_no_acceso_dir=0x7f070012;
+        public static final int msg_no_acceso_ext=0x7f070013;
+        public static final int msg_no_creado_dir=0x7f070014;
+        public static final int msg_no_creado_fich=0x7f070015;
+        public static final int msg_no_existe_fichero=0x7f070016;
+        public static final int msg_no_puedo_escribir_ext=0x7f070017;
+        public static final int msg_nombreVacio=0x7f070018;
+        public static final int msg_sin_almacenamiento=0x7f070019;
+        public static final int notas=0x7f07001a;
+        public static final int title_activity_alta=0x7f07001b;
     }
     public static final class style {
         public static final int AppTheme=0x7f040000;
