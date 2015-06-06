@@ -12,9 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.os.Environment;
 
-
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
+    BDatos bd;
     EditText nombre;
     EditText nota;
     EditText claves;
@@ -72,6 +72,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         adapta_fila_col.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_fila_col.setAdapter(adapta_fila_col);
 
+        bd = new BDatos(this, "Inventario-Casa.cvs");
 	}
 
 	@Override

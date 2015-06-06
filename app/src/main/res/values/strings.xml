@@ -17,6 +17,7 @@
 
     <string name="msg_nombreVacio">Falta nombre</string>
     <string name="msg_sin_almacenamiento">Sin acceso a almacenamiento</string>
+    <string name="msg_no_existe_fichero">No existe el fichero </string>
     <string name="title_activity_alta">Inventario</string>
 
     <string name="hello_world">Hello world!</string>
