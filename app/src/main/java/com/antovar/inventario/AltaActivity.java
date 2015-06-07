@@ -15,15 +15,16 @@ import java.io.FileWriter;
 
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
+    private BDatos bdatos;
     EditText nombre;
     EditText nota;
     EditText claves;
-    FileWriter fw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alta);
+        bdatos = (BDatos)getApplicationContext();
 
         this.nombre = (EditText) findViewById(R.id.nombre);
         this.nota = (EditText) findViewById(R.id.nota);
@@ -90,6 +91,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     public void onButtonClick(View v) {
         /*System.out.println("clickado");*/
         if (v.getId() == R.id.botonGrabar) {
+            Toast.makeText(this, "grabar", Toast.LENGTH_LONG).show();
             this.grabar();
         } else if (v.getId() == R.id.botonCancelar) {
             System.out.println("cancelar");
@@ -104,9 +106,13 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void grabar() {
+        Toast.makeText(this, "grabando", Toast.LENGTH_LONG).show();
         if (this.nombre.getText().toString().equals("")) {
-            Toast.makeText(this, R.string.msg_nombreVacio, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
             return;
+        }
+        if (!bdatos.alta()) {
+            Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
         }
 //        try {
 //            fw = new FileWriter(fichero, true);

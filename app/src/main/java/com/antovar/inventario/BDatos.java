@@ -17,6 +17,7 @@ public class BDatos extends Application {
     public String log = "";
     private Activity vista;
     private File fichero;
+    private FileWriter fw;
 
     public BDatos() {
         if (!isExternalStorageWritable()) {
@@ -46,6 +47,29 @@ public class BDatos extends Application {
             return true;
         }
         return false;
+    }
+
+//    public boolean alta(String[] campos) {
+    public boolean alta() {
+        try {
+            fw = new FileWriter(fichero, true);
+        } catch (IOException e) {
+            log = "Error en alta al abrir fichero";
+            return false;
+        }
+        try {
+            fw.append("prueba-alta");
+        } catch (IOException e) {
+            log = "Error en alta al escribir en fichero";
+            return false;
+        }
+        try {
+            fw.close();
+        } catch (IOException e) {
+            log = "Error en alta al cerrar el fichero";
+            return false;
+        }
+        return true;
     }
 
 }
