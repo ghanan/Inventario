@@ -2,38 +2,50 @@ package com.antovar.inventario;
 
 
 import android.app.Activity;
-import android.view.View;
+import android.app.Application;
+import android.os.Environment;
 import android.widget.Toast;
 
-public class BDatos {
-    private String fichero;
-    private boolean disponible;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class BDatos extends Application {
+
+    private final String nombredb = "InventarioCasa";
+    public boolean disponible = false;
+    public String log = "";
     private Activity vista;
+    private File fichero;
 
-    public BDatos(Activity llamante, String nombre) {
-        vista = llamante;
-        if (existe(nombre)) {
-            fichero = nombre;
-        } else {
-            aviso_db(nombre);
+    public BDatos() {
+        if (!isExternalStorageWritable()) {
+            log = "Sin acceso a almcenamiento externo";
+            return;
         }
+        File path = Environment.getExternalStorageDirectory();
+        File dir = new File(path, nombredb);
+        if (!dir.mkdir() && !dir.isDirectory()) {
+            log = "No se puede crear el directorio " + nombredb;
+            return;
+        }
+        fichero = new File(dir, nombredb + ".csv");
+        if (!fichero.exists()) {
+            try { fichero.createNewFile(); }
+            catch (IOException e) {
+                log = "No se puede crear el fichero " + nombredb + ".csv";
+                return;
+            }
+        }
+        disponible = true;
     }
 
-    private boolean existe(String nombre) {
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
         return false;
-    }
-
-    public void alta(String[] registro) {
-        
-    }
-
-    private void aviso_db(String nombre) {
-        System.out.println("No existe el fichero " + nombre);
-        Toast.makeText(vista, R.string.msg_no_existe_fichero, Toast.LENGTH_LONG).show();
-    }
-
-    public boolean getDisponible() {
-        return disponible;
     }
 
 }
