@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="10dip">
+
+			<EditText
+				android:id="@+id/nombre"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:hint="@string/descripcion"
+				android:inputType="textNoSuggestions">
+
+				<requestFocus/>
+
+			</EditText>
+
+			<EditText
+				android:id="@+id/nota"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:hint="@string/notas"
+				android:inputType="textMultiLine"/>
+
+			<EditText
+				android:id="@+id/claves"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:ems="10"
+				android:hint="@string/claves"/>
+
+			<Spinner
+				android:id="@+id/desplegable_cuarto"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:prompt="@string/habitacion"/>
+
+			<Spinner
+				android:id="@+id/desplegable_mueble"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+
+			<Spinner
+				android:id="@+id/desplegable_cuerpo"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+
+			<Spinner
+				android:id="@+id/desplegable_hueco"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+
+			<Spinner
+				android:id="@+id/desplegable_fila_col"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:background="#8888ff"
+		android:gravity="bottom"
+		android:orientation="horizontal"
+		android:layout_weight="2">
+
+		<Button
+			android:id="@+id/botonCancelar"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@color/boton_cancelar"
+			android:onClick="onButtonClick"
+			android:text="@string/boton_cancelar"
+			android:textAlignment="center"/>
+
+		<Button
+			android:id="@+id/botonFoto"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@color/boton_foto"
+			android:onClick="onButtonClick"
+			android:text="@string/boton_foto"
+			android:textAlignment="center"/>
+
+		<Button
+			android:id="@+id/botonGrabar"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:background="@color/boton_grabar"
+			android:onClick="onButtonClick"
+			android:text="@string/boton_grabar"
+			android:textAlignment="center"/>
+
+	</LinearLayout>
+
+</LinearLayout>
+
+<!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/layout/activity_alta.xml -->
