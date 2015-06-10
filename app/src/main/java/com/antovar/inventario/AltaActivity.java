@@ -109,9 +109,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
             return;
         }
-        if (!bdatos.alta(nombre.getText().toString() + ";" +
-				nota.getText().toString() + ";" +
-				claves.getText().toString())) {
+        if (!bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + claves.getText())) {
             Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
         }
 //        try {
