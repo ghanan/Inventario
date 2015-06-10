@@ -50,7 +50,7 @@ public class BDatos extends Application {
     }
 
 //    public boolean alta(String[] campos) {
-    public boolean alta() {
+    public boolean alta(String reg) {
         try {
             fw = new FileWriter(fichero, true);
         } catch (IOException e) {
@@ -58,7 +58,7 @@ public class BDatos extends Application {
             return false;
         }
         try {
-            fw.append("prueba-alta");
+            fw.append(reg + "\n");
         } catch (IOException e) {
             log = "Error en alta al escribir en fichero";
             return false;

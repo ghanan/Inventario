@@ -91,7 +91,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     public void onButtonClick(View v) {
         /*System.out.println("clickado");*/
         if (v.getId() == R.id.botonGrabar) {
-            Toast.makeText(this, "grabar", Toast.LENGTH_LONG).show();
             this.grabar();
         } else if (v.getId() == R.id.botonCancelar) {
             System.out.println("cancelar");
@@ -106,12 +105,13 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void grabar() {
-        Toast.makeText(this, "grabando", Toast.LENGTH_LONG).show();
         if (this.nombre.getText().toString().equals("")) {
             Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
             return;
         }
-        if (!bdatos.alta()) {
+        if (!bdatos.alta(nombre.getText().toString() + ";" +
+				nota.getText().toString() + ";" +
+				claves.getText().toString())) {
             Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
         }
 //        try {
