@@ -8,7 +8,12 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 public class BDatos extends Application {
 
@@ -18,6 +23,7 @@ public class BDatos extends Application {
     private Activity vista;
     private File fichero;
     private FileWriter fw;
+	public String[] cuartos = {"", "salon", "NUEVO"};
 
     public BDatos() {
         if (!isExternalStorageWritable()) {
@@ -38,6 +44,7 @@ public class BDatos extends Application {
                 return;
             }
         }
+		if (!lee_arrays()) return;
         disponible = true;
     }
 
@@ -72,4 +79,39 @@ public class BDatos extends Application {
         return true;
     }
 
+	
+	
+	private boolean lee_arrays() {
+		FileReader fr;
+		try { fr = new FileReader(fichero); }
+		catch (IOException e) {
+			log = "Error al abrir fichero para leer";
+            return false;
+		}
+		BufferedReader br = new BufferedReader(fr); 
+		String s;
+		boolean fin = false;
+		while ( !fin ) {
+			try { s = br.readLine(); }
+			catch (IOException e) {
+				log = "Error al leer fichero";
+				return false;
+			}
+			if (s == null) fin = true;
+			else {
+				procesa_linea(s);
+			}
+		}
+		try { fr.close(); }
+		catch (IOException e) {
+			log = "Error al cerrar fichero tras lectura";
+			return false;
+		}
+		return true;
+	}
+	
+	private void procesa_linea(String linea) {
+		System.out.println(linea);
+	}
+	
 }

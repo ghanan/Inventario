@@ -36,10 +36,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         this.claves = (EditText) findViewById(R.id.claves);
         Spinner desple_cuarto = (Spinner) findViewById(R.id.desplegable_cuarto);
         desple_cuarto.setOnItemSelectedListener(this);
-        final String[] cuartos =
-			new String[]{"Salon", "Cocina", "Cuarto_pequeño", "Pasillo", "Baño_pequeño", "Baño_grande", "Cuarto_grande"};
+        //final String[] cuartos =
+		//	new String[]{"Salon", "Cocina", "Cuarto_pequeño", "Pasillo", "Baño_pequeño", "Baño_grande", "Cuarto_grande"};
 		ArrayAdapter < String > adapta_cuarto =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cuartos);
+			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuartos);
         adapta_cuarto.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_cuarto.setAdapter(adapta_cuarto);
 
