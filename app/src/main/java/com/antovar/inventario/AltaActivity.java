@@ -19,6 +19,11 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     EditText nombre;
     EditText nota;
     EditText claves;
+	String cuarto = "";
+	String mueble = "";
+	String cuerpo = "";
+	String hueco = "";
+	String fila_col = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +83,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	@Override
 	public void onItemSelected (AdapterView<?> parent, View view,int position, long id){
 		String item = parent.getItemAtPosition(position).toString();
-//      if (parent.getId() == R.id.desplegable_cuarto) {}
+      if (parent.getId() == R.id.desplegable_cuarto) { cuarto = item; }
+	  else if (parent.getId() == R.id.desplegable_mueble) { mueble = item; }
+		else if (parent.getId() == R.id.desplegable_hueco) { hueco = item; }
+		else fila_col = item;
 //      Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
 	}
@@ -109,9 +117,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
             return;
         }
-        if (!bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + claves.getText())) {
-            Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
-        }
+        if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
+			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + claves.getText() )) {
+        	nombre.setText("");
+			nota.setText("");
+			nombre.requestFocus();
+		} else Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
 //        try {
 //            fw = new FileWriter(fichero, true);
 //        } catch (IOException e) {
