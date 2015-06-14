@@ -101,6 +101,7 @@ public class BDatos extends Application {
             log = "Error en alta al cerrar el fichero";
             return false;
         }
+		procesa_linea(reg);
         return true;
     }
 
