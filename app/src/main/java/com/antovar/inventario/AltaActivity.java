@@ -117,8 +117,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
             return;
         }
+		String lclaves = claves.getText().toString();
+		if (lclaves.equals("")) lclaves = ".";
         if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
-			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + claves.getText() )) {
+			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves )) {
         	nombre.setText("");
 			nota.setText("");
 			nombre.requestFocus();
