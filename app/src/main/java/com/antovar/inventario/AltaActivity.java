@@ -16,7 +16,8 @@ import java.io.FileWriter;
 
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
-    private BDatos bdatos;
+	final static int EDICION_CLAVES = 1;
+    protected BDatos bdatos;
     EditText nombre;
     EditText nota;
     EditText claves;
@@ -31,7 +32,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alta);
         bdatos = (BDatos)getApplicationContext();
-
+        //bdatos = (BDatos)getApplication();
         this.nombre = (EditText) findViewById(R.id.nombre);
         this.nota = (EditText) findViewById(R.id.nota);
         this.claves = (EditText) findViewById(R.id.claves);
@@ -116,9 +117,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     public void onClavesClick(View v) {
         //nueva actividad elegir_claves
         //pasar claves actuales y recibir las deseadas
-        Intent intenClaves = new Intent(AltaActivity.this, GestionClavesActivity.class);
-        //intenClaves.putExtra(Intent.EXTRA_TEXT, BDatos.)
-        String kk = BDatos.al
+        Intent intentClaves = new Intent(AltaActivity.this, GestionClavesActivity.class);
+		//intenClaves.putExtra(Intent.EXTRA_TEXT, bdatos.getCampo(bdatos.iFILA_COL));
+        intentClaves.putExtra("clavesOri", bdatos.getCampo(bdatos.iFILA_COL));
+		startActivityForResult(intentClaves, EDICION_CLAVES);
     }
 
     private void grabar() {
@@ -149,4 +151,11 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 //        }
     }
 
+	@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == EDICION_CLAVES) {
+        
+        }
+	}
+	
 }
