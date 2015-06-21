@@ -35,12 +35,13 @@
 				android:hint="@string/notas"
 				android:inputType="textMultiLine"/>
 
-			<EditText
+			<TextView
 				android:id="@+id/claves"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:ems="10"
-				android:hint="@string/claves"/>
+				android:hint="@string/claves"
+				android:onClick="onClavesClick" />
 
 			<Spinner
 				android:id="@+id/desplegable_cuarto"

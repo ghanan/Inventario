@@ -21,16 +21,16 @@ import android.text.style.*;
 
 public class BDatos extends Application {
 
-	private final int nCAMPOS = 8;
-	private final int iNOMBRE = 0;
-	private final int iNOTA = 1;
-	private final int iCUARTO = 2;
-	private final int iMUEBLE = 3;
-	private final int iCUERPO = 4;
-	private final int iHUECO = 5;
-	private final int iFILA_COL = 6;
-	private final int iCLAVES = 7;
-	private final String CS = ";";
+	public final int nCAMPOS = 8;
+	public final int iNOMBRE = 0;
+	public final int iNOTA = 1;
+	public final int iCUARTO = 2;
+	public final int iMUEBLE = 3;
+	public final int iCUERPO = 4;
+	public final int iHUECO = 5;
+	public final int iFILA_COL = 6;
+	public final int iCLAVES = 7;
+	public final String CS = ";";
 	
     private final String nombredb = "InventarioCasa";
     public boolean disponible = false;
@@ -154,4 +154,9 @@ public class BDatos extends Application {
 	private void rellena_arrays() {
 
 	}
+
+	public String getCampo(int i) {
+		return aLinea[i];
+	}
+
 }

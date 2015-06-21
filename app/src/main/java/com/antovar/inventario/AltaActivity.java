@@ -1,6 +1,7 @@
 package com.antovar.inventario;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -110,6 +111,14 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         } else {
             // foto
         }
+    }
+
+    public void onClavesClick(View v) {
+        //nueva actividad elegir_claves
+        //pasar claves actuales y recibir las deseadas
+        Intent intenClaves = new Intent(AltaActivity.this, GestionClavesActivity.class);
+        //intenClaves.putExtra(Intent.EXTRA_TEXT, BDatos.)
+        String kk = BDatos.al
     }
 
     private void grabar() {
