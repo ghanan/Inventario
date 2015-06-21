@@ -1,10 +1,10 @@
 package com.antovar.inventario;
 
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.app.Application;
 import android.os.Environment;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -35,11 +35,12 @@ public class BDatos extends Application {
     private final String nombredb = "InventarioCasa";
     public boolean disponible = false;
     public String log = "";
-    private Activity vista;
+    //private Activity vista;
     private File fichero;
     private FileWriter fw;
-	private String[] aLinea = new String[nCAMPOS];
-	public ArrayList<String> aNombre = new ArrayList<String>();
+	private int numRegistros = 0;
+	private String[] aLinea = new String[nCAMPOS]; //registro de trabajo
+	public ArrayList<String> aNombre = new ArrayList<String>(); //para cargar datos en mem
 	public ArrayList<String> aNota = new ArrayList<String>();
 	public ArrayList<String> aClaves = new ArrayList<String>();
 	public ArrayList<String> aCuarto = new ArrayList<String>();
@@ -69,7 +70,8 @@ public class BDatos extends Application {
                 return;
             }
         }
-		if (!lee_arrays()) return;
+		if (!lee_fichero_a_arrays()) return;
+		rellena_arrays();
         disponible = true;
     }
 
@@ -105,9 +107,7 @@ public class BDatos extends Application {
         return true;
     }
 
-	
-	
-	private boolean lee_arrays() {
+	private boolean lee_fichero_a_arrays() {
 		FileReader fr;
 		try { fr = new FileReader(fichero); }
 		catch (IOException e) {
@@ -125,6 +125,7 @@ public class BDatos extends Application {
 			}
 			if (s == null) fin = true;
 			else {
+				numRegistros++;
 				procesa_linea(s);
 			}
 		}
@@ -149,5 +150,8 @@ public class BDatos extends Application {
 //		System.out.println(aClaves.toString());
 		
 	}
-	
+
+	private void rellena_arrays() {
+
+	}
 }
