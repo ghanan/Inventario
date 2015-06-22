@@ -49,7 +49,7 @@ public class BDatos extends Application {
 	public ArrayList<String> aHueco = new ArrayList<String>();
 	public ArrayList<String> aFila_col = new ArrayList<String>();
 	
-	public String[] cuartos = {"", "salon", "NUEVO"};
+	public ArrayList<String> cuartos = new ArrayList<String>();
 
     public BDatos() {
         if (!isExternalStorageWritable()) {
@@ -152,9 +152,17 @@ public class BDatos extends Application {
 	}
 
 	private void rellena_arrays() {
-
+		rellena_un_array(aCuarto, cuartos);
 	}
 
+	private void rellena_un_array(List<String> origen, List<String> destino) {
+		destino.add("");
+		for (String valor: origen) {
+			if (!destino.contains(valor)) destino.add(valor);
+		}
+		destino.add("NUEVO");
+	}
+	
 	public String getCampo(int i) {
 		return aLinea[i];
 	}
