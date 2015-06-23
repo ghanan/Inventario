@@ -50,7 +50,12 @@ public class BDatos extends Application {
 	public ArrayList<String> aFila_col = new ArrayList<String>();
 	
 	public ArrayList<String> cuartos = new ArrayList<String>();
-
+	public List<String> muebles = new ArrayList<String>();
+	public List<String> cuerpos = new ArrayList<String>();
+	public List<String> huecos = new ArrayList<String>();
+	public List<String> fila_cols = new ArrayList<String>();
+	public List<String> claves = new ArrayList<String>();
+	
     public BDatos() {
         if (!isExternalStorageWritable()) {
             log = "Sin acceso a almcenamiento externo";
@@ -153,6 +158,10 @@ public class BDatos extends Application {
 
 	private void rellena_arrays() {
 		rellena_un_array(aCuarto, cuartos);
+		rellena_un_array(aMueble, muebles);
+		rellena_un_array(aHueco, huecos);
+		rellena_un_array(aFila_col, fila_cols);
+		rellena_claves();
 	}
 
 	private void rellena_un_array(List<String> origen, List<String> destino) {
@@ -161,6 +170,15 @@ public class BDatos extends Application {
 			if (!destino.contains(valor)) destino.add(valor);
 		}
 		destino.add("NUEVO");
+	}
+	
+	private void rellena_claves() {
+		claves.add("");
+		for (String strClaves: aClaves) {
+			for (String sClave: strClaves.split(",")) {
+				if (!claves.contains(sClave)) claves.add(sClave);
+			}
+		}
 	}
 	
 	public String getCampo(int i) {

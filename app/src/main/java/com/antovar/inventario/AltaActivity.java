@@ -13,6 +13,7 @@ import android.widget.Toast;
 //import android.support.v7.app.AppCompatActivity;
 
 import java.io.FileWriter;
+import android.widget.*;
 
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
@@ -20,7 +21,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     protected BDatos bdatos;
     EditText nombre;
     EditText nota;
-    EditText claves;
+    TextView claves;
 	String cuarto = "";
 	String mueble = "";
 	String cuerpo = "";
@@ -35,7 +36,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         //bdatos = (BDatos)getApplication();
         this.nombre = (EditText) findViewById(R.id.nombre);
         this.nota = (EditText) findViewById(R.id.nota);
-        this.claves = (EditText) findViewById(R.id.claves);
+        //this.claves = (EditText) findViewById(R.id.claves);
+		this.claves = (TextView) findViewById(R.id.claves);
         Spinner desple_cuarto = (Spinner) findViewById(R.id.desplegable_cuarto);
         desple_cuarto.setOnItemSelectedListener(this);
         //final String[] cuartos =
