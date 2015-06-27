@@ -1,0 +1,26 @@
+27-jun
+creo método para meter sitio nuevo al elegir NUEVO
+acabo pedir cuarto nuevo
+commit
+acabo pedir todos nuevo
+commit
+
+23-jun
+acabo los métodos para rellenar los arrays al leer el fichero
+
+21-jun-15
+cuenta los registros al leerlos
+rellena los arrays al iniciar
+commit
+creo y paso a rama claves.a.rotulo para poner el campo claves no editable
+cambio EditText a TextView con onClick onClavesClick
+creo actividad gestionClavesActivity
+dbase: cambio las constantes a public
+dbase: creo método getCampo
+hago llamada a gestionClavesActivity con parámetros
+
+Carga el fichero en memoria cada campo en un array
+
+Lee fichero al arrancar
+
+Al arrancar crea el fichero si no existe (.csv)

@@ -29,7 +29,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	String cuerpo = "";
 	String hueco = "";
 	String fila_col = "";
-    String sitio = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,37 +51,37 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
         Spinner desple_mueble = (Spinner) findViewById(R.id.desplegable_mueble);
         desple_mueble.setOnItemSelectedListener(this);
-        final String[] muebles =
-			new String[]{"Frente_sofa", "TV", "Tras_Camilla"};
+//        final String[] muebles =
+//			new String[]{"Frente_sofa", "TV", "Tras_Camilla"};
         ArrayAdapter<String> adapta_mueble =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, muebles);
+			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.muebles);
         adapta_mueble.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_mueble.setAdapter(adapta_mueble);
 
         Spinner desple_cuerpo = (Spinner) findViewById(R.id.desplegable_cuerpo);
         desple_cuerpo.setOnItemSelectedListener(this);
-        final String[] cuerpos =
-			new String[]{"", "Cuerpo-a1", "Cuerpo-a2", "Cuerpo-a3", "Cuerpo-b1", "Cuerpo-b2"};
+//        final String[] cuerpos =
+//			new String[]{"", "Cuerpo-a1", "Cuerpo-a2", "Cuerpo-a3", "Cuerpo-b1", "Cuerpo-b2"};
         ArrayAdapter<String> adapta_cuerpo =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cuerpos);
+			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuerpos);
         adapta_cuerpo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_cuerpo.setAdapter(adapta_cuerpo);
 
         Spinner desple_hueco = (Spinner) findViewById(R.id.desplegable_hueco);
         desple_hueco.setOnItemSelectedListener(this);
-        final String[] huecos =
-			new String[]{"", "cajón", "estante", "puerta-f1c1", "puerta-f1c2", "puerta-f2c1"};
+//        final String[] huecos =
+//			new String[]{"", "cajón", "estante", "puerta-f1c1", "puerta-f1c2", "puerta-f2c1"};
         ArrayAdapter<String> adapta_hueco =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, huecos);
+			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.huecos);
         adapta_hueco.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_hueco.setAdapter(adapta_hueco);
 
         Spinner desple_fila_col = (Spinner) findViewById(R.id.desplegable_fila_col);
         desple_fila_col.setOnItemSelectedListener(this);
-        final String[] fila_cols =
-			new String[]{"", "f1c1", "f2c1", "f3c1", "f1c2", "f2c2"};
+//        final String[] fila_cols =
+//			new String[]{"", "f1c1", "f2c1", "f3c1", "f1c2", "f2c2"};
         ArrayAdapter<String> adapta_fila_col =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, fila_cols);
+			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.fila_cols);
         adapta_fila_col.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_fila_col.setAdapter(adapta_fila_col);
 	}
@@ -93,9 +92,19 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (parent.getId() == R.id.desplegable_cuarto) {
             if (item.equals("NUEVO")) nuevo_sitio("cuarto");
             else cuarto = item;
-        } else if (parent.getId() == R.id.desplegable_mueble) { mueble = item; }
-		    else if (parent.getId() == R.id.desplegable_hueco) { hueco = item; }
-		    else fila_col = item;
+        } else if (parent.getId() == R.id.desplegable_mueble) {
+            if (item.equals("NUEVO")) nuevo_sitio("mueble");
+            else mueble = item;
+        } else if (parent.getId() == R.id.desplegable_cuerpo) {
+            if (item.equals("NUEVO")) nuevo_sitio("cuerpo");
+            else mueble = item;
+        } else if (parent.getId() == R.id.desplegable_hueco) {
+            if (item.equals("NUEVO")) nuevo_sitio("hueco");
+            else hueco = item;
+        } else {
+            if (item.equals("NUEVO")) nuevo_sitio("fila_col");
+            else fila_col = item;
+        }
     //    Toast.makeText(parent.getContext(), "cuarto: " + cuarto, Toast.LENGTH_LONG).show();
     //    System.out.println("onItem: "+cuarto+" "+mueble);
 	}
@@ -170,7 +179,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         entrada.setText("");
         new AlertDialog.Builder(this)
             .setTitle("Nuevo sitio")
-            .setMessage("introduce nuevo sitio:")
+            .setMessage("introduce nuevo "+sitio)
             .setView(entrada)
             .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -179,6 +188,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                         cuarto = entrada.getText().toString();
                     else if (sitio.equals("mueble"))
                         mueble = entrada.getText().toString();
+                    else if (sitio.equals("cuerpo"))
+                        cuerpo = entrada.getText().toString();
                     else if (sitio.equals("hueco"))
                         hueco = entrada.getText().toString();
                     else fila_col = entrada.getText().toString();
