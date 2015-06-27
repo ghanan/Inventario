@@ -1,8 +1,17 @@
+INMEDIATO
+que actualice la pantalla tras NUEVO
+  puede usarse .setSelection(int)
+que meta lo nuevo en los arrays
+
+
 27-jun
 creo método para meter sitio nuevo al elegir NUEVO
 acabo pedir cuarto nuevo
 commit
 acabo pedir todos nuevo
+commit
+cambio a rama master y merge
+ordena las listas
 commit
 
 23-jun

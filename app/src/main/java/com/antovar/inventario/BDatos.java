@@ -50,11 +50,11 @@ public class BDatos extends Application {
 	public ArrayList<String> aFila_col = new ArrayList<>();
 	
 	public List<String> cuartos = new ArrayList<>();
-	public List<String> muebles = new ArrayList<String>();
-	public List<String> cuerpos = new ArrayList<String>();
-	public List<String> huecos = new ArrayList<String>();
-	public List<String> fila_cols = new ArrayList<String>();
-	public List<String> claves = new ArrayList<String>();
+	public List<String> muebles = new ArrayList<>();
+	public List<String> cuerpos = new ArrayList<>();
+	public List<String> huecos = new ArrayList<>();
+	public List<String> fila_cols = new ArrayList<>();
+	public List<String> claves = new ArrayList<>();
 	
     public BDatos() {
         if (!isExternalStorageWritable()) {
@@ -170,9 +170,15 @@ public class BDatos extends Application {
 		for (String valor: origen) {
 			if (!destino.contains(valor)) destino.add(valor);
 		}
+		Collections.sort(destino, String.CASE_INSENSITIVE_ORDER);
 		destino.add("NUEVO");
 	}
-	
+
+	public void add_valor(List<String> lista, String valor) {
+		lista.add(valor);
+
+	}
+
 	private void rellena_claves() {
 		claves.add("");
 		for (String strClaves: aClaves) {
