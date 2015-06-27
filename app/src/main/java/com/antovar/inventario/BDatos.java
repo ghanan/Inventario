@@ -45,11 +45,11 @@ public class BDatos extends Application {
 	public ArrayList<String> aClaves = new ArrayList<>();
 	public ArrayList<String> aCuarto = new ArrayList<>();
 	public ArrayList<String> aMueble = new ArrayList<>();
-	public ArrayList<String> aCuerpo = new ArrayList<String>();
-	public ArrayList<String> aHueco = new ArrayList<String>();
-	public ArrayList<String> aFila_col = new ArrayList<String>();
+	public ArrayList<String> aCuerpo = new ArrayList<>();
+	public ArrayList<String> aHueco = new ArrayList<>();
+	public ArrayList<String> aFila_col = new ArrayList<>();
 	
-	public ArrayList<String> cuartos = new ArrayList<String>();
+	public List<String> cuartos = new ArrayList<>();
 	public List<String> muebles = new ArrayList<String>();
 	public List<String> cuerpos = new ArrayList<String>();
 	public List<String> huecos = new ArrayList<String>();
@@ -130,7 +130,7 @@ public class BDatos extends Application {
 			}
 			if (s == null) fin = true;
 			else {
-				numRegistros++;
+				numRegistros += 1;
 				procesa_linea(s);
 			}
 		}
@@ -159,6 +159,7 @@ public class BDatos extends Application {
 	private void rellena_arrays() {
 		rellena_un_array(aCuarto, cuartos);
 		rellena_un_array(aMueble, muebles);
+		rellena_un_array(aCuerpo, cuerpos);
 		rellena_un_array(aHueco, huecos);
 		rellena_un_array(aFila_col, fila_cols);
 		rellena_claves();

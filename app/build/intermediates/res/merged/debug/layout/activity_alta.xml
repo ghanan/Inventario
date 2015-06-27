@@ -43,6 +43,7 @@
 				android:hint="@string/claves"
 				android:onClick="onClavesClick" />
 
+
 			<Spinner
 				android:id="@+id/desplegable_cuarto"
 				android:layout_width="match_parent"
