@@ -18,6 +18,7 @@ import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.*;
 import android.text.style.*;
+import android.widget.Spinner;
 
 public class BDatos extends Application {
 
@@ -174,9 +175,12 @@ public class BDatos extends Application {
 		destino.add("NUEVO");
 	}
 
-	public void add_valor(List<String> lista, String valor) {
+	public void add_valor(Spinner desple, List<String> lista, String valor) {
+		lista.remove("NUEVO");
 		lista.add(valor);
-
+		Collections.sort(lista, String.CASE_INSENSITIVE_ORDER);
+		lista.add("NUEVO");
+		desple.setSelection(lista.indexOf(valor));
 	}
 
 	private void rellena_claves() {

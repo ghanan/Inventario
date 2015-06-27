@@ -13,6 +13,10 @@ commit
 cambio a rama master y merge
 ordena las listas
 commit
+añade el NUEVO item a la lista
+sitúa el spinner en el nuevo valor
+commit
+push
 
 23-jun
 acabo los métodos para rellenar los arrays al leer el fichero
