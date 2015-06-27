@@ -1,6 +1,8 @@
 package com.antovar.inventario;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +29,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	String cuerpo = "";
 	String hueco = "";
 	String fila_col = "";
+    String sitio = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,14 +88,16 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	}
 
 	@Override
-	public void onItemSelected (AdapterView<?> parent, View view,int position, long id){
-		String item = parent.getItemAtPosition(position).toString();
-      if (parent.getId() == R.id.desplegable_cuarto) { cuarto = item; }
-	  else if (parent.getId() == R.id.desplegable_mueble) { mueble = item; }
-		else if (parent.getId() == R.id.desplegable_hueco) { hueco = item; }
-		else fila_col = item;
-//      Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-
+	public void onItemSelected (AdapterView<?> parent, View view,int position, long id) {
+        String item = parent.getItemAtPosition(position).toString();
+        if (parent.getId() == R.id.desplegable_cuarto) {
+            if (item.equals("NUEVO")) nuevo_sitio("cuarto");
+            else cuarto = item;
+        } else if (parent.getId() == R.id.desplegable_mueble) { mueble = item; }
+		    else if (parent.getId() == R.id.desplegable_hueco) { hueco = item; }
+		    else fila_col = item;
+    //    Toast.makeText(parent.getContext(), "cuarto: " + cuarto, Toast.LENGTH_LONG).show();
+    //    System.out.println("onItem: "+cuarto+" "+mueble);
 	}
 
     public void onNothingSelected(AdapterView<?> arg0) {
@@ -159,5 +164,28 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         
         }
 	}
+
+    private void nuevo_sitio(final String sitio) {
+        final EditText entrada = new EditText(this);
+        entrada.setText("");
+        new AlertDialog.Builder(this)
+            .setTitle("Nuevo sitio")
+            .setMessage("introduce nuevo sitio:")
+            .setView(entrada)
+            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    //cuarto = entrada.getText().toString();
+                    if (sitio.equals("cuarto"))
+                        cuarto = entrada.getText().toString();
+                    else if (sitio.equals("mueble"))
+                        mueble = entrada.getText().toString();
+                    else if (sitio.equals("hueco"))
+                        hueco = entrada.getText().toString();
+                    else fila_col = entrada.getText().toString();
+                }})
+            .setNegativeButton("Cancelar", null)
+            .show();
+        //return sitio;
+    }
 	
 }

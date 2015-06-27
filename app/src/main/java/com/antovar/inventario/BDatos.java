@@ -40,11 +40,11 @@ public class BDatos extends Application {
     private FileWriter fw;
 	private int numRegistros = 0;
 	private String[] aLinea = new String[nCAMPOS]; //registro de trabajo
-	public ArrayList<String> aNombre = new ArrayList<String>(); //para cargar datos en mem
-	public ArrayList<String> aNota = new ArrayList<String>();
-	public ArrayList<String> aClaves = new ArrayList<String>();
-	public ArrayList<String> aCuarto = new ArrayList<String>();
-	public ArrayList<String> aMueble = new ArrayList<String>();
+	public ArrayList<String> aNombre = new ArrayList<>(); //para cargar datos en mem
+	public ArrayList<String> aNota = new ArrayList<>();
+	public ArrayList<String> aClaves = new ArrayList<>();
+	public ArrayList<String> aCuarto = new ArrayList<>();
+	public ArrayList<String> aMueble = new ArrayList<>();
 	public ArrayList<String> aCuerpo = new ArrayList<String>();
 	public ArrayList<String> aHueco = new ArrayList<String>();
 	public ArrayList<String> aFila_col = new ArrayList<String>();

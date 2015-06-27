@@ -29,6 +29,10 @@
             android:name="com.antovar.inventario.AltaActivity"
             android:label="@string/title_activity_alta" >
         </activity>
+        <activity
+            android:name="com.antovar.inventario.GestionClavesActivity"
+            android:label="@string/title_activity_gestion_claves" >
+        </activity>
     </application>
 
 </manifest>
