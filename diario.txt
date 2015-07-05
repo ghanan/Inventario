@@ -1,5 +1,4 @@
 INMEDIATO
-ver como capturar claves que se le pasa a GestionClavesA.java
 ver como marcar las claves pasadas en la lista (¿pones en mayúsculas?)
   ¿llevar un array paralelo?
 
@@ -8,6 +7,10 @@ gestionclaves...java añado getcontext de bdatos
 gestion_claves.xml meto el listview en un linearlayout para que haga scroll
 bdatos.java añade NUEVA a claves
 commit
+gestionclaves...java: capturo las claves que le pasan
+en onclick pongo en gris al pulsar
+commit
+push
 
 28-jun
 inicio el viewlist de claves

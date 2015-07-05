@@ -1,7 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.antovar.inventario.GestionClavesActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" android:showAsAction="never" />
+    <item android:id="@+id/ok"
+        android:title="OK"
+        android:orderInCategory="10"
+        android:showAsAction="always" />
+    <item android:id="@+id/cancel"
+        android:title="Cancel"
+        android:orderInCategory="20"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/limpiar"
+        android:title="Limpiar"
+        android:orderInCategory="30"
+        android:showAsAction="never" />
 </menu>
 <!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/menu/menu_gestion_claves.xml -->

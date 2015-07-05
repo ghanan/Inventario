@@ -8,6 +8,7 @@
     <ListView
         android:id="@+id/listViewClaves"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:choiceMode="multipleChoice" />
 
 </LinearLayout><!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/layout/gestion_claves.xml -->

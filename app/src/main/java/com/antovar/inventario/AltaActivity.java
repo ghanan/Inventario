@@ -136,7 +136,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     public void onClavesClick(View v) {
-        System.out.println("claves");
         //nueva actividad elegir_claves
         //pasar claves actuales y recibir las deseadas
         Intent intentClaves = new Intent(AltaActivity.this, GestionClavesActivity.class);

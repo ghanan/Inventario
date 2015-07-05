@@ -3,6 +3,8 @@ package com.antovar.inventario;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.view.MenuItem;
@@ -15,27 +17,35 @@ public class GestionClavesActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gestion_claves);
         bdatos = (BDatos)getApplicationContext();
-		
-		final ListView listview = (ListView) findViewById(R.id.listViewClaves);
-		final ArrayAdapter adapter = new ArrayAdapter(this,
-			android.R.layout.simple_list_item_1, bdatos.claves);
+        // lee las claves actuales que le pasan
+		Bundle extras = getIntent().getExtras();
+        String actuales = extras.getString("clavesOri");
+
+        final ListView listview = (ListView) findViewById(R.id.listViewClaves);
+		final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bdatos.claves);
 		listview.setAdapter(adapter);
-		
-//		listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//				@Override
-//				public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
-//					final String item = (String) parent.getItemAtPosition(position);
-//					view.animate().setDuration(2000).alpha(0)
-//						.withEndAction(new Runnable() {
-//							@Override
-//							public void run() {
-//								list.remove(item);
-//								adapter.notifyDataSetChanged();
-//								view.setAlpha(1);
-//							}
-//						});
-//				}
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                view.setBackgroundColor(0xFFA0A0A0);
+            }
+    });
+
+//		listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
+//    		@Override
+//			public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+//				final String item = (String) parent.getItemAtPosition(position);
+//				view.animate().setDuration(2000).alpha(0)
+//					.withEndAction(new Runnable() {
+//						@Override
+//						public void run() {
+//							list.remove(item);
+//							adapter.notifyDataSetChanged();
+//							view.setAlpha(1);
+//						}
+//					});
+//			}
 //
 //		});
     }

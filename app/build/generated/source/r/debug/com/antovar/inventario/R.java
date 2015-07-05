@@ -31,15 +31,18 @@ public final class R {
         public static final int botonConsulta=0x7f09000e;
         public static final int botonFoto=0x7f090009;
         public static final int botonGrabar=0x7f09000a;
+        public static final int cancel=0x7f090011;
         public static final int claves=0x7f090002;
         public static final int desplegable_cuarto=0x7f090003;
         public static final int desplegable_cuerpo=0x7f090005;
         public static final int desplegable_fila_col=0x7f090007;
         public static final int desplegable_hueco=0x7f090006;
         public static final int desplegable_mueble=0x7f090004;
+        public static final int limpiar=0x7f090012;
         public static final int listViewClaves=0x7f09000b;
         public static final int nombre=0x7f090000;
         public static final int nota=0x7f090001;
+        public static final int ok=0x7f090010;
     }
     public static final class layout {
         public static final int activity_alta=0x7f030000;
