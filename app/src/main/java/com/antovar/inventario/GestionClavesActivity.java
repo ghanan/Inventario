@@ -14,6 +14,7 @@ public class GestionClavesActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gestion_claves);
+        bdatos = (BDatos)getApplicationContext();
 		
 		final ListView listview = (ListView) findViewById(R.id.listViewClaves);
 		final ArrayAdapter adapter = new ArrayAdapter(this,

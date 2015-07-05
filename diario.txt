@@ -1,8 +1,18 @@
 INMEDIATO
-que actualice la pantalla tras NUEVO
-  puede usarse .setSelection(int)
-que meta lo nuevo en los arrays
+ver como capturar claves que se le pasa a GestionClavesA.java
+ver como marcar las claves pasadas en la lista (¿pones en mayúsculas?)
+  ¿llevar un array paralelo?
 
+5-jul
+gestionclaves...java añado getcontext de bdatos
+gestion_claves.xml meto el listview en un linearlayout para que haga scroll
+bdatos.java añade NUEVA a claves
+commit
+
+28-jun
+inicio el viewlist de claves
+asigno el array de claves como adapter
+actualiza la pantalla tras alta
 
 27-jun
 creo método para meter sitio nuevo al elegir NUEVO

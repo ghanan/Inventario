@@ -190,6 +190,7 @@ public class BDatos extends Application {
 				if (!claves.contains(sClave)) claves.add(sClave);
 			}
 		}
+		claves.add("NUEVA");
 	}
 	
 	public String getCampo(int i) {

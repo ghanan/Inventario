@@ -24,11 +24,11 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int botonAlta=0x7f09000b;
-        public static final int botonBuscar=0x7f09000c;
+        public static final int action_settings=0x7f09000f;
+        public static final int botonAlta=0x7f09000c;
+        public static final int botonBuscar=0x7f09000d;
         public static final int botonCancelar=0x7f090008;
-        public static final int botonConsulta=0x7f09000d;
+        public static final int botonConsulta=0x7f09000e;
         public static final int botonFoto=0x7f090009;
         public static final int botonGrabar=0x7f09000a;
         public static final int claves=0x7f090002;
@@ -37,6 +37,7 @@ public final class R {
         public static final int desplegable_fila_col=0x7f090007;
         public static final int desplegable_hueco=0x7f090006;
         public static final int desplegable_mueble=0x7f090004;
+        public static final int listViewClaves=0x7f09000b;
         public static final int nombre=0x7f090000;
         public static final int nota=0x7f090001;
     }
