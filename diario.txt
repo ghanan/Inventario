@@ -1,6 +1,24 @@
 INMEDIATO
 ver como marcar las claves pasadas en la lista (¿pones en mayúsculas?)
   ¿llevar un array paralelo?
+que hacer cuando marque una clave
+  ver si ya esta (desmarcar)
+  o marcar ¿como?
+
+  conocemos las claves por su valor textual
+
+al recibirlas, busca posiciones y las mete en un array
+  las pone en gris
+al finalizar, retorna un string con las claves?
+
+
+19-jul
+añado bdatos.j que ordene las claves
+bdatos.j cambio CS por FS (field sep) creo CS="," para separar claves
+gestionclaves creo array con pasadas
+metodo para eleminar por posición
+pone/quita color al marcar/desmarcar y mete en array
+commit
 
 5-jul
 gestionclaves...java añado getcontext de bdatos

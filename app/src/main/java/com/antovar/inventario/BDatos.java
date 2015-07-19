@@ -31,7 +31,8 @@ public class BDatos extends Application {
 	public final int iHUECO = 5;
 	public final int iFILA_COL = 6;
 	public final int iCLAVES = 7;
-	public final String CS = ";";
+	public final String FS = ";";
+	public final String CS = ",";
 	
     private final String nombredb = "InventarioCasa";
     public boolean disponible = false;
@@ -144,7 +145,7 @@ public class BDatos extends Application {
 	}
 	
 	private void procesa_linea(String linea) {
-		aLinea = linea.split(CS);
+		aLinea = linea.split(FS);
 		aNombre.add(aLinea[iNOMBRE]);
 		aNota.add(aLinea[iNOTA]);
 		aCuarto.add(aLinea[iCUARTO]);
@@ -175,6 +176,7 @@ public class BDatos extends Application {
 		destino.add("NUEVO");
 	}
 
+	// para cuando se añade un valor nuevo a mano
 	public void add_valor(Spinner desple, List<String> lista, String valor) {
 		lista.remove("NUEVO");
 		lista.add(valor);
@@ -190,6 +192,7 @@ public class BDatos extends Application {
 				if (!claves.contains(sClave)) claves.add(sClave);
 			}
 		}
+		Collections.sort(claves, String.CASE_INSENSITIVE_ORDER);
 		claves.add("NUEVA");
 	}
 	
