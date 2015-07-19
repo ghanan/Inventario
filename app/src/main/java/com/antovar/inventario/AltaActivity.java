@@ -140,8 +140,17 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         //pasar claves actuales y recibir las deseadas
         Intent intentClaves = new Intent(AltaActivity.this, GestionClavesActivity.class);
 		//intenClaves.putExtra(Intent.EXTRA_TEXT, bdatos.getCampo(bdatos.iFILA_COL));
-        intentClaves.putExtra("clavesOri", bdatos.getCampo(bdatos.iCLAVES));
+//        intentClaves.putExtra("clavesOri", bdatos.getCampo(bdatos.iCLAVES));
+        intentClaves.putExtra("clavesOri", claves.getText());
 		startActivityForResult(intentClaves, EDICION_CLAVES);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == EDICION_CLAVES && resultCode == 1) {
+            String nuevasClaves = data.getExtras().getString("claves");
+            claves.setText(nuevasClaves);
+        }
     }
 
     private void grabar() {
@@ -150,9 +159,9 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             return;
         }
 		String lclaves = claves.getText().toString();
-		if (lclaves.equals("")) lclaves = ".";
+//		if (lclaves.equals("")) lclaves = ".";
         if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
-			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves )) {
+			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves + ";.")) {
         	nombre.setText("");
 			nota.setText("");
 			nombre.requestFocus();
@@ -171,13 +180,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 //            return;
 //        }
     }
-
-	@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == EDICION_CLAVES) {
-        
-        }
-	}
 
     private void nuevo_sitio(final String sitio) {
         final EditText entrada = new EditText(this);

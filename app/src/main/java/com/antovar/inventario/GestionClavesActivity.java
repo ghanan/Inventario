@@ -1,6 +1,7 @@
 package com.antovar.inventario;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -10,12 +11,14 @@ import android.widget.ArrayAdapter;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
 public class GestionClavesActivity extends Activity {
     protected BDatos bdatos;
     private List<Integer> posClavesMarcadas = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +30,18 @@ public class GestionClavesActivity extends Activity {
         array_con_posiciones_de_clavesOri(actuales);
 
         final ListView listClaves = (ListView) findViewById(R.id.listViewClaves);
-        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bdatos.claves);
-        listClaves.setAdapter(adapter);
+        final ArrayAdapter clavesAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bdatos.claves);
+        listClaves.setAdapter(clavesAdapter);
+
+        for (int valor: posClavesMarcadas) {
+            View v = clavesAdapter.getView(valor, null, null);
+            v.setBackgroundColor(0xFFA0A0A0);
+        }
 
         listClaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // final String item = (String) parent.getItemAtPosition(position);
                 if (posClavesMarcadas.contains(position)) {
                     view.setBackgroundColor(0xFFFFFFFF);
                     eliminaMarcada(position);
@@ -43,24 +52,15 @@ public class GestionClavesActivity extends Activity {
             }
         });
 
-        marcaLasPasadas();
-
     }
-
 
     // para llevar el control de las seleccionadas
     private void array_con_posiciones_de_clavesOri(String sClaves) {
         //private List<String> lClaves = sClaves.split(",");
+        if (sClaves.length() == 0) return;
         for (String valor: sClaves.split(bdatos.CS)) {
-            int pos = bdatos.aClaves.indexOf(valor);
-            System.out.println(pos);
+            int pos = bdatos.claves.indexOf(valor);
             posClavesMarcadas.add(pos);
-        }
-    }
-
-    private void marcaLasPasadas() {
-        for (Integer valor: posClavesMarcadas) {
-
         }
     }
 
@@ -74,6 +74,7 @@ public class GestionClavesActivity extends Activity {
             posicion++;
         }
     }
+
 
 //		listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
 //    		@Override
@@ -108,7 +109,17 @@ public class GestionClavesActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.ok) {
+            Collections.sort(posClavesMarcadas);
+            String clavesVuelta = "";
+            for (int valor: posClavesMarcadas) {
+                clavesVuelta += bdatos.claves.get(valor) + ",";
+            }
+            if (clavesVuelta.length() > 1) clavesVuelta = clavesVuelta.substring(0,clavesVuelta.length()-1);
+            Intent intent = new Intent();
+            intent.putExtra("claves", clavesVuelta);
+            setResult(1, intent);
+            finish();
             return true;
         }
 

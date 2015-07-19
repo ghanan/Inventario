@@ -19,6 +19,11 @@ gestionclaves creo array con pasadas
 metodo para eleminar por posición
 pone/quita color al marcar/desmarcar y mete en array
 commit
+gestionClaves: devuelvo cadena claves (ficticia)
+AltaActivity: cojo claves de vuelta
+varios arreglos
+commit
+push
 
 5-jul
 gestionclaves...java añado getcontext de bdatos

@@ -155,7 +155,6 @@ public class BDatos extends Application {
 		aFila_col.add(aLinea[iFILA_COL]);
 		aClaves.add(aLinea[iCLAVES]);
 //		System.out.println(aClaves.toString());
-		
 	}
 
 	private void rellena_arrays() {
@@ -186,11 +185,12 @@ public class BDatos extends Application {
 	}
 
 	private void rellena_claves() {
-		claves.add("");
+		//claves.add("");
 		for (String strClaves: aClaves) {
-			for (String sClave: strClaves.split(",")) {
-				if (!claves.contains(sClave)) claves.add(sClave);
-			}
+			if (strClaves.length() > 0)
+				for (String sClave: strClaves.split(",")) {
+					if (!claves.contains(sClave)) claves.add(sClave);
+				}
 		}
 		Collections.sort(claves, String.CASE_INSENSITIVE_ORDER);
 		claves.add("NUEVA");
