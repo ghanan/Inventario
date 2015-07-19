@@ -1,16 +1,5 @@
 INMEDIATO
-ver como marcar las claves pasadas en la lista (¿pones en mayúsculas?)
-  ¿llevar un array paralelo?
-que hacer cuando marque una clave
-  ver si ya esta (desmarcar)
-  o marcar ¿como?
-
-  conocemos las claves por su valor textual
-
-al recibirlas, busca posiciones y las mete en un array
-  las pone en gris
-al finalizar, retorna un string con las claves?
-
+marcar las claves pasadas en la lista
 
 19-jul
 añado bdatos.j que ordene las claves
