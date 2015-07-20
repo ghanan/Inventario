@@ -4,6 +4,10 @@ INMEDIATO
 Modifico adaptador del listview para que cambie color de las marcadas
 commit
 push
+añado la acción cancelar
+añado opción limpiar pero no se como refrescar el listview (no lo veo cuera de on create)
+commit
+push
 
 19-jul
 añado bdatos.j que ordene las claves

@@ -129,6 +129,17 @@ public class GestionClavesActivity extends Activity {
             return true;
         }
 
+        if (id == R.id.limpiar) {
+            posClavesMarcadas.clear();
+
+            return true;
+        }
+
+        if (id == R.id.cancel) {
+            finish();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

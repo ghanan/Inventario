@@ -6,7 +6,7 @@
         android:orderInCategory="10"
         android:showAsAction="always" />
     <item android:id="@+id/cancel"
-        android:title="Cancel"
+        android:title="Cancelar"
         android:orderInCategory="20"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/limpiar"
