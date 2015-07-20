@@ -13,7 +13,10 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
-			android:padding="10dip">
+			android:padding="10dip"
+			android:weightSum="1"
+			android:clickable="true"
+			android:onClick="onClavesClick">
 
 			<EditText
 				android:id="@+id/nombre"
@@ -35,12 +38,14 @@
 				android:hint="@string/notas"
 				android:inputType="textMultiLine"/>
 
-			<EditText
+			<TextView
 				android:id="@+id/claves"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:ems="10"
-				android:hint="@string/claves"/>
+				android:onClick="onClavesClick"
+				android:background="@color/boton_foto" />
+
 
 			<Spinner
 				android:id="@+id/desplegable_cuarto"
@@ -114,4 +119,4 @@
 
 </LinearLayout>
 
-<!-- From: file:/zd/atc/StudioProjects/Inventario/app/src/main/res/layout/activity_alta.xml -->
+<!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/layout/activity_alta.xml -->

@@ -1,5 +1,9 @@
 INMEDIATO
-marcar las claves pasadas en la lista
+
+20-jul
+Modifico adaptador del listview para que cambie color de las marcadas
+commit
+push
 
 19-jul
 añado bdatos.j que ordene las claves

@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,13 +32,17 @@ public class GestionClavesActivity extends Activity {
         array_con_posiciones_de_clavesOri(actuales);
 
         final ListView listClaves = (ListView) findViewById(R.id.listViewClaves);
-        final ArrayAdapter clavesAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bdatos.claves);
+        final ArrayAdapter clavesAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bdatos.claves) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                //TextView text = (TextView) view.findViewById(android.R.id.text1);
+                if (posClavesMarcadas.contains(position)) view.setBackgroundColor(0xFFA0A0A0);
+                else view.setBackgroundColor(0xFFFFFFFF);
+                return view;
+            }
+        };
         listClaves.setAdapter(clavesAdapter);
-
-        for (int valor: posClavesMarcadas) {
-            View v = clavesAdapter.getView(valor, null, null);
-            v.setBackgroundColor(0xFFA0A0A0);
-        }
 
         listClaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

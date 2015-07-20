@@ -6,4 +6,4 @@
 		android:title="@string/action_settings"
         android:orderInCategory="100" />
 </menu>
-<!-- From: file:/zd/atc/StudioProjects/Inventario/app/src/main/res/menu/menu_alta.xml -->
+<!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/menu/menu_alta.xml -->
