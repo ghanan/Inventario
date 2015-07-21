@@ -1,5 +1,11 @@
 INMEDIATO
 
+21-jul
+declaro listClaves fuera
+en limpiar, notifico del cambio
+commit
+push
+
 20-jul
 Modifico adaptador del listview para que cambie color de las marcadas
 commit

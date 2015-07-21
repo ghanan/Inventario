@@ -15,12 +15,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import android.widget.*;
 
 
 public class GestionClavesActivity extends Activity {
     protected BDatos bdatos;
     private List<Integer> posClavesMarcadas = new ArrayList<>();
-
+    ListView listClaves;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class GestionClavesActivity extends Activity {
         String actuales = extras.getString("clavesOri");
         array_con_posiciones_de_clavesOri(actuales);
 
-        final ListView listClaves = (ListView) findViewById(R.id.listViewClaves);
+        listClaves = (ListView) findViewById(R.id.listViewClaves);
         final ArrayAdapter clavesAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, bdatos.claves) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -131,7 +133,7 @@ public class GestionClavesActivity extends Activity {
 
         if (id == R.id.limpiar) {
             posClavesMarcadas.clear();
-
+			((BaseAdapter) listClaves.getAdapter()).notifyDataSetChanged();
             return true;
         }
 
