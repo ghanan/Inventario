@@ -12,5 +12,5 @@
     <item android:id="@+id/limpiar"
         android:title="Limpiar"
         android:orderInCategory="30"
-        android:showAsAction="never" />
+        android:showAsAction="ifRoom" />
 </menu>
