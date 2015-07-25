@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -20,6 +22,7 @@ import android.widget.*;
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
 	final static int EDICION_CLAVES = 1;
+    boolean alta;
     protected BDatos bdatos;
     EditText nombre;
     EditText nota;
@@ -39,6 +42,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alta);
+        Bundle extras = getIntent().getExtras();
+        alta = extras.getBoolean("alta");
         bdatos = (BDatos)getApplicationContext();
         //bdatos = (BDatos)getApplication();
         this.nombre = (EditText) findViewById(R.id.nombre);
@@ -211,5 +216,16 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             .show();
         //return sitio;
     }
-	
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        if (alta) getMenuInflater().inflate(R.menu.menu_alta, menu);
+        else getMenuInflater().inflate(R.menu.menu_buscar, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return true;
+    }
 }

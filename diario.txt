@@ -1,6 +1,6 @@
 INMEDIATO
 
-25-jul
+25-jul en portátil
 leo si se ha pulsado la clave NUEVA
 capturo nueva clave con el diálog
 commit
@@ -9,6 +9,12 @@ commit
 añado control de clave vacía y multilínea
 commit
 push
+creo rama trasAltaPreMenuEnAlta
+creo rama botonesAMenu
+cambio a rama botonesAMenu
+creo menu_alta y menu_buscar
+aplico el menu segun el boton
+commit
 
 23-jul
 en el móvil pongo limpiar también como ifRoom

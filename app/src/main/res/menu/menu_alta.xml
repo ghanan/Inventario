@@ -1,8 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.antovar.inventario.AltaActivity">
-    <item android:id="@+id/action_settings"
-		android:title="@string/action_settings"
-        android:orderInCategory="100" />
+    <item android:id="@+id/grabar"
+        android:title="GRABAR"
+        android:orderInCategory="10"
+        android:showAsAction="always" />
+    <item android:id="@+id/cancel"
+        android:title="Cancelar"
+        android:orderInCategory="20"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/foto"
+        android:title="Foto"
+        android:orderInCategory="30"
+        android:showAsAction="ifRoom" />
 </menu>

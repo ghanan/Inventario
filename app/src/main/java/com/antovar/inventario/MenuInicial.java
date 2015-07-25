@@ -26,15 +26,21 @@ public class MenuInicial extends Activity {
     }
 
     public void onButtonClick(View v) {
-        //System.out.println("clickado");
-        if (v.getId() == R.id.botonAlta) {
-            if (!bdatos.disponible) {
-                Toast.makeText(this, R.string.msg_no_puedo_escribir_ext, Toast.LENGTH_LONG).show();
-                return;
-            }
-            Intent pantalla_alta = new Intent(this, AltaActivity.class);
-            startActivity(pantalla_alta);
+        if (v.getId() == R.id.botonSalir) {
+            finish();
+            return;
         }
+        if (!bdatos.disponible) {
+            Toast.makeText(this, R.string.msg_no_puedo_escribir_ext, Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent pantalla_alta = new Intent(this, AltaActivity.class);
+        if (v.getId() == R.id.botonAlta) {
+            pantalla_alta.putExtra("alta", true);
+        } else {
+            pantalla_alta.putExtra("alta", false);
+        }
+        startActivity(pantalla_alta);
     }
 
 }
