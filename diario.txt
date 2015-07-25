@@ -4,6 +4,8 @@ INMEDIATO
 leo si se ha pulsado la clave NUEVA
 capturo nueva clave con el diálog
 commit
+añado la nueva clave a la lista y a marcadas
+commit
 
 23-jul
 en el móvil pongo limpiar también como ifRoom

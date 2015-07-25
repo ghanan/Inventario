@@ -195,7 +195,15 @@ public class BDatos extends Application {
 		Collections.sort(claves, String.CASE_INSENSITIVE_ORDER);
 		claves.add("NUEVA");
 	}
-	
+
+	public void anade_clave(String nueva) {
+		if (claves.contains(nueva)) return;
+		claves.remove("NUEVA");
+		claves.add(nueva);
+		Collections.sort(claves, String.CASE_INSENSITIVE_ORDER);
+		claves.add("NUEVA");
+	}
+
 	public String getCampo(int i) {
 		return aLinea[i];
 	}

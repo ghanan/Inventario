@@ -63,24 +63,12 @@ public class GestionClavesActivity extends Activity {
                             .setView(entrada)
                             .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    System.out.println(entrada.getText().toString());
-                                    //cuarto = entrada.getText().toString();
-//                                    if (sitio.equals("cuarto")) {
-//                                        cuarto = entrada.getText().toString();
-//                                        bdatos.add_valor(desple_cuarto, bdatos.cuartos, cuarto);
-//                                    } else if (sitio.equals("mueble")) {
-//                                        mueble = entrada.getText().toString();
-//                                        bdatos.add_valor(desple_mueble, bdatos.muebles, mueble);
-//                                    } else if (sitio.equals("cuerpo")) {
-//                                        cuerpo = entrada.getText().toString();
-//                                        bdatos.add_valor(desple_cuerpo, bdatos.cuerpos, cuerpo);
-//                                    } else if (sitio.equals("hueco")) {
-//                                        hueco = entrada.getText().toString();
-//                                        bdatos.add_valor(desple_hueco, bdatos.huecos, hueco);
-//                                    } else {
-//                                        fila_col = entrada.getText().toString();
-//                                        bdatos.add_valor(desple_fila_col, bdatos.fila_cols, fila_col);
-//                                    }
+//                                    System.out.println(entrada.getText().toString());
+                                    String nueva = entrada.getText().toString();
+                                    bdatos.anade_clave(nueva);
+                                    ((BaseAdapter) listClaves.getAdapter()).notifyDataSetChanged();
+                                    bdatos.claves.indexOf(nueva);
+                                    posClavesMarcadas.add(bdatos.claves.indexOf(nueva));
                                 }})
                             .setNegativeButton("Cancelar", null)
                             .show();
