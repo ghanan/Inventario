@@ -6,12 +6,12 @@ tools:context="com.antovar.inventario.AltaActivity">
     android:title="BUSCAR"
     android:orderInCategory="10"
     android:showAsAction="always" />
-<item android:id="@+id/cancel"
-    android:title="Cancelar"
-    android:orderInCategory="20"
-    android:showAsAction="ifRoom" />
 <item android:id="@+id/limpiar"
     android:title="Limpiar"
+    android:orderInCategory="20"
+    android:showAsAction="ifRoom" />
+<item android:id="@+id/volver"
+    android:title="Volver"
     android:orderInCategory="30"
     android:showAsAction="ifRoom" />
 </menu>

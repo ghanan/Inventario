@@ -15,6 +15,12 @@ cambio a rama botonesAMenu
 creo menu_alta y menu_buscar
 aplico el menu segun el boton
 commit
+cambio a menus
+borro botones
+modifico menus
+commit
+cambio a rama master
+merge botonesAMenu
 
 23-jul
 en el móvil pongo limpiar también como ifRoom

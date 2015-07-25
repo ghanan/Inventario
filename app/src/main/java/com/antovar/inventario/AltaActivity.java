@@ -124,8 +124,11 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
     }
 
+/*
     public void onButtonClick(View v) {
-        /*System.out.println("clickado");*/
+        */
+/*System.out.println("clickado");*//*
+
         if (v.getId() == R.id.botonGrabar) {
             this.grabar();
         } else if (v.getId() == R.id.botonCancelar) {
@@ -139,6 +142,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             // foto
         }
     }
+*/
 
     public void onClavesClick(View v) {
         //pasar claves actuales y recibir las deseadas
@@ -226,6 +230,15 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.grabar) this.grabar();
+        else if (id == R.id.limpiar) {
+            this.nombre.setText("");
+            this.nota.setText("");
+            this.claves.setText("");
+        } else if (id == R.id.volver) finish();
+        else if (id == R.id.buscar) System.out.println("buscar");
+        else {}
         return true;
     }
 }
