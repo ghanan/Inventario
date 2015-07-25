@@ -64,12 +64,16 @@ public class GestionClavesActivity extends Activity {
                             .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
 //                                    System.out.println(entrada.getText().toString());
-                                    String nueva = entrada.getText().toString();
-                                    bdatos.anade_clave(nueva);
-                                    ((BaseAdapter) listClaves.getAdapter()).notifyDataSetChanged();
-                                    bdatos.claves.indexOf(nueva);
-                                    posClavesMarcadas.add(bdatos.claves.indexOf(nueva));
-                                }})
+                                    // para evitar errores en el split anado "<cr>."
+                                    String nueva = (entrada.getText().toString() + "\n.").split("\n")[0];
+                                    if (!nueva.equals("")) {
+                                        bdatos.anade_clave(nueva);
+                                        ((BaseAdapter) listClaves.getAdapter()).notifyDataSetChanged();
+                                        bdatos.claves.indexOf(nueva);
+                                        posClavesMarcadas.add(bdatos.claves.indexOf(nueva));
+                                    }
+                                }
+                            })
                             .setNegativeButton("Cancelar", null)
                             .show();
                 } else
