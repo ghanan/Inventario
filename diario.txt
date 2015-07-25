@@ -1,5 +1,15 @@
 INMEDIATO
 
+25-jul
+leo si se ha pulsado la clave NUEVA
+capturo nueva clave con el diálog
+commit
+
+23-jul
+en el móvil pongo limpiar también como ifRoom
+commit
+push
+
 21-jul
 declaro listClaves fuera
 en limpiar, notifico del cambio

@@ -1,6 +1,9 @@
 package com.antovar.inventario;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +30,7 @@ public class GestionClavesActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gestion_claves);
+        final Context contexto = this;
         bdatos = (BDatos) getApplicationContext();
         // lee las claves actuales que le pasan
         Bundle extras = getIntent().getExtras();
@@ -49,14 +53,45 @@ public class GestionClavesActivity extends Activity {
         listClaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // final String item = (String) parent.getItemAtPosition(position);
-                if (posClavesMarcadas.contains(position)) {
-                    view.setBackgroundColor(0xFFFFFFFF);
-                    eliminaMarcada(position);
-                } else {
-                    view.setBackgroundColor(0xFFA0A0A0);
-                    posClavesMarcadas.add(position);
-                }
+                System.out.println((String) parent.getItemAtPosition(position));
+                if (((String) parent.getItemAtPosition(position)).equals("NUEVA")) {
+                    final EditText entrada = new EditText(contexto);
+                    entrada.setText("");
+//                          .setMessage("introduce nueva clave")
+                    new AlertDialog.Builder(contexto)
+                            .setTitle("Introduce nueva clave")
+                            .setView(entrada)
+                            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    System.out.println(entrada.getText().toString());
+                                    //cuarto = entrada.getText().toString();
+//                                    if (sitio.equals("cuarto")) {
+//                                        cuarto = entrada.getText().toString();
+//                                        bdatos.add_valor(desple_cuarto, bdatos.cuartos, cuarto);
+//                                    } else if (sitio.equals("mueble")) {
+//                                        mueble = entrada.getText().toString();
+//                                        bdatos.add_valor(desple_mueble, bdatos.muebles, mueble);
+//                                    } else if (sitio.equals("cuerpo")) {
+//                                        cuerpo = entrada.getText().toString();
+//                                        bdatos.add_valor(desple_cuerpo, bdatos.cuerpos, cuerpo);
+//                                    } else if (sitio.equals("hueco")) {
+//                                        hueco = entrada.getText().toString();
+//                                        bdatos.add_valor(desple_hueco, bdatos.huecos, hueco);
+//                                    } else {
+//                                        fila_col = entrada.getText().toString();
+//                                        bdatos.add_valor(desple_fila_col, bdatos.fila_cols, fila_col);
+//                                    }
+                                }})
+                            .setNegativeButton("Cancelar", null)
+                            .show();
+                } else
+                    if (posClavesMarcadas.contains(position)) {
+                        view.setBackgroundColor(0xFFFFFFFF);
+                        eliminaMarcada(position);
+                    } else {
+                        view.setBackgroundColor(0xFFA0A0A0);
+                        posClavesMarcadas.add(position);
+                    }
             }
         });
 
