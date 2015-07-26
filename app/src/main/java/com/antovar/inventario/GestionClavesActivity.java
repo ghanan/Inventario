@@ -53,7 +53,6 @@ public class GestionClavesActivity extends Activity {
         listClaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println((String) parent.getItemAtPosition(position));
                 if (((String) parent.getItemAtPosition(position)).equals("NUEVA")) {
                     final EditText entrada = new EditText(contexto);
                     entrada.setText("");

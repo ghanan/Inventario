@@ -20,14 +20,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_boton_menu"
+        android:background="#00FFFF"
+        android:onClick="onButtonClick"
         android:text="@string/boton_buscar" />
 
     <Button
-        android:id="@+id/botonConsulta"
+        android:id="@+id/botonSalir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margen_boton_menu"
-        android:text="@string/boton_consulta" />
+        android:onClick="onButtonClick"
+        android:text="Salir"
+        android:background="#ffff5456" />
 
 </LinearLayout>
 <!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/layout/menuinicial.xml -->

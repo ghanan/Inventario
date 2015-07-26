@@ -188,7 +188,7 @@ public class BDatos extends Application {
 		//claves.add("");
 		for (String strClaves: aClaves) {
 			if (strClaves.length() > 0)
-				for (String sClave: strClaves.split(",")) {
+				for (String sClave: strClaves.split(CS)) {
 					if (!claves.contains(sClave)) claves.add(sClave);
 				}
 		}

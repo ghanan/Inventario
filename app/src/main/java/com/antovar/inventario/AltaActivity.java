@@ -17,6 +17,11 @@ import android.widget.Toast;
 //import android.support.v7.app.AppCompatActivity;
 
 import java.io.FileWriter;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import android.widget.*;
 
 public class AltaActivity extends Activity implements OnItemSelectedListener {
@@ -37,6 +42,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     public Spinner desple_cuerpo;
     public Spinner desple_hueco;
     public Spinner desple_fila_col;
+    private List<Integer> posRegistrosSelec = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,7 +204,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             .setView(entrada)
             .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
-                    //cuarto = entrada.getText().toString();
                     if (sitio.equals("cuarto")) {
                         cuarto = entrada.getText().toString();
                         bdatos.add_valor(desple_cuarto, bdatos.cuartos, cuarto);
@@ -237,8 +242,41 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             this.nota.setText("");
             this.claves.setText("");
         } else if (id == R.id.volver) finish();
-        else if (id == R.id.buscar) System.out.println("buscar");
-        else {}
+        else if (id == R.id.buscar) this.buscar();
+        else {
+            //foto
+        }
         return true;
+    }
+
+    private void buscar() {
+        posRegistrosSelec.clear();
+        if (!this.claves.getText().toString().equals("")) selecciona_por_claves();
+        if (posRegistrosSelec.size() == 0) mensaje_no_hay();
+    }
+
+    private void selecciona_por_claves() {
+        String sClaves;
+        String[] claves;
+        boolean todas;
+        for (int i=0; i<bdatos.aClaves.size(); i++) {
+            sClaves = bdatos.aClaves.get(i);
+            if (sClaves.equals("")) continue;
+            claves = sClaves.split(bdatos.CS);
+            Arrays.sort(claves);
+            todas = true;
+            for (String cla : this.claves.getText().toString().split(bdatos.CS)) {
+                if (Arrays.binarySearch(claves, cla) < 0) {
+                    todas = false;
+                    break;
+                }
+            }
+            if (todas) posRegistrosSelec.add(i);
+            if (todas) System.out.println(i + " " + sClaves);
+        }
+    }
+
+    private void mensaje_no_hay() {
+
     }
 }

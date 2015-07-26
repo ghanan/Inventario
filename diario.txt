@@ -1,5 +1,10 @@
 INMEDIATO
 
+25-jul portátil
+creo y paso a rama buscar-claves
+busca bien en claves
+commit
+
 25-jul en portátil
 leo si se ha pulsado la clave NUEVA
 capturo nueva clave con el diálog
