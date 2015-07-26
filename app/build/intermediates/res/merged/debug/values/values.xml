@@ -41,6 +41,7 @@
     <string name="notas">notas</string>
     <string name="title_activity_alta">Inventario</string>
     <string name="title_activity_gestion_claves">GestionClavesActivity</string>
+    <string name="title_activity_lista_registros">ListaRegistrosActivity</string>
     <!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light">

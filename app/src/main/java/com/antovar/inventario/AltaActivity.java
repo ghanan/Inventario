@@ -27,6 +27,7 @@ import android.widget.*;
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
 	final static int EDICION_CLAVES = 1;
+	final static int SELEC_REGISTRO = 2;
     boolean alta;
     protected BDatos bdatos;
     EditText nombre;
@@ -253,6 +254,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         posRegistrosSelec.clear();
         if (!this.claves.getText().toString().equals("")) selecciona_por_claves();
         if (posRegistrosSelec.size() == 0) mensaje_no_hay();
+        Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
+        //intenClaves.putExtra(Intent.EXTRA_TEXT, bdatos.getCampo(bdatos.iFILA_COL));
+//        intentClaves.putExtra("clavesOri", bdatos.getCampo(bdatos.iCLAVES));
+        intentRegistros.putExtra("lista", posRegistrosSelec.toString());
+        startActivityForResult(intentRegistros, SELEC_REGISTRO);
+
     }
 
     private void selecciona_por_claves() {
@@ -272,7 +279,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                 }
             }
             if (todas) posRegistrosSelec.add(i);
-            if (todas) System.out.println(i + " " + sClaves);
         }
     }
 

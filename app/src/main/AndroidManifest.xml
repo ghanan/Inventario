@@ -27,6 +27,10 @@
             android:name=".GestionClavesActivity"
             android:label="@string/title_activity_gestion_claves" >
         </activity>
+        <activity
+            android:name=".ListaRegistrosActivity"
+            android:label="@string/title_activity_lista_registros" >
+        </activity>
     </application>
 
 </manifest>

@@ -4,6 +4,12 @@ INMEDIATO
 creo y paso a rama buscar-claves
 busca bien en claves
 commit
+cambio a master
+merge buscar-claves
+commit
+creo actividad ListaRegistrosActivity, layout y menu
+commit
+push
 
 25-jul en portátil
 leo si se ha pulsado la clave NUEVA
