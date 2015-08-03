@@ -27,6 +27,11 @@ public class ListaRegistrosActivity extends Activity {
 
     private void array_con_lista(String lista) {
         System.out.println(lista);
+        String lis = lista.replace("[","").replace("]","").replace(" ","");
+        System.out.println(lis);
+        System.out.println(lis.split(",")[0]);
+        System.out.println(lis.split(",")[1]);
+        //posLista.add((int)lis.split(",")[0]);
     }
 
     @Override
