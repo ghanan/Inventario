@@ -30,6 +30,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	final static int SELEC_REGISTRO = 2;
     private Menu elMenu;
     boolean alta;
+    boolean NUEVO = true;
+    boolean MODIFICAR = false;
     private ArrayAdapter adapta_cuarto;
     private ArrayAdapter adapta_mueble;
     private ArrayAdapter adapta_cuerpo;
@@ -189,19 +191,27 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         nombre.requestFocus();
     }
 
-    private void grabar() {
+    private void grabar(boolean nuevo) {
         if (this.nombre.getText().toString().equals("")) {
             Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
             return;
         }
-		String lclaves = claves.getText().toString();
-//		if (lclaves.equals("")) lclaves = ".";
-        if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
-			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves + ";.")) {
-        	nombre.setText("");
-			nota.setText("");
-			nombre.requestFocus();
-		} else Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
+//		String lclaves = claves.getText().toString();
+        String linea = nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
+                + mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";"
+                + claves.getText().toString() + ";.";
+//        if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
+//			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves + ";.")) {
+        if (nuevo) {
+            if (bdatos.alta(linea)) {
+                limpia_pantalla();
+                return;
+            }
+        } else if (bdatos.modificar(linea)) {
+            limpia_pantalla();
+            return;
+        }
+        Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
 //        try {
 //            fw = new FileWriter(fichero, true);
 //        } catch (IOException e) {
@@ -229,18 +239,23 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                     if (sitio.equals("cuarto")) {
                         cuarto = entrada.getText().toString();
                         bdatos.add_valor(desple_cuarto, bdatos.cuartos, cuarto);
+                        desple_cuarto.setSelection(adapta_cuarto.getPosition(cuarto));
                     } else if (sitio.equals("mueble")) {
                         mueble = entrada.getText().toString();
                         bdatos.add_valor(desple_mueble, bdatos.muebles, mueble);
+                        desple_mueble.setSelection(adapta_mueble.getPosition(mueble));
                     } else if (sitio.equals("cuerpo")) {
                         cuerpo = entrada.getText().toString();
                         bdatos.add_valor(desple_cuerpo, bdatos.cuerpos, cuerpo);
+                        desple_cuerpo.setSelection(adapta_cuerpo.getPosition(cuerpo));
                     } else if (sitio.equals("hueco")) {
                         hueco = entrada.getText().toString();
                         bdatos.add_valor(desple_hueco, bdatos.huecos, hueco);
+                        desple_hueco.setSelection(adapta_hueco.getPosition(hueco));
                     } else {
                         fila_col = entrada.getText().toString();
                         bdatos.add_valor(desple_fila_col, bdatos.fila_cols, fila_col);
+                        desple_fila_col.setSelection(adapta_fila_col.getPosition(fila_col));
                     }
                 }})
             .setNegativeButton("Cancelar", null)
@@ -259,8 +274,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.grabar || id == R.id.anadir) this.grabar();
-//        else if (id == R.id.regrabar) {};
+        if (id == R.id.grabar || id == R.id.anadir) this.grabar(NUEVO);
+        else if (id == R.id.regrabar) { grabar(MODIFICAR); finish(); }
         else if (id == R.id.buscar) this.buscar();
         else if (id == R.id.limpiar) limpia_pantalla();
         else if (id == R.id.volver) finish();

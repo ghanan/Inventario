@@ -25,6 +25,7 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f090014;
+        public static final int anadir=0x7f090016;
         public static final int botonAlta=0x7f09000a;
         public static final int botonBuscar=0x7f09000b;
         public static final int botonSalir=0x7f09000c;
@@ -44,6 +45,7 @@ public final class R {
         public static final int nombre=0x7f090000;
         public static final int nota=0x7f090001;
         public static final int ok=0x7f090012;
+        public static final int regrabar=0x7f090015;
         public static final int volver=0x7f090010;
     }
     public static final class layout {

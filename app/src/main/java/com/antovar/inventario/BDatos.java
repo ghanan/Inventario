@@ -93,7 +93,6 @@ public class BDatos extends Application {
         return false;
     }
 
-//    public boolean alta(String[] campos) {
     public boolean alta(String reg) {
         try {
             fw = new FileWriter(fichero, true);
@@ -116,6 +115,49 @@ public class BDatos extends Application {
 		procesa_linea(reg);
         return true;
     }
+
+	public boolean modificar(String reg) {
+		try {
+			fw = new FileWriter(fichero+"-mod", false);
+		} catch (IOException e) {
+			log = "Error en modificar al abrir fichero";
+			return false;
+		}
+		for (int i=0; i<registro; i++) {
+			try {
+				fw.append(aNombre.get(i) + FS + aNota.get(i) + FS + aCuarto.get(i) + FS
+					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
+					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + ".\n");
+			} catch (IOException e) {
+				log = "Error en modificar al escribir en fichero";
+				return false;
+			}
+		}
+		try {
+			fw.append(reg + ".\n");
+		} catch (IOException e) {
+			log = "Error en modificar al escribir en fichero";
+			return false;
+		}
+		for (int i=registro+1; i<aNombre.size(); i++) {
+			try {
+				fw.append(aNombre.get(i) + FS + aNota.get(i) + FS + aCuarto.get(i) + FS
+					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
+					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + ".\n");
+			} catch (IOException e) {
+				log = "Error en modificar al escribir en fichero";
+				return false;
+			}
+		}
+		try {
+			fw.close();
+		} catch (IOException e) {
+			log = "Error en modificar al cerrar el fichero";
+			return false;
+		}
+		procesa_linea(reg);
+		return true;
+	}
 
 	private boolean lee_fichero_a_arrays() {
 		FileReader fr;

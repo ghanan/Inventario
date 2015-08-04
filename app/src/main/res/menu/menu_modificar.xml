@@ -13,7 +13,7 @@
         android:title="AÑADIR"
         android:orderInCategory="10"
         android:showAsAction="ifRoom" />
-    <item android:id="@+id/anadir"
+    <item android:id="@+id/buscar"
         android:title="BUSCAR"
         android:orderInCategory="10"
         android:showAsAction="ifRoom" />

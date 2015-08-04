@@ -32,6 +32,10 @@ commit
 push
 menu modificar ampliado
 commit
+añadido que escriba los valores al elegir NUEVO
+escribe el fichero modificado, pendiente de renombrar
+commit
+push
 
 25-jul portátil
 creo y paso a rama buscar-claves
