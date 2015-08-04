@@ -2,6 +2,13 @@ DUDAS
 al hacer alta añado campos a arrays?
 
 INMEDIATO
+regrabar:
+ escribir hasta la pos
+ escribir el modificado
+ escribir el resto
+ renombrar orig
+ renombrar nuevo
+ borrar orig
 
 2-ago
 ListaRegistrosActivity
@@ -23,6 +30,8 @@ creo limpia_pantalla
 busca bien por clave y muestra registro seleccionado
 commit
 push
+menu modificar ampliado
+commit
 
 25-jul portátil
 creo y paso a rama buscar-claves

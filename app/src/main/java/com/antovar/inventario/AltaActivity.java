@@ -259,10 +259,11 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.grabar) this.grabar();
+        if (id == R.id.grabar || id == R.id.anadir) this.grabar();
+//        else if (id == R.id.regrabar) {};
+        else if (id == R.id.buscar) this.buscar();
         else if (id == R.id.limpiar) limpia_pantalla();
         else if (id == R.id.volver) finish();
-        else if (id == R.id.buscar) this.buscar();
         else {
             //foto
         }
@@ -274,10 +275,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (!this.claves.getText().toString().equals("")) selecciona_por_claves();
         if (bdatos.posRegistrosSelec.size() == 0) mensaje_no_hay();
         Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
-        //intenClaves.putExtra(Intent.EXTRA_TEXT, bdatos.getCampo(bdatos.iFILA_COL));
-//        intentClaves.putExtra("clavesOri", bdatos.getCampo(bdatos.iCLAVES));
-        //intentRegistros.putExtra("lista", posRegistrosSelec.toString());
-        //startActivityForResult(intentRegistros, SELEC_REGISTRO);
         startActivityForResult(intentRegistros, SELEC_REGISTRO);
     }
 
