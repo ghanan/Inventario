@@ -1,6 +1,7 @@
+DUDAS
+al hacer alta añado campos a arrays?
+
 INMEDIATO
-pasa los registros seleccionados como un string
- ver como convertir el string en int[]
 
 2-ago
 ListaRegistrosActivity
@@ -9,6 +10,11 @@ ListaRegistrosActivity
  la lista hay que pasarla como string y no se reconvierte e entero fácilmente
 commit para crear rama y definir la lista como public en bdatos
 crea y paso rama lista-publica
+uso lista publica para registros seleccionados y registro publico para devolver seleccion
+commit
+cambio a master
+merge
+push
 
 25-jul portátil
 creo y paso a rama buscar-claves

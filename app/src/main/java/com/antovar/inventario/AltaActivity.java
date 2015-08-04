@@ -43,7 +43,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     public Spinner desple_cuerpo;
     public Spinner desple_hueco;
     public Spinner desple_fila_col;
-    private List<Integer> posRegistrosSelec = new ArrayList<>();
+    //private List<Integer> posRegistrosSelec = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,6 +165,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (requestCode == EDICION_CLAVES && resultCode == 1) {
             String nuevasClaves = data.getExtras().getString("claves");
             claves.setText(nuevasClaves);
+        } else if (requestCode == SELEC_REGISTRO && resultCode == 1) {
+            System.out.println(bdatos.aNombre.get(bdatos.registro));
         }
     }
 
@@ -251,15 +253,15 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void buscar() {
-        posRegistrosSelec.clear();
+        bdatos.posRegistrosSelec.clear();
         if (!this.claves.getText().toString().equals("")) selecciona_por_claves();
-        if (posRegistrosSelec.size() == 0) mensaje_no_hay();
+        if (bdatos.posRegistrosSelec.size() == 0) mensaje_no_hay();
         Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
         //intenClaves.putExtra(Intent.EXTRA_TEXT, bdatos.getCampo(bdatos.iFILA_COL));
 //        intentClaves.putExtra("clavesOri", bdatos.getCampo(bdatos.iCLAVES));
-        intentRegistros.putExtra("lista", posRegistrosSelec.toString());
+        //intentRegistros.putExtra("lista", posRegistrosSelec.toString());
+        //startActivityForResult(intentRegistros, SELEC_REGISTRO);
         startActivityForResult(intentRegistros, SELEC_REGISTRO);
-
     }
 
     private void selecciona_por_claves() {
@@ -272,13 +274,13 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             claves = sClaves.split(bdatos.CS);
             Arrays.sort(claves);
             todas = true;
-            for (String cla : this.claves.getText().toString().split(bdatos.CS)) {
+            for (String cla: this.claves.getText().toString().split(bdatos.CS)) {
                 if (Arrays.binarySearch(claves, cla) < 0) {
                     todas = false;
                     break;
                 }
             }
-            if (todas) posRegistrosSelec.add(i);
+            if (todas) bdatos.posRegistrosSelec.add(i);
         }
     }
 

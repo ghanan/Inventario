@@ -1,9 +1,15 @@
 package com.antovar.inventario;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.database.sqlite.SQLiteTableLockedException;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +17,8 @@ import java.util.List;
 
 public class ListaRegistrosActivity extends Activity {
     protected BDatos bdatos;
-    private List<Integer> posLista = new ArrayList<>();
+    private List<String> registros = new ArrayList<>();
+    ListView listRegistros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,19 +26,28 @@ public class ListaRegistrosActivity extends Activity {
         setContentView(R.layout.activity_lista_registros);
         //final Context contexto = this;
         bdatos = (BDatos) getApplicationContext();
-        Bundle extras = getIntent().getExtras();
-        String lista = extras.getString("lista");
-        array_con_lista(lista);
+        //Bundle extras = getIntent().getExtras();
+        //String lista = extras.getString("lista");
+        rellena_registros();
+        listRegistros = (ListView) findViewById(R.id.listViewRegistros);
+        ArrayAdapter<String> registrosAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, registros);
+        listRegistros.setAdapter(registrosAdapter);
+        //protected void onListItemClick(ListView l, View v, int position, long id)
 
+        listRegistros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                bdatos.registro = bdatos.posRegistrosSelec.get(position);
+                Intent intent = new Intent();
+                setResult(1, intent);
+                finish();
+            }
+        });
     }
 
-    private void array_con_lista(String lista) {
-        System.out.println(lista);
-        String lis = lista.replace("[","").replace("]","").replace(" ","");
-        System.out.println(lis);
-        System.out.println(lis.split(",")[0]);
-        System.out.println(lis.split(",")[1]);
-        //posLista.add((int)lis.split(",")[0]);
+    private void rellena_registros() {
+        for (int indice: bdatos.posRegistrosSelec) {
+            registros.add(bdatos.aNombre.get(indice));
+        }
     }
 
     @Override

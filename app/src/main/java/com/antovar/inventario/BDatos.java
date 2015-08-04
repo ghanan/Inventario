@@ -58,7 +58,8 @@ public class BDatos extends Application {
 	public List<String> fila_cols = new ArrayList<>();
 	public List<String> claves = new ArrayList<>();
 
-	//public List<Integer> posLista = new ArrayList<>();
+	public List<Integer> posRegistrosSelec = new ArrayList<>();
+	public int registro;
 	
     public BDatos() {
         if (!isExternalStorageWritable()) {
