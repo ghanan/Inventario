@@ -58,6 +58,7 @@ public final class R {
         public static final int menu_gestion_claves=0x7f080002;
         public static final int menu_lista_registros=0x7f080003;
         public static final int menu_menuinicial=0x7f080004;
+        public static final int menu_modificar=0x7f080005;
     }
     public static final class string {
         public static final int action_settings=0x7f070000;

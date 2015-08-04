@@ -28,7 +28,13 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
 	final static int EDICION_CLAVES = 1;
 	final static int SELEC_REGISTRO = 2;
+    private Menu elMenu;
     boolean alta;
+    private ArrayAdapter adapta_cuarto;
+    private ArrayAdapter adapta_mueble;
+    private ArrayAdapter adapta_cuerpo;
+    private ArrayAdapter adapta_hueco;
+    private ArrayAdapter adapta_fila_col;
     protected BDatos bdatos;
     EditText nombre;
     EditText nota;
@@ -59,46 +65,32 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 		this.claves = (TextView) findViewById(R.id.claves);
         desple_cuarto = (Spinner) findViewById(R.id.desplegable_cuarto);
         desple_cuarto.setOnItemSelectedListener(this);
-        //final String[] cuartos =
-		//	new String[]{"Salon", "Cocina", "Cuarto_pequeño", "Pasillo", "Baño_pequeño", "Baño_grande", "Cuarto_grande"};
-		ArrayAdapter < String > adapta_cuarto =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuartos);
+		//ArrayAdapter < String > adapta_cuarto =
+		adapta_cuarto = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuartos);
         adapta_cuarto.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_cuarto.setAdapter(adapta_cuarto);
 
         desple_mueble = (Spinner) findViewById(R.id.desplegable_mueble);
         desple_mueble.setOnItemSelectedListener(this);
-//        final String[] muebles =
-//			new String[]{"Frente_sofa", "TV", "Tras_Camilla"};
-        ArrayAdapter<String> adapta_mueble =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.muebles);
+        adapta_mueble = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.muebles);
         adapta_mueble.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_mueble.setAdapter(adapta_mueble);
 
         desple_cuerpo = (Spinner) findViewById(R.id.desplegable_cuerpo);
         desple_cuerpo.setOnItemSelectedListener(this);
-//        final String[] cuerpos =
-//			new String[]{"", "Cuerpo-a1", "Cuerpo-a2", "Cuerpo-a3", "Cuerpo-b1", "Cuerpo-b2"};
-        ArrayAdapter<String> adapta_cuerpo =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuerpos);
+        adapta_cuerpo = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuerpos);
         adapta_cuerpo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_cuerpo.setAdapter(adapta_cuerpo);
 
         desple_hueco = (Spinner) findViewById(R.id.desplegable_hueco);
         desple_hueco.setOnItemSelectedListener(this);
-//        final String[] huecos =
-//			new String[]{"", "cajón", "estante", "puerta-f1c1", "puerta-f1c2", "puerta-f2c1"};
-        ArrayAdapter<String> adapta_hueco =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.huecos);
+        adapta_hueco = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.huecos);
         adapta_hueco.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_hueco.setAdapter(adapta_hueco);
 
         desple_fila_col = (Spinner) findViewById(R.id.desplegable_fila_col);
         desple_fila_col.setOnItemSelectedListener(this);
-//        final String[] fila_cols =
-//			new String[]{"", "f1c1", "f2c1", "f3c1", "f1c2", "f2c2"};
-        ArrayAdapter<String> adapta_fila_col =
-			new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.fila_cols);
+        adapta_fila_col = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.fila_cols);
         adapta_fila_col.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_fila_col.setAdapter(adapta_fila_col);
 	}
@@ -166,8 +158,35 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             String nuevasClaves = data.getExtras().getString("claves");
             claves.setText(nuevasClaves);
         } else if (requestCode == SELEC_REGISTRO && resultCode == 1) {
-            System.out.println(bdatos.aNombre.get(bdatos.registro));
+            elMenu.clear();
+            getMenuInflater().inflate(R.menu.menu_modificar, elMenu);
+            rellena_pantalla();
         }
+    }
+
+    private void rellena_pantalla() {
+        limpia_pantalla();
+        nombre.setText(bdatos.aNombre.get(bdatos.registro));
+        nota.setText(bdatos.aNota.get(bdatos.registro));
+        claves.setText(bdatos.aClaves.get(bdatos.registro));
+        desple_cuarto.setSelection(adapta_cuarto.getPosition(bdatos.aCuarto.get(bdatos.registro)));
+        desple_mueble.setSelection(adapta_mueble.getPosition(bdatos.aMueble.get(bdatos.registro)));
+        desple_cuerpo.setSelection(adapta_cuerpo.getPosition(bdatos.aCuerpo.get(bdatos.registro)));
+        desple_hueco.setSelection(adapta_hueco.getPosition(bdatos.aHueco.get(bdatos.registro)));
+        desple_fila_col.setSelection(adapta_fila_col.getPosition(bdatos.aFila_col.get(bdatos.registro)));
+        nombre.requestFocus();
+    }
+
+    private void limpia_pantalla() {
+        nombre.setText("");
+        nota.setText("");
+        claves.setText("");
+        desple_cuarto.setSelection(0);
+        desple_mueble.setSelection(0);
+        desple_cuerpo.setSelection(0);
+        desple_hueco.setSelection(0);
+        desple_fila_col.setSelection(0);
+        nombre.requestFocus();
     }
 
     private void grabar() {
@@ -234,17 +253,15 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         // Inflate the menu; this adds items to the action bar if it is present.
         if (alta) getMenuInflater().inflate(R.menu.menu_alta, menu);
         else getMenuInflater().inflate(R.menu.menu_buscar, menu);
+        elMenu = menu;
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.grabar) this.grabar();
-        else if (id == R.id.limpiar) {
-            this.nombre.setText("");
-            this.nota.setText("");
-            this.claves.setText("");
-        } else if (id == R.id.volver) finish();
+        else if (id == R.id.limpiar) limpia_pantalla();
+        else if (id == R.id.volver) finish();
         else if (id == R.id.buscar) this.buscar();
         else {
             //foto

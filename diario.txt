@@ -15,6 +15,14 @@ commit
 cambio a master
 merge
 push
+creo el menu_modificar
+limpio el menu.clear() y pongo el modificar
+empiezo rellena_pantalla()
+los arrays de los pinners no tienen la misma longitud que el número de registros
+creo limpia_pantalla
+busca bien por clave y muestra registro seleccionado
+commit
+push
 
 25-jul portátil
 creo y paso a rama buscar-claves
