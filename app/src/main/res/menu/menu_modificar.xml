@@ -17,6 +17,10 @@
         android:title="BUSCAR"
         android:orderInCategory="10"
         android:showAsAction="ifRoom" />
+    <item android:id="@+id/borrar"
+        android:title="BORRAR"
+        android:orderInCategory="10"
+        android:showAsAction="ifRoom" />
     <item android:id="@+id/limpiar"
         android:title="Limpiar"
         android:orderInCategory="20"

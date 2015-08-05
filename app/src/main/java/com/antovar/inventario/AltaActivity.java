@@ -30,8 +30,9 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	final static int SELEC_REGISTRO = 2;
     private Menu elMenu;
     boolean alta;
-    boolean NUEVO = true;
-    boolean MODIFICAR = false;
+    final static boolean NUEVO = true;
+    final static boolean MODIFICAR = false;
+    final static boolean BORRAR = true;
     private ArrayAdapter adapta_cuarto;
     private ArrayAdapter adapta_mueble;
     private ArrayAdapter adapta_cuerpo;
@@ -207,7 +208,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                 limpia_pantalla();
                 return;
             }
-        } else if (bdatos.modificar(linea)) {
+        } else if (bdatos.modificar(linea, MODIFICAR)) {
             //limpia_pantalla();
             return;
         }
@@ -281,6 +282,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (id == R.id.grabar || id == R.id.anadir) this.grabar(NUEVO);
         else if (id == R.id.regrabar) { grabar(MODIFICAR); finish(); }
         else if (id == R.id.buscar) this.buscar();
+        else if (id == R.id.borrar) borrar();
         else if (id == R.id.limpiar) limpia_pantalla();
         else if (id == R.id.volver) finish();
         else {
@@ -295,6 +297,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (bdatos.posRegistrosSelec.size() == 0) mensaje_no_hay();
         Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
         startActivityForResult(intentRegistros, SELEC_REGISTRO);
+    }
+
+    private void borrar() {
+        if (bdatos.modificar("", BORRAR)) limpia_pantalla();
     }
 
     private void selecciona_por_claves() {

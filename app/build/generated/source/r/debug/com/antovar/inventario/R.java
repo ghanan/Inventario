@@ -26,6 +26,7 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f090014;
         public static final int anadir=0x7f090016;
+        public static final int borrar=0x7f090017;
         public static final int botonAlta=0x7f09000a;
         public static final int botonBuscar=0x7f09000b;
         public static final int botonSalir=0x7f09000c;

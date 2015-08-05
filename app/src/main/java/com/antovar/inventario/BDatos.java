@@ -118,7 +118,7 @@ public class BDatos extends Application {
         return true;
     }
 
-	public boolean modificar(String reg) {
+	public boolean modificar(String reg, boolean borrar) {
 		try {
 			//fw = new FileWriter(fichero+"-mod", false);
 			fw = new FileWriter(new File(dir, nombredb + ".mod"), false);
@@ -136,11 +136,13 @@ public class BDatos extends Application {
 				return false;
 			}
 		}
-		try {
-			fw.append(reg + ".\n");
-		} catch (IOException e) {
-			log = "Error en modificar al escribir el nuevo";
-			return false;
+		if (!borrar) {
+			try {
+				fw.append(reg + ".\n");
+			} catch (IOException e) {
+				log = "Error en modificar al escribir el nuevo";
+				return false;
+			}
 		}
 		for (int i=registro+1; i<aNombre.size(); i++) {
 			try {
@@ -172,7 +174,8 @@ public class BDatos extends Application {
 			System.out.println("no renombrado mod to orig");
 			return false;
 		}
-		actualiza_arrays(reg);
+		if (borrar) elimina_de_arrays();
+		else actualiza_arrays(reg);
 		//procesa_linea(reg);
 		back.delete();
 		modi.delete();
@@ -189,6 +192,17 @@ public class BDatos extends Application {
 		aHueco.set(registro, campos[iHUECO]);
 		aFila_col.set(registro, campos[iFILA_COL]);
 		aClaves.set(registro, campos[iCLAVES]);
+	}
+
+	private void elimina_de_arrays() {
+		aNombre.remove(registro);
+		aNota.remove(registro);
+		aCuarto.remove(registro);
+		aMueble.remove(registro);
+		aCuerpo.remove(registro);
+		aHueco.remove(registro);
+		aFila_col.remove(registro);
+		aClaves.remove(registro);
 	}
 
 	private boolean lee_fichero_a_arrays() {
