@@ -208,7 +208,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                 return;
             }
         } else if (bdatos.modificar(linea)) {
-            limpia_pantalla();
+            //limpia_pantalla();
             return;
         }
         Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();

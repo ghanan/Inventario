@@ -1,14 +1,19 @@
 DUDAS
-al hacer alta añado campos a arrays?
 
 INMEDIATO
-regrabar:
- escribir hasta la pos
- escribir el modificado
- escribir el resto
- renombrar orig
- renombrar nuevo
- borrar orig
+ actualizar arrays
+
+5-ago
+renombra ficheros, no actualiza arrays
+commit
+
+4-ago
+menu modificar ampliado
+commit
+añadido que escriba los valores al elegir NUEVO
+escribe el fichero modificado, pendiente de renombrar
+commit
+push
 
 2-ago
 ListaRegistrosActivity
@@ -28,12 +33,6 @@ empiezo rellena_pantalla()
 los arrays de los pinners no tienen la misma longitud que el número de registros
 creo limpia_pantalla
 busca bien por clave y muestra registro seleccionado
-commit
-push
-menu modificar ampliado
-commit
-añadido que escriba los valores al elegir NUEVO
-escribe el fichero modificado, pendiente de renombrar
 commit
 push
 

@@ -38,6 +38,7 @@ public class BDatos extends Application {
     public boolean disponible = false;
     public String log = "";
     //private Activity vista;
+    private File dir;
     private File fichero;
     private FileWriter fw;
 	private int numRegistros = 0;
@@ -67,7 +68,7 @@ public class BDatos extends Application {
             return;
         }
         File path = Environment.getExternalStorageDirectory();
-        File dir = new File(path, nombredb);
+        dir = new File(path, nombredb);
         if (!dir.mkdir() && !dir.isDirectory()) {
             log = "No se puede crear el directorio " + nombredb;
             return;
@@ -118,7 +119,8 @@ public class BDatos extends Application {
 
 	public boolean modificar(String reg) {
 		try {
-			fw = new FileWriter(fichero+"-mod", false);
+			//fw = new FileWriter(fichero+"-mod", false);
+			fw = new FileWriter(new File(dir, nombredb + ".mod"), false);
 		} catch (IOException e) {
 			log = "Error en modificar al abrir fichero";
 			return false;
@@ -129,14 +131,14 @@ public class BDatos extends Application {
 					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
 					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + ".\n");
 			} catch (IOException e) {
-				log = "Error en modificar al escribir en fichero";
+				log = "Error en modificar al escribir inicio fichero";
 				return false;
 			}
 		}
 		try {
 			fw.append(reg + ".\n");
 		} catch (IOException e) {
-			log = "Error en modificar al escribir en fichero";
+			log = "Error en modificar al escribir el nuevo";
 			return false;
 		}
 		for (int i=registro+1; i<aNombre.size(); i++) {
@@ -145,7 +147,7 @@ public class BDatos extends Application {
 					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
 					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + ".\n");
 			} catch (IOException e) {
-				log = "Error en modificar al escribir en fichero";
+				log = "Error en modificar al escribir el resto";
 				return false;
 			}
 		}
@@ -155,7 +157,23 @@ public class BDatos extends Application {
 			log = "Error en modificar al cerrar el fichero";
 			return false;
 		}
+		File modi = new File(dir, nombredb + ".mod");
+		File back = new File(dir, nombredb + ".bck");
+		if (back.exists()) {
+			if (!back.delete()) System.out.println("no borrado bck");
+			return false;
+		}
+		if (!fichero.renameTo(back)) {
+			System.out.println("no renombrado orig a back");
+			return false;
+		}
+		if (!modi.renameTo(fichero)) {
+			System.out.println("no renombrado mod to orig");
+			return false;
+		}
 		procesa_linea(reg);
+		back.delete();
+		modi.delete();
 		return true;
 	}
 
