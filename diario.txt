@@ -6,6 +6,9 @@ INMEDIATO
 5-ago
 renombra ficheros, no actualiza arrays
 commit
+no precese línea al modificar, sino que actualice arrays
+commit
+push
 
 4-ago
 menu modificar ampliado

@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
+import java.lang.reflect.Array;
 import java.util.Collections;
 import java.util.*;
 import android.text.style.*;
@@ -171,10 +172,23 @@ public class BDatos extends Application {
 			System.out.println("no renombrado mod to orig");
 			return false;
 		}
-		procesa_linea(reg);
+		actualiza_arrays(reg);
+		//procesa_linea(reg);
 		back.delete();
 		modi.delete();
 		return true;
+	}
+
+	private void actualiza_arrays(String reg) {
+		String[] campos = reg.split(FS);
+		aNombre.set(registro, campos[iNOMBRE]);
+		aNota.set(registro, campos[iNOTA]);
+		aCuarto.set(registro, campos[iCUARTO]);
+		aMueble.set(registro, campos[iMUEBLE]);
+		aCuerpo.set(registro, campos[iCUERPO]);
+		aHueco.set(registro, campos[iHUECO]);
+		aFila_col.set(registro, campos[iFILA_COL]);
+		aClaves.set(registro, campos[iCLAVES]);
 	}
 
 	private boolean lee_fichero_a_arrays() {

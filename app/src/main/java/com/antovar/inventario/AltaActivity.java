@@ -98,7 +98,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	}
 
 	@Override
-	public void onItemSelected (AdapterView<?> parent, View view,int position, long id) {
+	public void onItemSelected (AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         if (parent.getId() == R.id.desplegable_cuarto) {
             if (item.equals("NUEVO")) nuevo_sitio("cuarto");
