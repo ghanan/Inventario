@@ -239,7 +239,11 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                     if (sitio.equals("cuarto")) {
                         cuarto = entrada.getText().toString();
                         bdatos.add_valor(desple_cuarto, bdatos.cuartos, cuarto);
-                        desple_cuarto.setSelection(adapta_cuarto.getPosition(cuarto));
+                        //desple_cuarto.setSelection(adapta_cuarto.getPosition(cuarto));
+                        //System.out.println(bdatos.cuartos.indexOf(cuarto));
+                        //System.out.println(adapta_cuarto.getPosition(cuarto));
+                        //desple_cuarto.setTop(bdatos.cuartos.indexOf(cuarto));
+                        //desple_cuarto.setSelection(bdatos.cuartos.indexOf(cuarto));
                     } else if (sitio.equals("mueble")) {
                         mueble = entrada.getText().toString();
                         bdatos.add_valor(desple_mueble, bdatos.muebles, mueble);

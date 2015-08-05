@@ -258,7 +258,9 @@ public class BDatos extends Application {
 		lista.add(valor);
 		Collections.sort(lista, String.CASE_INSENSITIVE_ORDER);
 		lista.add("NUEVO");
-		desple.setSelection(lista.indexOf(valor));
+		lista.set(1, valor);
+		//desple.setSelection(lista.indexOf(valor));
+		desple.setSelection(1);
 	}
 
 	private void rellena_claves() {

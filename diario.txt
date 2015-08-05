@@ -1,12 +1,15 @@
 DUDAS
 
 INMEDIATO
- actualizar arrays
+ arreglar NUEVO (no actualiza si cae fuera de visión)
 
 5-ago
 renombra ficheros, no actualiza arrays
 commit
 no precese línea al modificar, sino que actualice arrays
+commit
+push
+resuelto actualizar si el nuevo no es de los primeros
 commit
 push
 
