@@ -6,6 +6,9 @@ INMEDIATO
 arreglado que actualice los adapters y muestre el nuevo siempre (reasignando el adapter)
 commit
 push
+implemento busca por nombre pero hace cosas raras
+commit
+push
 
 5-ago
 renombra ficheros, no actualiza arrays

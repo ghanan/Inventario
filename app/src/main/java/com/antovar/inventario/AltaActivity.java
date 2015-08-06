@@ -294,9 +294,29 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     private void buscar() {
         bdatos.posRegistrosSelec.clear();
         if (!this.claves.getText().toString().equals("")) selecciona_por_claves();
+        if (!nombre.getText().toString().equals("")) seleccionar(bdatos.aNombre, nombre.getText().toString().toLowerCase());
         if (bdatos.posRegistrosSelec.size() == 0) mensaje_no_hay();
-        Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
-        startActivityForResult(intentRegistros, SELEC_REGISTRO);
+        else {
+            Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
+            startActivityForResult(intentRegistros, SELEC_REGISTRO);
+        }
+    }
+
+    private void seleccionar(ArrayList campo, String cadena) {
+        System.out.println("seleccion "+cadena);
+        if (bdatos.posRegistrosSelec.size() == 0) {
+            System.out.println("if");
+            for (int i = 0; i < campo.size(); i++) {
+                if (campo.get(i).toString().toLowerCase().contains(cadena))
+                    bdatos.posRegistrosSelec.add(i);
+            }
+        } else {
+            System.out.println("else");
+            int i = 0;
+            while (i < bdatos.posRegistrosSelec.size())
+                if (campo.get(i).toString().toLowerCase().contains(cadena)) i++;
+                else bdatos.posRegistrosSelec.remove(i);
+        }
     }
 
     private void borrar() {
@@ -324,6 +344,9 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void mensaje_no_hay() {
-
+        new AlertDialog.Builder(this)
+                .setTitle("No se han encontrado registros")
+                .setPositiveButton("Aceptar", null)
+                .show();
     }
 }
