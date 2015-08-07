@@ -295,6 +295,11 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         bdatos.posRegistrosSelec.clear();
         if (!this.claves.getText().toString().equals("")) selecciona_por_claves();
         if (!nombre.getText().toString().equals("")) seleccionar(bdatos.aNombre, nombre.getText().toString().toLowerCase());
+        if (!nota.getText().toString().equals("")) seleccionar(bdatos.aNota, nota.getText().toString().toLowerCase());
+        if (!cuarto.equals("")) seleccionar(bdatos.aCuarto, cuarto);
+        if (!mueble.equals("")) seleccionar(bdatos.aMueble, mueble);
+        if (!hueco.equals("")) seleccionar(bdatos.aHueco, hueco);
+        if (!fila_col.equals("")) seleccionar(bdatos.aFila_col, fila_col);
         if (bdatos.posRegistrosSelec.size() == 0) mensaje_no_hay();
         else {
             Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
