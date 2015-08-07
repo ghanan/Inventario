@@ -1,11 +1,19 @@
 DUDAS
 
 INMEDIATO
+al crear eligiendo NUEVO si se cancela queda NUEVO
+ poner setSelection(0) en on cancel
 
 7-ago
 arreglado busca por nombre
 commit
 añado búsqueda por todos los campos
+commit
+push
+Cambio nombre de las actividades
+En bdatos sustituyo constructor por onCreate
+importo Context, creo variable y la relleno en oncreate
+empiezo a leer cadenas del conexto R.string
 commit
 push
 

@@ -16,6 +16,8 @@
     <string name="descripcion">descripción</string>
     <string name="notas">notas</string>
     <string name="claves">claves</string>
+    <string name="salir">Salir</string>
+    <string name="nuevo">NUEVO</string>
 
     <string name="msg_nombreVacio">Falta nombre</string>
     <string name="msg_sin_almacenamiento">Sin acceso a almacenamiento</string>
@@ -25,15 +27,13 @@
     <string name="msg_no_creado_dir">No puedo crear directorio</string>
     <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
     <string name="msg_no_creado_fich">No puedo crear fichero</string>
-    <string name="title_activity_alta">Inventario</string>
     <string name="msg_dir_creado">Creado directorio </string>
     <string name="msg_fich_creado">Creado fichero </string>
     <string name="msg_error_crear_fwriter">Error al abrir para escribir</string>
     <string name="msg_error_escribiendo">Error al escribir</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_gestion_claves">GestionClavesActivity</string>
-    <string name="title_activity_lista_registros">ListaRegistrosActivity</string>
+    <string name="title_activity_alta">Inventario</string>
+    <string name="title_activity_gestion_claves">Claves</string>
+    <string name="title_activity_lista_registros">Registros</string>
 
 </resources>

@@ -24,7 +24,6 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090014;
         public static final int anadir=0x7f090016;
         public static final int borrar=0x7f090017;
         public static final int botonAlta=0x7f09000a;
@@ -47,6 +46,7 @@ public final class R {
         public static final int nota=0x7f090001;
         public static final int ok=0x7f090012;
         public static final int regrabar=0x7f090015;
+        public static final int salir=0x7f090014;
         public static final int volver=0x7f090010;
     }
     public static final class layout {
@@ -64,33 +64,33 @@ public final class R {
         public static final int menu_modificar=0x7f080005;
     }
     public static final class string {
-        public static final int action_settings=0x7f070000;
-        public static final int app_name=0x7f070001;
-        public static final int boton_alta=0x7f070002;
-        public static final int boton_buscar=0x7f070003;
-        public static final int boton_cancelar=0x7f070004;
-        public static final int boton_consulta=0x7f070005;
-        public static final int boton_foto=0x7f070006;
-        public static final int boton_grabar=0x7f070007;
-        public static final int claves=0x7f070008;
-        public static final int descripcion=0x7f070009;
-        public static final int directorio=0x7f07000a;
-        public static final int fichero=0x7f07000b;
-        public static final int habitacion=0x7f07000c;
-        public static final int hello_world=0x7f07000d;
-        public static final int msg_dir_creado=0x7f07000e;
-        public static final int msg_error_crear_fwriter=0x7f07000f;
-        public static final int msg_error_escribiendo=0x7f070010;
-        public static final int msg_fich_creado=0x7f070011;
-        public static final int msg_no_acceso_dir=0x7f070012;
-        public static final int msg_no_acceso_ext=0x7f070013;
-        public static final int msg_no_creado_dir=0x7f070014;
-        public static final int msg_no_creado_fich=0x7f070015;
-        public static final int msg_no_existe_fichero=0x7f070016;
-        public static final int msg_no_puedo_escribir_ext=0x7f070017;
-        public static final int msg_nombreVacio=0x7f070018;
-        public static final int msg_sin_almacenamiento=0x7f070019;
-        public static final int notas=0x7f07001a;
+        public static final int app_name=0x7f070000;
+        public static final int boton_alta=0x7f070001;
+        public static final int boton_buscar=0x7f070002;
+        public static final int boton_cancelar=0x7f070003;
+        public static final int boton_consulta=0x7f070004;
+        public static final int boton_foto=0x7f070005;
+        public static final int boton_grabar=0x7f070006;
+        public static final int claves=0x7f070007;
+        public static final int descripcion=0x7f070008;
+        public static final int directorio=0x7f070009;
+        public static final int fichero=0x7f07000a;
+        public static final int habitacion=0x7f07000b;
+        public static final int msg_dir_creado=0x7f07000c;
+        public static final int msg_error_crear_fwriter=0x7f07000d;
+        public static final int msg_error_escribiendo=0x7f07000e;
+        public static final int msg_fich_creado=0x7f07000f;
+        public static final int msg_no_acceso_dir=0x7f070010;
+        public static final int msg_no_acceso_ext=0x7f070011;
+        public static final int msg_no_creado_dir=0x7f070012;
+        public static final int msg_no_creado_fich=0x7f070013;
+        public static final int msg_no_existe_fichero=0x7f070014;
+        public static final int msg_no_puedo_escribir_ext=0x7f070015;
+        public static final int msg_nombreVacio=0x7f070016;
+        public static final int msg_sin_almacenamiento=0x7f070017;
+        public static final int notas=0x7f070018;
+        public static final int nuevo=0x7f070019;
+        public static final int salir=0x7f07001a;
         public static final int title_activity_alta=0x7f07001b;
         public static final int title_activity_gestion_claves=0x7f07001c;
         public static final int title_activity_lista_registros=0x7f07001d;

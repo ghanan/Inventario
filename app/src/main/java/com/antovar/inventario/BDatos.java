@@ -5,6 +5,7 @@ package com.antovar.inventario;
 import android.app.Application;
 import android.os.Environment;
 //import android.widget.Toast;
+import android.content.Context;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -34,7 +35,8 @@ public class BDatos extends Application {
 	public final int iCLAVES = 7;
 	public final String FS = ";";
 	public final String CS = ",";
-	
+	public String NUEVO;
+
     private final String nombredb = "InventarioCasa";
     public boolean disponible = false;
     public String log = "";
@@ -62,8 +64,14 @@ public class BDatos extends Application {
 
 	public List<Integer> posRegistrosSelec = new ArrayList<>();
 	public int registro;
-	
-    public BDatos() {
+
+	private Context ctx;
+
+    //public BDatos() {
+    public void onCreate() {
+		super.onCreate();
+		ctx = getApplicationContext();
+		lee_cadenas();
         if (!isExternalStorageWritable()) {
             log = "Sin acceso a almcenamiento externo";
             return;
@@ -263,7 +271,7 @@ public class BDatos extends Application {
 			if (!destino.contains(valor)) destino.add(valor);
 		}
 		Collections.sort(destino, String.CASE_INSENSITIVE_ORDER);
-		destino.add("NUEVO");
+		destino.add(NUEVO);
 	}
 
 	// para cuando se añade un valor nuevo a mano
@@ -300,4 +308,7 @@ public class BDatos extends Application {
 		return aLinea[i];
 	}
 
+	private void lee_cadenas() {
+		NUEVO = ctx.getResources().getText(R.string.nuevo).toString();
+	}
 }
