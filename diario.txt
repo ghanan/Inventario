@@ -2,6 +2,10 @@ DUDAS
 
 INMEDIATO
 
+7-ago
+arreglado busca por nombre
+commit
+
 6-ago
 arreglado que actualice los adapters y muestre el nuevo siempre (reasignando el adapter)
 commit

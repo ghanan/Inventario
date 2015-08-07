@@ -303,19 +303,18 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void seleccionar(ArrayList campo, String cadena) {
-        System.out.println("seleccion "+cadena);
         if (bdatos.posRegistrosSelec.size() == 0) {
-            System.out.println("if");
             for (int i = 0; i < campo.size(); i++) {
                 if (campo.get(i).toString().toLowerCase().contains(cadena))
                     bdatos.posRegistrosSelec.add(i);
             }
         } else {
-            System.out.println("else");
-            int i = 0;
-            while (i < bdatos.posRegistrosSelec.size())
-                if (campo.get(i).toString().toLowerCase().contains(cadena)) i++;
-                else bdatos.posRegistrosSelec.remove(i);
+            int i = bdatos.posRegistrosSelec.size() - 1;
+            while (i >= 0) {
+                if (!campo.get(bdatos.posRegistrosSelec.get(i)).toString().toLowerCase().contains(cadena))
+                    bdatos.posRegistrosSelec.remove(i);
+                i--;
+            }
         }
     }
 
