@@ -6,8 +6,12 @@ al crear eligiendo NUEVO si se cancela queda NUEVO
 
 11-ago
 creo y paso a rama nuevo-cancel
-hago cancel setSelection(0) con dos diálogos
+hago cancel setSelection(0) con dos diálogos (no se puede hacer con uno con onclick exterior
+  porque se pierde el parámetro sitio
 commit
+paso a master y merge
+commit
+push
 
 7-ago
 arreglado busca por nombre
