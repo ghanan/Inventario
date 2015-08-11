@@ -240,7 +240,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                     if (sitio.equals("cuarto")) {
                         cuarto = entrada.getText().toString();
                         bdatos.add_valor(desple_cuarto, bdatos.cuartos, cuarto);
-                        //desple_cuarto.setSelection(adapta_cuarto.getPosition(cuarto));
+                        desple_cuarto.setSelection(adapta_cuarto.getPosition(cuarto));
                         //System.out.println(bdatos.cuartos.indexOf(cuarto));
                         //System.out.println(adapta_cuarto.getPosition(cuarto));
                         //desple_cuarto.setTop(bdatos.cuartos.indexOf(cuarto));
@@ -263,7 +263,15 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                         desple_fila_col.setSelection(adapta_fila_col.getPosition(fila_col));
                     }
                 }})
-            .setNegativeButton("Cancelar", null)
+            .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    if (sitio.equals("cuarto")) desple_cuarto.setSelection(0);
+                    else if (sitio.equals("mueble")) desple_mueble.setSelection(0);
+                    else if (sitio.equals("cuerpo")) desple_cuerpo.setSelection(0);
+                    else if (sitio.equals("hueco")) desple_hueco.setSelection(0);
+                    else desple_fila_col.setSelection(0);
+                }
+            })
             .show();
         //return sitio;
     }

@@ -4,6 +4,11 @@ INMEDIATO
 al crear eligiendo NUEVO si se cancela queda NUEVO
  poner setSelection(0) en on cancel
 
+11-ago
+creo y paso a rama nuevo-cancel
+hago cancel setSelection(0) con dos diálogos
+commit
+
 7-ago
 arreglado busca por nombre
 commit
