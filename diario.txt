@@ -16,6 +16,9 @@ push
 creo y paso a rama view-foto
 creo actividad FotoActivity, menu y la llamo
 commit
+probando para ver la miniatura ampliada
+commit
+push
 
 11-ago
 creo y paso a rama nuevo-cancel
