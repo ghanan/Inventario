@@ -2,8 +2,9 @@ DUDAS
 
 INMEDIATO
 foto
-  que esté relleno nombre
-  ver si tengo el directorio
+  Hacer una actividad que lo haga todo
+  debe tener un view para la imagen y un menu para aceptar o no
+  ver más adelante si se puede hacer con menos calidad o reducir de calidad
 
 12-ago
 creo y paso a rama foto-final
@@ -12,6 +13,7 @@ commit
 paso a master y commit
 commit
 push
+creo y paso a rama view-foto
 
 11-ago
 creo y paso a rama nuevo-cancel
