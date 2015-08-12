@@ -48,6 +48,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	String cuerpo = "";
 	String hueco = "";
 	String fila_col = "";
+	String foto = ".";
     public Spinner desple_cuarto;
     public Spinner desple_mueble;
     public Spinner desple_cuerpo;
@@ -190,6 +191,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         desple_cuerpo.setSelection(0);
         desple_hueco.setSelection(0);
         desple_fila_col.setSelection(0);
+        foto = ".";
         nombre.requestFocus();
     }
 
@@ -201,7 +203,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 //		String lclaves = claves.getText().toString();
         String linea = nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
                 + mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";"
-                + claves.getText().toString() + ";.";
+                + claves.getText().toString() + ";" + foto;
 //        if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
 //			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves + ";.")) {
         if (nuevo) {

@@ -24,7 +24,7 @@ import android.widget.Spinner;
 
 public class BDatos extends Application {
 
-	public final int nCAMPOS = 8;
+	public final int nCAMPOS = 9;
 	public final int iNOMBRE = 0;
 	public final int iNOTA = 1;
 	public final int iCUARTO = 2;
@@ -33,6 +33,8 @@ public class BDatos extends Application {
 	public final int iHUECO = 5;
 	public final int iFILA_COL = 6;
 	public final int iCLAVES = 7;
+	// el campo foto no puede estar vacío, rellenar con un punto
+	public final int iFOTO = 8;
 	public final String FS = ";";
 	public final String CS = ",";
 	public String NUEVO;
@@ -54,7 +56,8 @@ public class BDatos extends Application {
 	public ArrayList<String> aCuerpo = new ArrayList<>();
 	public ArrayList<String> aHueco = new ArrayList<>();
 	public ArrayList<String> aFila_col = new ArrayList<>();
-	
+	public ArrayList<String> aFoto = new ArrayList<>();
+
 	public List<String> cuartos = new ArrayList<>();
 	public List<String> muebles = new ArrayList<>();
 	public List<String> cuerpos = new ArrayList<>();
@@ -138,7 +141,7 @@ public class BDatos extends Application {
 			try {
 				fw.append(aNombre.get(i) + FS + aNota.get(i) + FS + aCuarto.get(i) + FS
 					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
-					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + ".\n");
+					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + aFoto.get(i) + "\n");
 			} catch (IOException e) {
 				log = "Error en modificar al escribir inicio fichero";
 				return false;
@@ -156,7 +159,7 @@ public class BDatos extends Application {
 			try {
 				fw.append(aNombre.get(i) + FS + aNota.get(i) + FS + aCuarto.get(i) + FS
 					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
-					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + ".\n");
+					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + aFoto.get(i) + "\n");
 			} catch (IOException e) {
 				log = "Error en modificar al escribir el resto";
 				return false;
@@ -200,6 +203,7 @@ public class BDatos extends Application {
 		aHueco.set(registro, campos[iHUECO]);
 		aFila_col.set(registro, campos[iFILA_COL]);
 		aClaves.set(registro, campos[iCLAVES]);
+		aFoto.set(registro, campos[iFOTO]);
 	}
 
 	private void elimina_de_arrays() {
@@ -211,6 +215,7 @@ public class BDatos extends Application {
 		aHueco.remove(registro);
 		aFila_col.remove(registro);
 		aClaves.remove(registro);
+		aFoto.remove(registro);
 	}
 
 	private boolean lee_fichero_a_arrays() {
@@ -253,6 +258,7 @@ public class BDatos extends Application {
 		aHueco.add(aLinea[iHUECO]);
 		aFila_col.add(aLinea[iFILA_COL]);
 		aClaves.add(aLinea[iCLAVES]);
+		aFoto.add(aLinea[iFOTO]);
 //		System.out.println(aClaves.toString());
 	}
 
