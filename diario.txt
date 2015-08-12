@@ -1,8 +1,9 @@
 DUDAS
 
 INMEDIATO
-al crear eligiendo NUEVO si se cancela queda NUEVO
- poner setSelection(0) en on cancel
+foto
+  que esté relleno nombre
+  ver si tengo el directorio
 
 11-ago
 creo y paso a rama nuevo-cancel
@@ -12,6 +13,9 @@ commit
 paso a master y merge
 commit
 push
+en bdatos hago dir public
+en altaactivity empiezo foto()
+commit
 
 7-ago
 arreglado busca por nombre

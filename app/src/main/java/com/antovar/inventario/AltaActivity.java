@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 //import android.support.v7.app.AppCompatActivity;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -293,12 +294,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         else if (id == R.id.borrar) borrar();
         else if (id == R.id.limpiar) limpia_pantalla();
         else if (id == R.id.volver) finish();
-        else {
-            //foto
-        }
+        else foto();
         return true;
     }
 
+    private void foto() {
+    }
     private void buscar() {
         bdatos.posRegistrosSelec.clear();
         if (!this.claves.getText().toString().equals("")) selecciona_por_claves();

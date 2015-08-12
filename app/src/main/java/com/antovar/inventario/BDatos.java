@@ -41,7 +41,7 @@ public class BDatos extends Application {
     public boolean disponible = false;
     public String log = "";
     //private Activity vista;
-    private File dir;
+    public File dir;
     private File fichero;
     private FileWriter fw;
 	private int numRegistros = 0;
