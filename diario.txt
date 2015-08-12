@@ -5,6 +5,12 @@ foto
   que esté relleno nombre
   ver si tengo el directorio
 
+12-ago
+creo y paso a rama foto-final
+añado foto al final en lugar del punto siempre
+commit
+push
+
 11-ago
 creo y paso a rama nuevo-cancel
 hago cancel setSelection(0) con dos diálogos (no se puede hacer con uno con onclick exterior
