@@ -9,6 +9,8 @@ foto
 creo y paso a rama foto-final
 añado foto al final en lugar del punto siempre
 commit
+paso a master y commit
+commit
 push
 
 11-ago
