@@ -14,6 +14,8 @@ paso a master y commit
 commit
 push
 creo y paso a rama view-foto
+creo actividad FotoActivity, menu y la llamo
+commit
 
 11-ago
 creo y paso a rama nuevo-cancel

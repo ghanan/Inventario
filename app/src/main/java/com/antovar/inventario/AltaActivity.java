@@ -29,6 +29,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
 	final static int EDICION_CLAVES = 1;
 	final static int SELEC_REGISTRO = 2;
+	final static int HACER_FOTO = 3;
     private Menu elMenu;
     boolean alta;
     final static boolean NUEVO = true;
@@ -301,7 +302,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void foto() {
+        Intent intentFoto = new Intent(AltaActivity.this, FotoActivity.class);
+        startActivityForResult(intentFoto, HACER_FOTO);
     }
+
     private void buscar() {
         bdatos.posRegistrosSelec.clear();
         if (!this.claves.getText().toString().equals("")) selecciona_por_claves();

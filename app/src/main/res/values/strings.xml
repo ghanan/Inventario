@@ -35,5 +35,9 @@
     <string name="title_activity_alta">Inventario</string>
     <string name="title_activity_gestion_claves">Claves</string>
     <string name="title_activity_lista_registros">Registros</string>
+    <string name="title_activity_foto">FotoActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

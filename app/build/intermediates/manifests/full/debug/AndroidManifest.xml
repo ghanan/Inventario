@@ -37,6 +37,10 @@
             android:name="com.antovar.inventario.ListaRegistrosActivity"
             android:label="@string/title_activity_lista_registros" >
         </activity>
+        <activity
+            android:name="com.antovar.inventario.FotoActivity"
+            android:label="@string/title_activity_foto" >
+        </activity>
     </application>
 
 </manifest>

@@ -31,6 +31,10 @@
             android:name=".ListaRegistrosActivity"
             android:label="@string/title_activity_lista_registros" >
         </activity>
+        <activity
+            android:name=".FotoActivity"
+            android:label="@string/title_activity_foto" >
+        </activity>
     </application>
 
 </manifest>
