@@ -6,6 +6,14 @@ foto
   debe tener un view para la imagen y un menu para aceptar o no
   ver más adelante si se puede hacer con menos calidad o reducir de calidad
 
+15-ago
+pruebo en movil que es suficiente con fitCanter
+commit
+paso a master
+merge
+commit
+push
+
 12-ago
 creo y paso a rama foto-final
 añado foto al final en lugar del punto siempre
