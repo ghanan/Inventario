@@ -3,16 +3,26 @@ package com.antovar.inventario;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class FotoActivity extends Activity {
     static int TOMA_FOTO = 1;
+    protected BDatos bdatos;
     private ImageView cuadro;
-    Bitmap bitMap;
+    private Bitmap bitMap;
+    private String nombre_foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +33,18 @@ public class FotoActivity extends Activity {
     }
 
     private void toma_foto() {
-        Intent camaraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(camaraIntent, TOMA_FOTO);
+        nombre_foto = bdatos.dir + nombreFoto();
+        File la_foto = new File(nombre_foto);
+        try {
+            la_foto.createNewFile();
+        } catch (IOException ex) {
+            Toast.makeText(this, "Error al crear fichero foto: " + ex, Toast.LENGTH_LONG).show();
+        }
+        Uri uri_foto = Uri.fromFile(la_foto);
+//        Intent camara_Intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent camara_Intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        camara_Intent.putExtra(MediaStore.EXTRA_OUTPUT, uri_foto);
+        startActivityForResult(camara_Intent, TOMA_FOTO);
     }
 
     @Override
@@ -34,6 +54,11 @@ public class FotoActivity extends Activity {
             bitMap = (Bitmap) extras.get("data");
             cuadro.setImageBitmap(bitMap);
         }
+    }
+
+    private String nombreFoto() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yymmddhhmmss");
+        return dateFormat.format(new Date()) + ".jpg";
     }
 
     @Override

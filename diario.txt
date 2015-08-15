@@ -13,6 +13,10 @@ paso a master
 merge
 commit
 push
+le paso la uri al intent de la cámara para que grabe el fichero
+commit y push para probar en el móvil si lo graba
+commit
+puch
 
 12-ago
 creo y paso a rama foto-final
