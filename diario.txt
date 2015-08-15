@@ -16,7 +16,12 @@ push
 le paso la uri al intent de la cámara para que grabe el fichero
 commit y push para probar en el móvil si lo graba
 commit
-puch
+push
+Correciones (recupero bdatos) y arreglo nombre (mm->MM)
+Crea foto en la carpeta con el formato yyMMddhhmmss.jpg
+Se carga la batería del móvil
+commit
+push
 
 12-ago
 creo y paso a rama foto-final

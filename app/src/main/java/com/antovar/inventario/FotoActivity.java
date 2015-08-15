@@ -28,12 +28,13 @@ public class FotoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foto);
+        bdatos = (BDatos)getApplicationContext();
         cuadro = (ImageView) findViewById(R.id.fotoView);
         toma_foto();
     }
 
     private void toma_foto() {
-        nombre_foto = bdatos.dir + nombreFoto();
+        nombre_foto = bdatos.dir + "/" + nombreFoto();
         File la_foto = new File(nombre_foto);
         try {
             la_foto.createNewFile();
@@ -57,7 +58,7 @@ public class FotoActivity extends Activity {
     }
 
     private String nombreFoto() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yymmddhhmmss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddhhmmss");
         return dateFormat.format(new Date()) + ".jpg";
     }
 
