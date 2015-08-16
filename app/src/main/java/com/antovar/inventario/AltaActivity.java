@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,15 +43,17 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     private ArrayAdapter adapta_hueco;
     private ArrayAdapter adapta_fila_col;
     protected BDatos bdatos;
-    EditText nombre;
-    EditText nota;
-    TextView claves;
-	String cuarto = "";
-	String mueble = "";
-	String cuerpo = "";
-	String hueco = "";
-	String fila_col = "";
-	String foto = ".";
+    private EditText nombre;
+    private EditText nota;
+    private TextView claves;
+    private String cuarto = "";
+    private String mueble = "";
+    private String cuerpo = "";
+    private String hueco = "";
+    private String fila_col = "";
+    private TextView foto;
+    private ImageView view_foto;
+    private Uri foto_uri;
     public Spinner desple_cuarto;
     public Spinner desple_mueble;
     public Spinner desple_cuerpo;
@@ -67,6 +71,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         this.nombre = (EditText) findViewById(R.id.nombre);
         this.nota = (EditText) findViewById(R.id.nota);
 		this.claves = (TextView) findViewById(R.id.claves);
+        this.foto = (TextView) findViewById(R.id.foto);
+        this.view_foto = (ImageView) findViewById(R.id.view_foto);
         desple_cuarto = (Spinner) findViewById(R.id.desplegable_cuarto);
         desple_cuarto.setOnItemSelectedListener(this);
 		//ArrayAdapter < String > adapta_cuarto =
@@ -166,8 +172,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             getMenuInflater().inflate(R.menu.menu_modificar, elMenu);
             rellena_pantalla();
         } else if (requestCode == HACER_FOTO && resultCode == 1) {
-            String foto = data.getExtras().getString("foto");
-            //foto = "151515151515.jpg";
+            String foto_fichero = data.getExtras().getString("foto");
+            foto_fichero = "/storage/sdcard/InventarioCasa/151515151515.jpg";
+//            view_foto.setImageURI(Uri.parse("file://" + foto_fichero));
+            foto_uri = Uri.parse("file://" + foto_fichero);
+            view_foto.setImageURI(foto_uri);
+            foto.setText(foto_uri.getLastPathSegment());
         }
     }
 
@@ -181,6 +191,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         desple_cuerpo.setSelection(adapta_cuerpo.getPosition(bdatos.aCuerpo.get(bdatos.registro)));
         desple_hueco.setSelection(adapta_hueco.getPosition(bdatos.aHueco.get(bdatos.registro)));
         desple_fila_col.setSelection(adapta_fila_col.getPosition(bdatos.aFila_col.get(bdatos.registro)));
+        if (!bdatos.aFoto.get(bdatos.registro).equals(".")) {
+            foto.setText(bdatos.aFoto.get(bdatos.registro));
+            view_foto.setImageURI(Uri.parse("file:// " + bdatos.dir + "/" + bdatos.aFoto.get(bdatos.registro)));
+        }
         nombre.requestFocus();
     }
 
@@ -193,7 +207,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         desple_cuerpo.setSelection(0);
         desple_hueco.setSelection(0);
         desple_fila_col.setSelection(0);
-        foto = ".";
+        view_foto.setImageResource(0);
+        foto.setText(".");
         nombre.requestFocus();
     }
 
@@ -205,7 +220,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 //		String lclaves = claves.getText().toString();
         String linea = nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
                 + mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";"
-                + claves.getText().toString() + ";" + foto;
+                + claves.getText().toString() + ";" + foto.getText();
 //        if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
 //			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves + ";.")) {
         if (nuevo) {

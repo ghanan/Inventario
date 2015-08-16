@@ -64,6 +64,7 @@ public class BDatos extends Application {
 	public List<String> huecos = new ArrayList<>();
 	public List<String> fila_cols = new ArrayList<>();
 	public List<String> claves = new ArrayList<>();
+	public List<String> fotos = new ArrayList<>();
 
 	public List<Integer> posRegistrosSelec = new ArrayList<>();
 	public int registro;
@@ -268,6 +269,7 @@ public class BDatos extends Application {
 		rellena_un_array(aCuerpo, cuerpos);
 		rellena_un_array(aHueco, huecos);
 		rellena_un_array(aFila_col, fila_cols);
+		rellena_un_array(aFoto, fotos);
 		rellena_claves();
 	}
 

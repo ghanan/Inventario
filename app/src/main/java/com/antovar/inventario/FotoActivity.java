@@ -46,7 +46,7 @@ public class FotoActivity extends Activity {
 //        Intent camara_Intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         Intent camara_Intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         camara_Intent.putExtra(MediaStore.EXTRA_OUTPUT, uri_foto);
-        startActivityForResult(camara_Intent, TOMA_FOTO);
+        //startActivityForResult(camara_Intent, TOMA_FOTO);
     }
 
     @Override
