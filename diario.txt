@@ -1,3 +1,15 @@
+alta
+    foto
+        cancelar
+        |
+        foto
+            cancelar
+            |
+            foto
+            |
+            grabar
+
+
 DUDAS
 
 PENDIENTE

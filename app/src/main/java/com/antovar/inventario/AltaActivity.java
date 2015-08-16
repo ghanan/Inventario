@@ -54,6 +54,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     private TextView foto;
     private ImageView view_foto;
     private Uri foto_uri;
+    private String foto_fichero = "";
     public Spinner desple_cuarto;
     public Spinner desple_mueble;
     public Spinner desple_cuerpo;
@@ -172,7 +173,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             getMenuInflater().inflate(R.menu.menu_modificar, elMenu);
             rellena_pantalla();
         } else if (requestCode == HACER_FOTO && resultCode == 1) {
-            String foto_fichero = data.getExtras().getString("foto");
+            foto_fichero = data.getExtras().getString("foto");
             foto_fichero = "/storage/sdcard/InventarioCasa/151515151515.jpg";
 //            view_foto.setImageURI(Uri.parse("file://" + foto_fichero));
             foto_uri = Uri.parse("file://" + foto_fichero);
