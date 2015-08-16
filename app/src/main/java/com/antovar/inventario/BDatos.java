@@ -148,9 +148,11 @@ public class BDatos extends Application {
 				return false;
 			}
 		}
-		if (!borrar) {
+		if (borrar) {
+			borra_foto(dir + "/" + aFoto.get(registro));
+		} else {
 			try {
-				fw.append(reg + ".\n");
+				fw.append(reg + "\n");
 			} catch (IOException e) {
 				log = "Error en modificar al escribir el nuevo";
 				return false;
@@ -311,6 +313,12 @@ public class BDatos extends Application {
 		claves.add(nueva);
 		Collections.sort(claves, String.CASE_INSENSITIVE_ORDER);
 		claves.add("NUEVA");
+	}
+
+	public void borra_foto(String fichero) {
+		File fich = new File(fichero);
+		System.out.println("Borrando: " + fichero);
+		fich.delete();
 	}
 
 	public String getCampo(int i) {

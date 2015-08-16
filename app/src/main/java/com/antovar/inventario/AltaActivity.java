@@ -173,6 +173,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             getMenuInflater().inflate(R.menu.menu_modificar, elMenu);
             rellena_pantalla();
         } else if (requestCode == HACER_FOTO && resultCode == 1) {
+            if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
             foto_fichero = data.getExtras().getString("foto");
             foto_fichero = "/storage/sdcard/InventarioCasa/151515151515.jpg";
 //            view_foto.setImageURI(Uri.parse("file://" + foto_fichero));
@@ -183,7 +184,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void rellena_pantalla() {
-        limpia_pantalla();
+        limpia_pantalla(!BORRAR);
         nombre.setText(bdatos.aNombre.get(bdatos.registro));
         nota.setText(bdatos.aNota.get(bdatos.registro));
         claves.setText(bdatos.aClaves.get(bdatos.registro));
@@ -199,7 +200,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         nombre.requestFocus();
     }
 
-    private void limpia_pantalla() {
+    private void limpia_pantalla(boolean borrar) {
         nombre.setText("");
         nota.setText("");
         claves.setText("");
@@ -210,6 +211,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         desple_fila_col.setSelection(0);
         view_foto.setImageResource(0);
         foto.setText(".");
+        if (borrar) {
+            if (!foto_fichero.equals("")) {
+                bdatos.borra_foto(foto_fichero);
+            }
+        }
+        foto_fichero = "";
         nombre.requestFocus();
     }
 
@@ -226,7 +233,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 //			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves + ";.")) {
         if (nuevo) {
             if (bdatos.alta(linea)) {
-                limpia_pantalla();
+                limpia_pantalla(!BORRAR);
                 return;
             }
         } else if (bdatos.modificar(linea, MODIFICAR)) {
@@ -312,9 +319,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         else if (id == R.id.regrabar) { grabar(MODIFICAR); finish(); }
         else if (id == R.id.buscar) this.buscar();
         else if (id == R.id.borrar) borrar();
-        else if (id == R.id.limpiar) limpia_pantalla();
-        else if (id == R.id.volver) finish();
-        else foto();
+        else if (id == R.id.limpiar) limpia_pantalla(BORRAR);
+        else if (id == R.id.foto) foto();
+        else {
+            if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
+            finish();
+        }
         return true;
     }
 
@@ -356,7 +366,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void borrar() {
-        if (bdatos.modificar("", BORRAR)) limpia_pantalla();
+        //if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
+        if (bdatos.modificar("", BORRAR)) limpia_pantalla(BORRAR);
     }
 
     private void selecciona_por_claves() {

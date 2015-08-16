@@ -33,6 +33,11 @@ muestra foto y la graba en alta y modificar
 commit
 cambio a master y merge
 push
+creo y paso a rama gestion-fotos
+creo que esta completa la gestion de claves, pero no lo puedo probar bien
+commit
+cambio a master y merge
+
 
 15-ago
 pruebo en movil que es suficiente con fitCanter
