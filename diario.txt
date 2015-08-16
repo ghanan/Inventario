@@ -15,6 +15,10 @@ comento el lanzar la instancia de hacer la foto
 saco la declaración del file que hay que borrar
 acabo el menu de FotoActivity (disparar, guardar y cancelar)
 en AltaActivity recibo el nombre de la foto
+commit
+push
+creo y cambio a rama foto-muestra
+
 
 15-ago
 pruebo en movil que es suficiente con fitCanter
