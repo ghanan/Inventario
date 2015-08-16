@@ -317,7 +317,6 @@ public class BDatos extends Application {
 
 	public void borra_foto(String fichero) {
 		File fich = new File(fichero);
-		System.out.println("Borrando: " + fichero);
 		fich.delete();
 	}
 

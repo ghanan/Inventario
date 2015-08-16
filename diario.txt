@@ -16,10 +16,7 @@ PENDIENTE
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 
 INMEDIATO
-foto
-    al borrar, borrar la foto
-    al hacer foto, si ya tiene, borrar la anterior (guardar anterior y borrar al grabar)
-    al pulsar en foto, guardar si ya tenía
+añadir al menu "quitar foto"
 
 16-ago
 comento el lanzar la instancia de hacer la foto
