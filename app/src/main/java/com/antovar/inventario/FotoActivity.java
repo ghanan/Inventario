@@ -23,6 +23,7 @@ public class FotoActivity extends Activity {
     private ImageView cuadro;
     private Bitmap bitMap;
     private String nombre_foto;
+    private File la_foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class FotoActivity extends Activity {
 
     private void toma_foto() {
         nombre_foto = bdatos.dir + "/" + nombreFoto();
-        File la_foto = new File(nombre_foto);
+        la_foto = new File(nombre_foto);
         try {
             la_foto.createNewFile();
         } catch (IOException ex) {
@@ -50,7 +51,7 @@ public class FotoActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == TOMA_FOTO && resultCode== RESULT_OK && intent != null){
+        if (requestCode == TOMA_FOTO && resultCode == RESULT_OK && intent != null){
             Bundle extras = intent.getExtras();
             bitMap = (Bitmap) extras.get("data");
             cuadro.setImageBitmap(bitMap);
@@ -58,7 +59,7 @@ public class FotoActivity extends Activity {
     }
 
     private String nombreFoto() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddhhmmss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
         return dateFormat.format(new Date()) + ".jpg";
     }
 
@@ -71,17 +72,21 @@ public class FotoActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.cancelar) {
+        if (id == R.id.disparar) {
+            if (la_foto.exists()) la_foto.delete();
+            toma_foto();
+        } else {
+            Intent intent = new Intent();
+            if (id == R.id.guardar) {
+                intent.putExtra("foto", nombre_foto);
+                setResult(1, intent);
+            } else { // cancelar
+                if (la_foto.exists()) la_foto.delete();
+                setResult(0, intent);
+            }
             finish();
         }
-
-//        return super.onOptionsItemSelected(item);
         return true;
     }
 }

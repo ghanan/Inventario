@@ -286,6 +286,7 @@ public class BDatos extends Application {
 		lista.add(valor);
 		Collections.sort(lista, String.CASE_INSENSITIVE_ORDER);
 		lista.add("NUEVO");
+		//desple.getAdapter().notifyDataSetChanged();
 		desple.setAdapter(desple.getAdapter());
 		desple.setSelection(lista.indexOf(valor));
 	}

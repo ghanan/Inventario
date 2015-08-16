@@ -1,10 +1,20 @@
 DUDAS
 
+PENDIENTE
+probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
+
 INMEDIATO
 foto
-  Hacer una actividad que lo haga todo
-  debe tener un view para la imagen y un menu para aceptar o no
-  ver más adelante si se puede hacer con menos calidad o reducir de calidad
+  si se acepta, devolver ok y el nombre
+  añadir el nombre del fichero destrás de las claves
+  poner la imágen en pantalla
+  poner el nombre de la imágen al final
+
+16-ago
+comento el lanzar la instancia de hacer la foto
+saco la declaración del file que hay que borrar
+acabo el menu de FotoActivity (disparar, guardar y cancelar)
+en AltaActivity recibo el nombre de la foto
 
 15-ago
 pruebo en movil que es suficiente con fitCanter

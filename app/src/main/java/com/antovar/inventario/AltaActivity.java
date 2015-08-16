@@ -55,7 +55,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     public Spinner desple_cuerpo;
     public Spinner desple_hueco;
     public Spinner desple_fila_col;
-    //private List<Integer> posRegistrosSelec = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +66,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         //bdatos = (BDatos)getApplication();
         this.nombre = (EditText) findViewById(R.id.nombre);
         this.nota = (EditText) findViewById(R.id.nota);
-        //this.claves = (EditText) findViewById(R.id.claves);
 		this.claves = (TextView) findViewById(R.id.claves);
         desple_cuarto = (Spinner) findViewById(R.id.desplegable_cuarto);
         desple_cuarto.setOnItemSelectedListener(this);
@@ -167,6 +165,9 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             elMenu.clear();
             getMenuInflater().inflate(R.menu.menu_modificar, elMenu);
             rellena_pantalla();
+        } else if (requestCode == HACER_FOTO && resultCode == 1) {
+            String foto = data.getExtras().getString("foto");
+            //foto = "151515151515.jpg";
         }
     }
 

@@ -39,9 +39,12 @@
     <string name="msg_nombreVacio">Falta nombre</string>
     <string name="msg_sin_almacenamiento">Sin acceso a almacenamiento</string>
     <string name="notas">notas</string>
+    <string name="nuevo">NUEVO</string>
+    <string name="salir">Salir</string>
     <string name="title_activity_alta">Inventario</string>
-    <string name="title_activity_gestion_claves">GestionClavesActivity</string>
-    <string name="title_activity_lista_registros">ListaRegistrosActivity</string>
+    <string name="title_activity_foto">FotoActivity</string>
+    <string name="title_activity_gestion_claves">Claves</string>
+    <string name="title_activity_lista_registros">Registros</string>
     <!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light">
