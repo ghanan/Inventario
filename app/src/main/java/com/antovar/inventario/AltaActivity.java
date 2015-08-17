@@ -125,34 +125,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             if (item.equals("NUEVO")) nuevo_sitio("fila_col");
             else fila_col = item;
         }
-    //    Toast.makeText(parent.getContext(), "cuarto: " + cuarto, Toast.LENGTH_LONG).show();
-    //    System.out.println("onItem: "+cuarto+" "+mueble);
 	}
 
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
 
     }
-
-/*
-    public void onButtonClick(View v) {
-        */
-/*System.out.println("clickado");*//*
-
-        if (v.getId() == R.id.botonGrabar) {
-            this.grabar();
-        } else if (v.getId() == R.id.botonCancelar) {
-            System.out.println("cancelar");
-            this.nombre.setText("");
-            this.nota.setText("");
-            this.claves.setText("");
-//              Intent pantalla = new Intent(this, AltaActivity.class);
-//              startActivity(pantalla);
-        } else {
-            // foto
-        }
-    }
-*/
 
     public void onClavesClick(View v) {
         //pasar claves actuales y recibir las deseadas
@@ -236,7 +214,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                 limpia_pantalla(!BORRAR);
                 return;
             }
-        } else if (bdatos.modificar(linea, MODIFICAR)) {
+        } else if (bdatos.modificar(linea, foto.getText().toString(), MODIFICAR)) {
             //limpia_pantalla();
             return;
         }
@@ -321,6 +299,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         else if (id == R.id.borrar) borrar();
         else if (id == R.id.limpiar) limpia_pantalla(BORRAR);
         else if (id == R.id.foto) foto();
+        else if (id == R.id.sinfoto) quita_foto();
         else {
             if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
             finish();
@@ -331,6 +310,23 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     private void foto() {
         Intent intentFoto = new Intent(AltaActivity.this, FotoActivity.class);
         startActivityForResult(intentFoto, HACER_FOTO);
+    }
+
+    private void quita_foto() {
+        if (foto.getText().equals(".")) return;
+        if (foto_fichero.equals("")) { // está mostrando foto original
+            foto.setText(".");
+            view_foto.setImageResource(0);
+        } else { // mostrando foto recién hecha
+            bdatos.borra_foto(foto_fichero);
+            if (bdatos.aFoto.get(bdatos.registro).equals(".")) { // sin foto originalmente
+                foto.setText(".");
+                view_foto.setImageResource(0);
+            } else { // había foto original
+                foto.setText(bdatos.aFoto.get(bdatos.registro));
+                view_foto.setImageURI(Uri.parse("file:// " + bdatos.dir + "/" + bdatos.aFoto.get(bdatos.registro)));
+            }
+        }
     }
 
     private void buscar() {
@@ -367,7 +363,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
     private void borrar() {
         //if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
-        if (bdatos.modificar("", BORRAR)) limpia_pantalla(BORRAR);
+        if (bdatos.modificar("", "", BORRAR)) limpia_pantalla(BORRAR);
     }
 
     private void selecciona_por_claves() {

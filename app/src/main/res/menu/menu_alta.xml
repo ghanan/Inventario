@@ -13,8 +13,12 @@
         android:title="Foto"
         android:orderInCategory="30"
         android:showAsAction="ifRoom" />
+    <item android:id="@+id/sinfoto"
+        android:title="Quitar Foto"
+        android:orderInCategory="40"
+        android:showAsAction="ifRoom" />
     <item android:id="@+id/volver"
         android:title="Volver"
-        android:orderInCategory="30"
+        android:orderInCategory="50"
         android:showAsAction="ifRoom" />
 </menu>

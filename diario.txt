@@ -1,14 +1,3 @@
-alta
-    foto
-        cancelar
-        |
-        foto
-            cancelar
-            |
-            foto
-            |
-            grabar
-
 
 DUDAS
 
@@ -17,6 +6,16 @@ probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 
 INMEDIATO
 añadir al menu "quitar foto"
+
+17-ago
+añado a los menús "Sin foto"
+termino método quita_foto
+modifico bdatos.modificar para que borre la foto antigua si hay cambio de foto
+ añado como parámetro el nombre de la foto que va en el registro y lo añado
+ en las llamadas de modificar y borrar
+ no lo puedo probar
+commit
+push
 
 16-ago
 comento el lanzar la instancia de hacer la foto

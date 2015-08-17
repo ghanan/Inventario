@@ -130,7 +130,7 @@ public class BDatos extends Application {
         return true;
     }
 
-	public boolean modificar(String reg, boolean borrar) {
+	public boolean modificar(String reg, String nueva_foto, boolean borrar) {
 		try {
 			//fw = new FileWriter(fichero+"-mod", false);
 			fw = new FileWriter(new File(dir, nombredb + ".mod"), false);
@@ -157,7 +157,10 @@ public class BDatos extends Application {
 				log = "Error en modificar al escribir el nuevo";
 				return false;
 			}
-		}
+            if (!aFoto.get(registro).equals(".") && !aFoto.get(registro).equals(nueva_foto)) {
+                borra_foto(dir + "/" + aFoto.get(registro));
+            }
+        }
 		for (int i=registro+1; i<aNombre.size(); i++) {
 			try {
 				fw.append(aNombre.get(i) + FS + aNota.get(i) + FS + aCuarto.get(i) + FS
