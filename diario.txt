@@ -5,7 +5,13 @@ PENDIENTE
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 
 INMEDIATO
-añadir al menu "quitar foto"
+ver si cuando solo hay un registro se puede devolver sin tener que elegirlo
+
+18-ago
+ya no da a elegir si slo hay uno
+primer cambio de colores
+commit
+push
 
 17-ago
 añado a los menús "Sin foto"

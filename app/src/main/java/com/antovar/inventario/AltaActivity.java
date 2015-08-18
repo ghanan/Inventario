@@ -147,9 +147,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             String nuevasClaves = data.getExtras().getString("claves");
             claves.setText(nuevasClaves);
         } else if (requestCode == SELEC_REGISTRO && resultCode == 1) {
-            elMenu.clear();
-            getMenuInflater().inflate(R.menu.menu_modificar, elMenu);
-            rellena_pantalla();
+            muestra_selecionado();
         } else if (requestCode == HACER_FOTO && resultCode == 1) {
             if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
             foto_fichero = data.getExtras().getString("foto");
@@ -339,7 +337,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (!hueco.equals("")) seleccionar(bdatos.aHueco, hueco);
         if (!fila_col.equals("")) seleccionar(bdatos.aFila_col, fila_col);
         if (bdatos.posRegistrosSelec.size() == 0) mensaje_no_hay();
-        else {
+        else if (bdatos.posRegistrosSelec.size() == 1) {
+            bdatos.registro = bdatos.posRegistrosSelec.get(0);
+            muestra_selecionado();
+        } else {
             Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
             startActivityForResult(intentRegistros, SELEC_REGISTRO);
         }
@@ -359,6 +360,12 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                 i--;
             }
         }
+    }
+
+    private void muestra_selecionado() {
+        elMenu.clear();
+        getMenuInflater().inflate(R.menu.menu_modificar, elMenu);
+        rellena_pantalla();
     }
 
     private void borrar() {

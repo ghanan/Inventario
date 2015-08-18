@@ -14,7 +14,7 @@
         android:orderInCategory="30"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/sinfoto"
-        android:title="Sin Foto"
+        android:title="Quitar Foto"
         android:orderInCategory="40"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/volver"
