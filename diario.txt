@@ -5,7 +5,7 @@ PENDIENTE
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 
 INMEDIATO
-estética de las listas?
+estética de las claves?
 
 19-ago
 cambio clicable de linearlayout a claves
@@ -13,6 +13,9 @@ commit
 push para prabar estetica
 cambio en prioridades de menu de alta para ver si aparecen todas las opciones en el móvil
 cambiado el item por defecto del texto de las listas
+commit
+push
+cambiado el item de los desplegables
 commit
 push
 

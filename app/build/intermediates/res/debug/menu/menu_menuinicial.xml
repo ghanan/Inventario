@@ -1,9 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-	tools:context=".MenuInicial">
-    <item android:id="@+id/salir"
-		android:title="@string/salir"
-        android:orderInCategory="100" />
-</menu>
-<!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/menu/menu_menuinicial.xml -->
