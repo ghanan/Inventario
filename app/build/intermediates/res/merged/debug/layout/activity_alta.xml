@@ -5,7 +5,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:background="#ff1b4d34"
+	android:background="#ff1b3c33"
 	android:padding="5dp"
 	tools:context="com.antovar.inventario.AltaActivity">
 
@@ -22,9 +22,8 @@
 			android:paddingLeft="10dip"
 			android:paddingRight="10dip"
 			android:weightSum="1"
-			android:clickable="true"
-			android:onClick="onClavesClick"
-			android:background="#ff000000">
+			android:background="#ff000000"
+			android:clickable="false">
 
 			<EditText
 				android:id="@+id/nombre"
@@ -38,7 +37,8 @@
 				android:paddingRight="5dp"
 				android:layout_marginTop="18dp"
 				android:layout_marginLeft="8dp"
-				android:layout_marginRight="8dp">
+				android:layout_marginRight="8dp"
+				android:textSize="20dp">
 				<requestFocus/>
 			</EditText>
 
@@ -56,25 +56,27 @@
 				android:layout_marginLeft="8dp"
 				android:layout_marginTop="6dp"
 				android:layout_marginRight="8dp"
-				android:layout_marginBottom="8dp">
+				android:layout_marginBottom="8dp"
+				android:textSize="20dp">
 			</EditText>
 
 			<TextView
 				android:id="@+id/claves"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:clickable="true"
 				android:onClick="onClavesClick"
 				android:background="#ff181c79"
 				android:hint="claves"
 				android:gravity="center"
-				android:paddingLeft="5dp"
-				android:paddingRight="5dp"
 				android:layout_marginLeft="6dp"
 				android:layout_marginRight="6dp"
 				android:layout_marginTop="10dp"
 				android:layout_marginBottom="18dp"
 				android:textColor="#ffffffff"
-				android:textColorHint="#ff8c8f7f" />
+				android:textColorHint="#ff8c8f7f"
+				android:textSize="18dp"
+				android:padding="5dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_cuarto"
@@ -83,40 +85,45 @@
 				android:prompt="@string/habitacion"
 				android:background="#ffdbc716"
 				android:focusable="false"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp" />
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="8dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_mueble"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:background="#ffb9612f"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp" />
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="8dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_cuerpo"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:background="#ffe6b8ff"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp" />
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="8dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_hueco"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:background="#ff88ffa8"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp" />
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="8dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_fila_col"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:background="#ffb863ff"
-				android:layout_marginLeft="16dp"
-				android:layout_marginRight="16dp" />
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="8dp" />
 
 			<TextView
 				android:id="@+id/foto"

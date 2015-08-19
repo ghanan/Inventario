@@ -5,7 +5,12 @@ PENDIENTE
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 
 INMEDIATO
-ver si cuando solo hay un registro se puede devolver sin tener que elegirlo
+que no haga click en el scrollview
+
+19-ago
+cambio clicable de linearlayout a claves
+commit
+push para prabar estetica
 
 18-ago
 ya no da a elegir si slo hay uno
