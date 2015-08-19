@@ -61,6 +61,7 @@ public final class R {
         public static final int activity_lista_registros=0x7f030002;
         public static final int gestion_claves=0x7f030003;
         public static final int menuinicial=0x7f030004;
+        public static final int spinner_item=0x7f030005;
     }
     public static final class menu {
         public static final int menu_alta=0x7f080000;

@@ -77,31 +77,32 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         desple_cuarto = (Spinner) findViewById(R.id.desplegable_cuarto);
         desple_cuarto.setOnItemSelectedListener(this);
 		//ArrayAdapter < String > adapta_cuarto =
-		adapta_cuarto = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuartos);
+//		adapta_cuarto = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuartos);
+		adapta_cuarto = new ArrayAdapter<String>(this, R.layout.spinner_item, bdatos.cuartos);
         adapta_cuarto.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_cuarto.setAdapter(adapta_cuarto);
 
         desple_mueble = (Spinner) findViewById(R.id.desplegable_mueble);
         desple_mueble.setOnItemSelectedListener(this);
-        adapta_mueble = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.muebles);
+        adapta_mueble = new ArrayAdapter<String>(this, R.layout.spinner_item, bdatos.muebles);
         adapta_mueble.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_mueble.setAdapter(adapta_mueble);
 
         desple_cuerpo = (Spinner) findViewById(R.id.desplegable_cuerpo);
         desple_cuerpo.setOnItemSelectedListener(this);
-        adapta_cuerpo = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.cuerpos);
+        adapta_cuerpo = new ArrayAdapter<String>(this, R.layout.spinner_item, bdatos.cuerpos);
         adapta_cuerpo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_cuerpo.setAdapter(adapta_cuerpo);
 
         desple_hueco = (Spinner) findViewById(R.id.desplegable_hueco);
         desple_hueco.setOnItemSelectedListener(this);
-        adapta_hueco = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.huecos);
+        adapta_hueco = new ArrayAdapter<String>(this, R.layout.spinner_item, bdatos.huecos);
         adapta_hueco.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_hueco.setAdapter(adapta_hueco);
 
         desple_fila_col = (Spinner) findViewById(R.id.desplegable_fila_col);
         desple_fila_col.setOnItemSelectedListener(this);
-        adapta_fila_col = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bdatos.fila_cols);
+        adapta_fila_col = new ArrayAdapter<String>(this, R.layout.spinner_item, bdatos.fila_cols);
         adapta_fila_col.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         desple_fila_col.setAdapter(adapta_fila_col);
 	}
