@@ -3,6 +3,7 @@ DUDAS
 
 PENDIENTE
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
+que solo sea portrait
 
 INMEDIATO
 estética de las claves?
