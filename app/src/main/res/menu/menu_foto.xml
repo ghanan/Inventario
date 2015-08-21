@@ -3,14 +3,11 @@
     tools:context="com.antovar.inventario.FotoActivity">
     <item android:id="@+id/guardar"
         android:title="Guardar"
-        android:orderInCategory="10"
         android:showAsAction="always" />
     <item android:id="@+id/disparar"
         android:title="Disparar"
-        android:orderInCategory="20"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/cancelar"
         android:title="Cancelar"
-        android:orderInCategory="30"
         android:showAsAction="ifRoom" />
 </menu>

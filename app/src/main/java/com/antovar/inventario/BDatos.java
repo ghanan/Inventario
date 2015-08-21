@@ -17,9 +17,12 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.*;
 import android.text.style.*;
+import android.util.Log;
+import android.view.ViewConfiguration;
 import android.widget.Spinner;
 
 public class BDatos extends Application {
@@ -75,6 +78,7 @@ public class BDatos extends Application {
     public void onCreate() {
 		super.onCreate();
 		ctx = getApplicationContext();
+		makeActionOverflowMenuShown();
 		lee_cadenas();
         if (!isExternalStorageWritable()) {
             log = "Sin acceso a almcenamiento externo";
@@ -99,7 +103,21 @@ public class BDatos extends Application {
         disponible = true;
     }
 
-    public boolean isExternalStorageWritable() {
+	private void makeActionOverflowMenuShown() {
+		//devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
+		try {
+			ViewConfiguration config = ViewConfiguration.get(this);
+			Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+			if (menuKeyField != null) {
+				menuKeyField.setAccessible(true);
+				menuKeyField.setBoolean(config, false);
+			}
+		} catch (Exception e) {
+			Log.d("TAG", e.getLocalizedMessage());
+		}
+	}
+
+	public boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
             return true;
