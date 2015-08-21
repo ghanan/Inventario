@@ -44,7 +44,7 @@ public final class R {
         public static final int grabar=0x7f090011;
         public static final int guardar=0x7f090017;
         public static final int item1=0x7f09000c;
-        public static final int limpiar=0x7f090012;
+        public static final int limpiar=0x7f090013;
         public static final int listViewClaves=0x7f09000d;
         public static final int listViewRegistros=0x7f09000b;
         public static final int mas=0x7f090015;
@@ -53,9 +53,9 @@ public final class R {
         public static final int ok=0x7f09001a;
         public static final int regrabar=0x7f09001d;
         public static final int salir=0x7f09001c;
-        public static final int sinfoto=0x7f090013;
+        public static final int sinfoto=0x7f090014;
         public static final int view_foto=0x7f090009;
-        public static final int volver=0x7f090014;
+        public static final int volver=0x7f090012;
     }
     public static final class layout {
         public static final int activity_alta=0x7f030000;

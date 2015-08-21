@@ -6,9 +6,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,6 +70,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         setContentView(R.layout.activity_alta);
         Bundle extras = getIntent().getExtras();
         alta = extras.getBoolean("alta");
+        makeActionOverflowMenuShown();
         bdatos = (BDatos)getApplicationContext();
         //bdatos = (BDatos)getApplication();
         this.nombre = (EditText) findViewById(R.id.nombre);
@@ -108,7 +112,21 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         desple_fila_col.setAdapter(adapta_fila_col);
 	}
 
-	@Override
+    private void makeActionOverflowMenuShown() {
+        //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            Log.d("TAG", e.getLocalizedMessage());
+        }
+    }
+
+    @Override
 	public void onItemSelected (AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         if (parent.getId() == R.id.desplegable_cuarto) {

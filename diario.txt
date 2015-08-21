@@ -8,6 +8,11 @@ que solo sea portrait
 INMEDIATO
 estética de las claves?
 
+21-ago
+pongo el método para que crea que no tiene boton menu
+commit
+push
+
 19-ago
 cambio clicable de linearlayout a claves
 commit

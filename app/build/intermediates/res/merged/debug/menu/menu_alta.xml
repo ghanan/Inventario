@@ -3,23 +3,18 @@
     tools:context="com.antovar.inventario.AltaActivity">
     <item android:id="@+id/grabar"
         android:title="GRABAR"
-        android:orderInCategory="10"
         android:showAsAction="always" />
+    <item android:id="@+id/volver"
+        android:title="Volver"
+        android:showAsAction="ifRoom" />
     <item android:id="@+id/limpiar"
         android:title="Limpiar"
-        android:orderInCategory="20"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/foto"
         android:title="Foto"
-        android:orderInCategory="30"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/sinfoto"
         android:title="Quitar Foto"
-        android:orderInCategory="30"
-        android:showAsAction="ifRoom" />
-    <item android:id="@+id/volver"
-        android:title="Volver"
-        android:orderInCategory="30"
         android:showAsAction="ifRoom" />
 </menu>
 <!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/menu/menu_alta.xml -->
