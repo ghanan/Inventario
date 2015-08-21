@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.*;
 import android.text.style.*;
-import android.util.Log;
+//import android.util.Log;
 import android.view.ViewConfiguration;
 import android.widget.Spinner;
 
@@ -113,7 +113,7 @@ public class BDatos extends Application {
 				menuKeyField.setBoolean(config, false);
 			}
 		} catch (Exception e) {
-			Log.d("TAG", e.getLocalizedMessage());
+			//Log.d("TAG", e.getLocalizedMessage());
 		}
 	}
 

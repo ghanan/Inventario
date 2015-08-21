@@ -6,20 +6,14 @@
         android:showAsAction="always" />
     <item android:id="@+id/volver"
         android:title="Volver"
-        android:showAsAction="always" />
-    <item
-        android:id="@+id/mas"
-        android:icon="@android:drawable/ic_menu_more"
-        android:showAsAction="always"
-        android:title="Más">
-        <menu>
-            <item android:id="@+id/limpiar"
-                android:title="Limpiar" />
-            <item android:id="@+id/foto"
-                android:title="Foto" />
-            <item android:id="@+id/sinfoto"
-                android:title="Quitar Foto" />
-        </menu>
-    </item>
-
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/limpiar"
+        android:title="Limpiar"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/foto"
+        android:title="Foto"
+        android:showAsAction="ifRoom" />
+    <item android:id="@+id/sinfoto"
+        android:title="Quitar Foto"
+        android:showAsAction="ifRoom" />
 </menu>

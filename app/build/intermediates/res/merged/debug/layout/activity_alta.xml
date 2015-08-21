@@ -83,11 +83,11 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:prompt="@string/habitacion"
-				android:background="#ffdbd513"
+				android:background="#ffb9612f"
 				android:focusable="false"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="5dp" />
+				android:padding="4dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_mueble"
@@ -96,34 +96,34 @@
 				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="5dp" />
+				android:padding="4dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_cuerpo"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:background="#ff686cff"
+				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="5dp" />
+				android:padding="4dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_hueco"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:background="#ff88ffa8"
+				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="5dp" />
+				android:padding="4dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_fila_col"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:background="#ffb863ff"
+				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="5dp" />
+				android:padding="4dp" />
 
 			<TextView
 				android:id="@+id/foto"

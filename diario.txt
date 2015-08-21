@@ -14,6 +14,11 @@ commit
 push
 cambio el método del botón a la clase bdatos
 reordeno menus y quito la prioridad de todos los items
+commit creo
+quito Log.d y no lo importo
+copio menu_alta a carpeta large
+amplio tamaño letra del desplegable
+reduzco padding de spinner item
 
 19-ago
 cambio clicable de linearlayout a claves
