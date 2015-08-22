@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#2c5755"
+	android:padding="5dp"
+	tools:context="com.antovar.inventario.AltaActivity">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#ffffd458"
+		android:padding="5dp">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingLeft="10dip"
+			android:paddingRight="10dip"
+			android:weightSum="1"
+			android:background="#ff000000"
+			android:clickable="false">
+
+			<EditText
+				android:id="@+id/nombre"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#ffffffff"
+				android:lines="2"
+				android:hint="large descripcion"
+				android:gravity="center_vertical|left"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:layout_marginTop="18dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:textSize="20dp">
+				<requestFocus/>
+			</EditText>
+
+
+			<EditText
+				android:id="@+id/nota"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="@string/notas"
+				android:background="#ffffddc1"
+				android:lines="2"
+				android:gravity="center_vertical|left"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginTop="6dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="8dp"
+				android:textSize="20dp">
+			</EditText>
+
+			<TextView
+				android:id="@+id/claves"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:clickable="true"
+				android:onClick="onClavesClick"
+				android:background="#ff181c79"
+				android:hint="claves"
+				android:gravity="center"
+				android:layout_marginLeft="6dp"
+				android:layout_marginRight="6dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginBottom="18dp"
+				android:textColor="#ffffffff"
+				android:textColorHint="#ff8c8f7f"
+				android:textSize="18dp"
+				android:padding="5dp" />
+
+			<Spinner
+				android:id="@+id/desplegable_cuarto"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:prompt="@string/habitacion"
+				android:background="#ffb9612f"
+				android:focusable="false"
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="4dp" />
+
+			<Spinner
+				android:id="@+id/desplegable_mueble"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#ffb9612f"
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="4dp" />
+
+			<Spinner
+				android:id="@+id/desplegable_cuerpo"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#ffb9612f"
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="4dp" />
+
+			<Spinner
+				android:id="@+id/desplegable_hueco"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#ffb9612f"
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="4dp" />
+
+			<Spinner
+				android:id="@+id/desplegable_fila_col"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#ffb9612f"
+				android:layout_marginLeft="26dp"
+				android:layout_marginRight="26dp"
+				android:padding="4dp" />
+
+			<TextView
+				android:id="@+id/foto"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="."
+				android:layout_gravity="center"
+				android:layout_margin="6dp"
+				android:background="#ff000000"
+				android:textColor="#ffffffff" />
+
+			<ImageView
+				android:id="@+id/view_foto"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:scaleType="fitStart"
+				android:background="#00000000" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>
+
+
+
+	<!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#8888ff"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:layout_weight="2">
+
+            <Button
+                android:id="@+id/botonCancelar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/boton_cancelar"
+                android:onClick="onButtonClick"
+                android:text="@string/boton_cancelar"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/botonFoto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/boton_foto"
+                android:onClick="onButtonClick"
+                android:text="@string/boton_foto"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/botonGrabar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/boton_grabar"
+                android:onClick="onButtonClick"
+                android:text="@string/boton_grabar"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+    -->
