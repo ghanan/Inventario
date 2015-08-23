@@ -153,8 +153,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         } else if (requestCode == HACER_FOTO && resultCode == 1) {
             if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
             foto_fichero = data.getExtras().getString("foto");
-            foto_fichero = "/storage/sdcard/InventarioCasa/151515151515.jpg";
-//            view_foto.setImageURI(Uri.parse("file://" + foto_fichero));
+            //foto_fichero = "/storage/sdcard/InventarioCasa/151515151515.jpg";
+            view_foto.setImageURI(Uri.parse("file://" + foto_fichero));
             foto_uri = Uri.parse("file://" + foto_fichero);
             view_foto.setImageURI(foto_uri);
             foto.setText(foto_uri.getLastPathSegment());
@@ -173,7 +173,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         desple_fila_col.setSelection(adapta_fila_col.getPosition(bdatos.aFila_col.get(bdatos.registro)));
         if (!bdatos.aFoto.get(bdatos.registro).equals(".")) {
             foto.setText(bdatos.aFoto.get(bdatos.registro));
-            view_foto.setImageURI(Uri.parse("file:// " + bdatos.dir + "/" + bdatos.aFoto.get(bdatos.registro)));
+            System.out.println("file:/" + bdatos.dir + "/" + bdatos.aFoto.get(bdatos.registro));
+            view_foto.setImageURI(Uri.parse("file://" + bdatos.dir + "/" + bdatos.aFoto.get(bdatos.registro)));
         }
         nombre.requestFocus();
     }

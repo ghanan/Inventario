@@ -6,21 +6,21 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:background="#2c5755"
-	android:padding="5dp"
+	android:padding="4dp"
 	tools:context="com.antovar.inventario.AltaActivity">
 
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:background="#ffffd458"
-		android:padding="5dp">
+		android:padding="4dp">
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
-			android:paddingLeft="10dip"
-			android:paddingRight="10dip"
+			android:paddingLeft="8dip"
+			android:paddingRight="8dip"
 			android:weightSum="1"
 			android:background="#ff000000"
 			android:clickable="false">
@@ -33,11 +33,11 @@
 				android:lines="2"
 				android:hint="hdpi descripcion"
 				android:gravity="center_vertical|left"
-				android:paddingLeft="5dp"
-				android:paddingRight="5dp"
-				android:layout_marginTop="18dp"
-				android:layout_marginLeft="8dp"
-				android:layout_marginRight="8dp"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginLeft="6dp"
+				android:layout_marginRight="6dp"
 				android:textSize="20dp">
 				<requestFocus/>
 			</EditText>
@@ -51,12 +51,12 @@
 				android:background="#ffffddc1"
 				android:lines="2"
 				android:gravity="center_vertical|left"
-				android:paddingLeft="5dp"
-				android:paddingRight="5dp"
-				android:layout_marginLeft="8dp"
-				android:layout_marginTop="6dp"
-				android:layout_marginRight="8dp"
-				android:layout_marginBottom="8dp"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
+				android:layout_marginLeft="6dp"
+				android:layout_marginTop="5dp"
+				android:layout_marginRight="6dp"
+				android:layout_marginBottom="6dp"
 				android:textSize="20dp">
 			</EditText>
 
@@ -71,12 +71,12 @@
 				android:gravity="center"
 				android:layout_marginLeft="6dp"
 				android:layout_marginRight="6dp"
-				android:layout_marginTop="10dp"
-				android:layout_marginBottom="18dp"
+				android:layout_marginTop="12dp"
+				android:layout_marginBottom="17dp"
 				android:textColor="#ffffffff"
 				android:textColorHint="#ff8c8f7f"
 				android:textSize="18dp"
-				android:padding="5dp" />
+				android:padding="4dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_cuarto"
@@ -87,7 +87,7 @@
 				android:focusable="false"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="4dp" />
+				android:padding="3dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_mueble"
@@ -96,7 +96,7 @@
 				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="4dp" />
+				android:padding="3dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_cuerpo"
@@ -105,7 +105,7 @@
 				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="4dp" />
+				android:padding="3dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_hueco"
@@ -114,7 +114,7 @@
 				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="4dp" />
+				android:padding="3dp" />
 
 			<Spinner
 				android:id="@+id/desplegable_fila_col"
@@ -123,7 +123,7 @@
 				android:background="#ffb9612f"
 				android:layout_marginLeft="26dp"
 				android:layout_marginRight="26dp"
-				android:padding="4dp" />
+				android:padding="3dp" />
 
 			<TextView
 				android:id="@+id/foto"

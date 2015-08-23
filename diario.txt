@@ -6,7 +6,11 @@ probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 que solo sea portrait
 
 INMEDIATO
-estética de las claves?
+
+
+23-ago
+adaptado el large
+commit
 
 21-ago
 pongo el método para que crea que no tiene boton menu
