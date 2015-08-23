@@ -2,14 +2,19 @@
 DUDAS
 
 PENDIENTE
-probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 que solo sea portrait
+asegurar que se puede instalar en froyo
+cambiar la versión de so de los emuladores
+
 
 INMEDIATO
+probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 
 
 23-ago
 adaptado el large
+commit
+creo el layout-ldpi y pongo el del mdpi, no puedo probarlo en galaxy mini
 commit
 
 21-ago
