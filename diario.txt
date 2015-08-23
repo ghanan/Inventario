@@ -2,6 +2,7 @@
 DUDAS
 
 PENDIENTE
+borrar layout->activity_alta.xml
 que solo sea portrait
 asegurar que se puede instalar en froyo
 cambiar la versión de so de los emuladores
@@ -16,6 +17,10 @@ adaptado el large
 commit
 creo el layout-ldpi y pongo el del mdpi, no puedo probarlo en galaxy mini
 commit
+creado values-es
+modificadas cadenas de bdatos
+commit
+push
 
 21-ago
 pongo el método para que crea que no tiene boton menu

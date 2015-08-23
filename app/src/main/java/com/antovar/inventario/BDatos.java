@@ -81,20 +81,23 @@ public class BDatos extends Application {
 		makeActionOverflowMenuShown();
 		lee_cadenas();
         if (!isExternalStorageWritable()) {
-            log = "Sin acceso a almcenamiento externo";
+//            log = "Sin acceso a almcenamiento externo";
+			log = getString(R.string.msg_sin_almacenamiento);
             return;
         }
         File path = Environment.getExternalStorageDirectory();
         dir = new File(path, nombredb);
         if (!dir.mkdir() && !dir.isDirectory()) {
-            log = "No se puede crear el directorio " + nombredb;
+//            log = "No se puede crear el directorio " + nombredb;
+            log = getString(R.string.msg_no_creado_dir) + nombredb;
             return;
         }
         fichero = new File(dir, nombredb + ".csv");
         if (!fichero.exists()) {
             try { fichero.createNewFile(); }
             catch (IOException e) {
-                log = "No se puede crear el fichero " + nombredb + ".csv";
+//                log = "No se puede crear el fichero " + nombredb + ".csv";
+				log = getString(R.string.msg_no_creado_fich) + nombredb + ".csv";
                 return;
             }
         }
@@ -129,19 +132,22 @@ public class BDatos extends Application {
         try {
             fw = new FileWriter(fichero, true);
         } catch (IOException e) {
-            log = "Error en alta al abrir fichero";
+//            log = "Error en alta al abrir fichero";
+            log = getString(R.string.msg_error_crear_fwriter);
             return false;
         }
         try {
             fw.append(reg + "\n");
         } catch (IOException e) {
-            log = "Error en alta al escribir en fichero";
+//            log = "Error en alta al escribir en fichero";
+            log = getString(R.string.msg_error_escribiendo);
             return false;
         }
         try {
             fw.close();
         } catch (IOException e) {
-            log = "Error en alta al cerrar el fichero";
+//            log = "Error en alta al cerrar el fichero";
+			log = getString(R.string.msg_error_cerrando);
             return false;
         }
 		procesa_linea(reg);
@@ -153,7 +159,8 @@ public class BDatos extends Application {
 			//fw = new FileWriter(fichero+"-mod", false);
 			fw = new FileWriter(new File(dir, nombredb + ".mod"), false);
 		} catch (IOException e) {
-			log = "Error en modificar al abrir fichero";
+//			log = "Error en modificar al abrir fichero";
+			log = getString(R.string.msg_error_crear_fwriter);
 			return false;
 		}
 		for (int i=0; i<registro; i++) {
@@ -162,7 +169,8 @@ public class BDatos extends Application {
 					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
 					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + aFoto.get(i) + "\n");
 			} catch (IOException e) {
-				log = "Error en modificar al escribir inicio fichero";
+//				log = "Error en modificar al escribir inicio fichero";
+				log = getString(R.string.msg_error_escribiendo_inicio);
 				return false;
 			}
 		}
@@ -172,7 +180,8 @@ public class BDatos extends Application {
 			try {
 				fw.append(reg + "\n");
 			} catch (IOException e) {
-				log = "Error en modificar al escribir el nuevo";
+//				log = "Error en modificar al escribir el nuevo";
+				log = getString(R.string.msg_error_modificando);
 				return false;
 			}
             if (!aFoto.get(registro).equals(".") && !aFoto.get(registro).equals(nueva_foto)) {
@@ -185,14 +194,16 @@ public class BDatos extends Application {
 					+ aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
 					+ aFila_col.get(i) + FS + aClaves.get(i) + FS + aFoto.get(i) + "\n");
 			} catch (IOException e) {
-				log = "Error en modificar al escribir el resto";
+//				log = "Error en modificar al escribir el resto";
+				log = getString(R.string.msg_error_escribiendo_final);
 				return false;
 			}
 		}
 		try {
 			fw.close();
 		} catch (IOException e) {
-			log = "Error en modificar al cerrar el fichero";
+//			log = "Error en modificar al cerrar el fichero";
+			log = getString(R.string.msg_error_cerrando);
 			return false;
 		}
 		File modi = new File(dir, nombredb + ".mod");
@@ -246,7 +257,8 @@ public class BDatos extends Application {
 		FileReader fr;
 		try { fr = new FileReader(fichero); }
 		catch (IOException e) {
-			log = "Error al abrir fichero para leer";
+//			log = "Error al abrir fichero para leer";
+			log = getString(R.string.msg_error_crear_freader);
             return false;
 		}
 		BufferedReader br = new BufferedReader(fr); 
@@ -255,7 +267,8 @@ public class BDatos extends Application {
 		while ( !fin ) {
 			try { s = br.readLine(); }
 			catch (IOException e) {
-				log = "Error al leer fichero";
+//				log = "Error al leer fichero";
+				log = getString(R.string.msg_error_leyendo);
 				return false;
 			}
 			if (s == null) fin = true;
@@ -266,7 +279,8 @@ public class BDatos extends Application {
 		}
 		try { fr.close(); }
 		catch (IOException e) {
-			log = "Error al cerrar fichero tras lectura";
+//			log = "Error al cerrar fichero tras lectura";
+			log = getString(R.string.msg_error_cerrando);
 			return false;
 		}
 		return true;
@@ -307,10 +321,12 @@ public class BDatos extends Application {
 
 	// para cuando se añade un valor nuevo a mano
 	public void add_valor(Spinner desple, List<String> lista, String valor) {
-		lista.remove("NUEVO");
+		//lista.remove("NUEVO");
+		lista.remove(getString(R.string.nuevo));
 		lista.add(valor);
 		Collections.sort(lista, String.CASE_INSENSITIVE_ORDER);
-		lista.add("NUEVO");
+		//lista.add("NUEVO");
+		lista.add(getString(R.string.nuevo));
 		//desple.getAdapter().notifyDataSetChanged();
 		desple.setAdapter(desple.getAdapter());
 		desple.setSelection(lista.indexOf(valor));
@@ -325,15 +341,15 @@ public class BDatos extends Application {
 				}
 		}
 		Collections.sort(claves, String.CASE_INSENSITIVE_ORDER);
-		claves.add("NUEVA");
+		claves.add(getString(R.string.nuevo));
 	}
 
 	public void anade_clave(String nueva) {
 		if (claves.contains(nueva)) return;
-		claves.remove("NUEVA");
+		claves.remove(getString(R.string.nuevo));
 		claves.add(nueva);
 		Collections.sort(claves, String.CASE_INSENSITIVE_ORDER);
-		claves.add("NUEVA");
+		claves.add(getString(R.string.nuevo));
 	}
 
 	public void borra_foto(String fichero) {
