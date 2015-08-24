@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.antovar.inventario.GestionClavesActivity">
     <item android:id="@+id/ok"
-        android:title="OK"
+        android:title="@string/boton_aceptar"
         android:showAsAction="always" />
     <item android:id="@+id/cancel"
-        android:title="Cancelar"
+        android:title="@string/boton_cancelar"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/limpiar"
-        android:title="Limpiar"
+        android:title="@string/boton_limpiar"
         android:showAsAction="ifRoom" />
 </menu>
 <!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/menu/menu_gestion_claves.xml -->

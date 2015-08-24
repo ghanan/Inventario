@@ -27,6 +27,7 @@ modificadas las cadenas de menu_alta.xml
 commit
 modificadas las cadenas de menu_buscar.xml
 modificadas las cadenas de menu_foto.xml
+cambio roden en menugestionclaves
 commit
 
 23-ago
