@@ -10,9 +10,12 @@ cambiar la versión de so de los emuladores
 
 INMEDIATO
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
+puede que no funcione quitar foto
 
 24-ago
 modificadas las cadenas de alta_activity
+commit
+modificadas las cadenas de FotoActivity
 commit
 
 23-ago

@@ -30,6 +30,7 @@
     <string name="intro_nuevo">Type new value:</string>
     <string name="msg_dir_creado">Creado directorio </string>
     <string name="msg_error_cerrando">Error closing file</string>
+    <string name="msg_error_crea_fich_foto">Error saving image file: </string>
     <string name="msg_error_crear_freader">Error opening file to read</string>
     <string name="msg_error_crear_fwriter">Error opening file to write</string>
     <string name="msg_error_escribiendo">Error writing to file</string>

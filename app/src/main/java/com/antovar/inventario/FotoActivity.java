@@ -40,7 +40,7 @@ public class FotoActivity extends Activity {
         try {
             la_foto.createNewFile();
         } catch (IOException ex) {
-            Toast.makeText(this, "Error al crear fichero foto: " + ex, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.msg_error_crea_fich_foto) + ex, Toast.LENGTH_LONG).show();
         }
         Uri uri_foto = Uri.fromFile(la_foto);
 //        Intent camara_Intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);

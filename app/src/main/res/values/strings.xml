@@ -39,6 +39,7 @@
     <string name="msg_error_cerrando">Error closing file</string>
     <string name="msg_error_modificando">Error writing changed</string>
     <string name="msg_no_registros">Not found</string>
+    <string name="msg_error_crea_fich_foto">Error saving image file: </string>
 
     <string name="title_activity_alta">Inventario</string>
     <string name="title_activity_gestion_claves">Claves</string>
