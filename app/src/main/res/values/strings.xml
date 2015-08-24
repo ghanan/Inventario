@@ -13,10 +13,9 @@
     <string name="boton_cancelar">Cancel</string>
     <string name="boton_aceptar">OK</string>
 
-    <string name="habitacion">Habitación</string>
-    <string name="descripcion">descripción</string>
-    <string name="notas">notas</string>
-    <string name="claves">claves</string>
+    <string name="descripcion">description</string>
+    <string name="notas">notes</string>
+    <string name="claves">keys</string>
     <string name="salir">Salir</string>
     <string name="nuevo">NEW</string>
 

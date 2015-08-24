@@ -21,11 +21,10 @@
     <string name="boton_consulta">Consulta</string>
     <string name="boton_foto">Foto</string>
     <string name="boton_grabar">Grabar</string>
-    <string name="claves">claves</string>
-    <string name="descripcion">descripción</string>
+    <string name="claves">keys</string>
+    <string name="descripcion">description</string>
     <string name="directorio">DirectorioCasa</string>
     <string name="fichero">InventarioCasa.csv</string>
-    <string name="habitacion">Habitación</string>
     <string name="hello_world">Hello world!</string>
     <string name="intro_nuevo">Type new value:</string>
     <string name="msg_dir_creado">Creado directorio </string>
@@ -48,7 +47,7 @@
     <string name="msg_no_registros">Not found</string>
     <string name="msg_nombreVacio">Falta nombre</string>
     <string name="msg_sin_almacenamiento">I can\'t access to external storage</string>
-    <string name="notas">notas</string>
+    <string name="notas">notes</string>
     <string name="nuevo">NEW</string>
     <string name="salir">Salir</string>
     <string name="title_activity_alta">Inventario</string>
