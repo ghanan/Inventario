@@ -18,6 +18,7 @@
     <string name="boton_alta">New</string>
     <string name="boton_buscar">Find</string>
     <string name="boton_cancelar">Cancel</string>
+    <string name="boton_disparar">Take</string>
     <string name="boton_foto">Photo</string>
     <string name="boton_grabar">Save</string>
     <string name="boton_limpiar">Clear</string>

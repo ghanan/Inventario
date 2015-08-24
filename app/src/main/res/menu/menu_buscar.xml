@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.antovar.inventario.AltaActivity">
     <item android:id="@+id/buscar"
-        android:title="BUSCAR"
+        android:title="@string/boton_buscar"
         android:showAsAction="always" />
     <item android:id="@+id/volver"
-        android:title="Volver"
+        android:title="@string/boton_volver"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/limpiar"
-        android:title="Limpiar"
+        android:title="@string/boton_limpiar"
         android:showAsAction="ifRoom" />
 </menu>

@@ -2,12 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.antovar.inventario.FotoActivity">
     <item android:id="@+id/guardar"
-        android:title="Guardar"
+        android:title="@string/boton_grabar"
         android:showAsAction="always" />
     <item android:id="@+id/disparar"
-        android:title="Disparar"
+        android:title="@string/boton_disparar"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/cancelar"
-        android:title="Cancelar"
+        android:title="@string/boton_cancelar"
         android:showAsAction="ifRoom" />
 </menu>

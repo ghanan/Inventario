@@ -13,6 +13,7 @@
     <string name="boton_limpiar">Clear</string>
     <string name="boton_foto">Photo</string>
     <string name="boton_sinfoto">Remove photo</string>
+    <string name="boton_disparar">Take</string>
     <string name="boton_cancelar">Cancel</string>
     <string name="boton_aceptar">OK</string>
 

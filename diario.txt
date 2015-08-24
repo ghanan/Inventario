@@ -25,6 +25,9 @@ modificadas las cadenas de menuinicial.xml
 commit
 modificadas las cadenas de menu_alta.xml
 commit
+modificadas las cadenas de menu_buscar.xml
+modificadas las cadenas de menu_foto.xml
+commit
 
 23-ago
 adaptado el large
