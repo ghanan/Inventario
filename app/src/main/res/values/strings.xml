@@ -10,7 +10,8 @@
     <string name="boton_consulta">Consulta</string>
     <string name="boton_grabar">Grabar</string>
     <string name="boton_foto">Foto</string>
-    <string name="boton_cancelar">Cancelar</string>
+    <string name="boton_cancelar">Cancel</string>
+    <string name="boton_aceptar">OK</string>
 
     <string name="habitacion">Habitación</string>
     <string name="descripcion">descripción</string>
@@ -20,13 +21,13 @@
     <string name="nuevo">NEW</string>
 
     <string name="msg_nombreVacio">Falta nombre</string>
-    <string name="msg_sin_almacenamiento">I can't access to external storage</string>
+    <string name="msg_sin_almacenamiento">I can\'t access to external storage</string>
     <string name="msg_no_existe_fichero">No existe el fichero </string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
     <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
-    <string name="msg_no_creado_dir">I can't create folder </string>
+    <string name="msg_no_creado_dir">I can\'t create folder </string>
     <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
-    <string name="msg_no_creado_fich">I can't create file </string>
+    <string name="msg_no_creado_fich">I can\'t create file </string>
     <string name="msg_dir_creado">Creado directorio </string>
     <string name="msg_fich_creado">Creado fichero </string>
     <string name="msg_error_crear_fwriter">Error opening file to write</string>
@@ -37,12 +38,14 @@
     <string name="msg_error_escribiendo_final">Error writing last part</string>
     <string name="msg_error_cerrando">Error closing file</string>
     <string name="msg_error_modificando">Error writing changed</string>
+    <string name="msg_no_registros">Not found</string>
 
     <string name="title_activity_alta">Inventario</string>
     <string name="title_activity_gestion_claves">Claves</string>
     <string name="title_activity_lista_registros">Registros</string>
     <string name="title_activity_foto">FotoActivity</string>
 
+    <string name="intro_nuevo">Type new value:</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

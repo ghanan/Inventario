@@ -112,19 +112,20 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 	public void onItemSelected (AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         if (parent.getId() == R.id.desplegable_cuarto) {
-            if (item.equals("NUEVO")) nuevo_sitio("cuarto");
+//            if (item.equals("NUEVO")) nuevo_sitio("cuarto");
+            if (item.equals(getString(R.string.nuevo))) nuevo_sitio("cuarto");
             else cuarto = item;
         } else if (parent.getId() == R.id.desplegable_mueble) {
-            if (item.equals("NUEVO")) nuevo_sitio("mueble");
+            if (item.equals(getString(R.string.nuevo))) nuevo_sitio("mueble");
             else mueble = item;
         } else if (parent.getId() == R.id.desplegable_cuerpo) {
-            if (item.equals("NUEVO")) nuevo_sitio("cuerpo");
+            if (item.equals(getString(R.string.nuevo))) nuevo_sitio("cuerpo");
             else mueble = item;
         } else if (parent.getId() == R.id.desplegable_hueco) {
-            if (item.equals("NUEVO")) nuevo_sitio("hueco");
+            if (item.equals(getString(R.string.nuevo))) nuevo_sitio("hueco");
             else hueco = item;
         } else {
-            if (item.equals("NUEVO")) nuevo_sitio("fila_col");
+            if (item.equals(getString(R.string.nuevo))) nuevo_sitio("fila_col");
             else fila_col = item;
         }
 	}
@@ -201,13 +202,14 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
     private void grabar(boolean nuevo) {
         if (this.nombre.getText().toString().equals("")) {
-            Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Falta nombre", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.msg_nombreVacio), Toast.LENGTH_LONG).show();
             return;
         }
 //		String lclaves = claves.getText().toString();
-        String linea = nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
-                + mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";"
-                + claves.getText().toString() + ";" + foto.getText();
+        String linea = nombre.getText() + bdatos.FS + nota.getText() + bdatos.FS
+                + cuarto + bdatos.FS + mueble + bdatos.FS + cuerpo + bdatos.FS + hueco + ";"
+                + fila_col + bdatos.FS + claves.getText().toString() + bdatos.FS + foto.getText();
 //        if (bdatos.alta(nombre.getText() + ";" + nota.getText() + ";" + cuarto + ";"
 //			+ mueble + ";" + cuerpo + ";" + hueco + ";" + fila_col + ";" + lclaves + ";.")) {
         if (nuevo) {
@@ -239,10 +241,10 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         final EditText entrada = new EditText(this);
         entrada.setText("");
         new AlertDialog.Builder(this)
-            .setTitle("Nuevo sitio")
-            .setMessage("introduce nuevo "+sitio)
-            .setView(entrada)
-            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            .setTitle(getString(R.string.intro_nuevo))
+            //.setMessage("introduce nuevo "+sitio)
+                .setView(entrada)
+            .setPositiveButton(getString(R.string.boton_aceptar), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     if (sitio.equals("cuarto")) {
                         cuarto = entrada.getText().toString();
@@ -270,7 +272,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                         desple_fila_col.setSelection(adapta_fila_col.getPosition(fila_col));
                     }
                 }})
-            .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            .setNegativeButton(getString(R.string.boton_cancelar), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     if (sitio.equals("cuarto")) desple_cuarto.setSelection(0);
                     else if (sitio.equals("mueble")) desple_mueble.setSelection(0);
@@ -398,8 +400,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
 
     private void mensaje_no_hay() {
         new AlertDialog.Builder(this)
-                .setTitle("No se han encontrado registros")
-                .setPositiveButton("Aceptar", null)
+                .setTitle(getString(R.string.msg_no_registros))
+                .setPositiveButton(R.string.boton_aceptar, null)
                 .show();
     }
 }

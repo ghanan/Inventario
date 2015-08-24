@@ -11,6 +11,7 @@
     <string name="boton_grabar">Grabar</string>
     <string name="boton_foto">Foto</string>
     <string name="boton_cancelar">Cancelar</string>
+    <string name="boton_aceptar">Aceptar</string>
 
     <string name="habitacion">Habitación</string>
     <string name="descripcion">descripción</string>
@@ -19,7 +20,7 @@
     <string name="salir">Salir</string>
     <string name="nuevo">NUEVO</string>
 
-    <string name="msg_nombreVacio">Falta nombre</string>
+    <string name="msg_nombreVacio">Falta descripción</string>
     <string name="msg_sin_almacenamiento">Sin acceso a almacenamiento externo</string>
     <string name="msg_no_existe_fichero">No existe el fichero </string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
@@ -27,8 +28,6 @@
     <string name="msg_no_creado_dir">No se pudo crear el directorio </string>
     <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
     <string name="msg_no_creado_fich">No puedo crear el fichero </string>
-    <!--<string name="msg_dir_creado">Creado directorio </string>-->
-    <!--<string name="msg_fich_creado">Creado fichero </string>-->
     <string name="msg_error_crear_fwriter">Error al abrir para escribir</string>
     <string name="msg_error_crear_freader">Error al abrir para leer</string>
     <string name="msg_error_leyendo">Error al leer del fichero</string>
@@ -37,12 +36,14 @@
     <string name="msg_error_escribiendo_final">Error escribiendo final</string>
     <string name="msg_error_cerrando">Error al cerrar fichero</string>
     <string name="msg_error_modificando">Error al escribir modificación</string>
+    <string name="msg_no_registros">No hay registros</string>
 
     <string name="title_activity_alta">Inventario</string>
     <string name="title_activity_gestion_claves">Claves</string>
     <string name="title_activity_lista_registros">Registros</string>
     <string name="title_activity_foto">FotoActivity</string>
 
+    <string name="intro_nuevo">Introduce nuevo valor:</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
