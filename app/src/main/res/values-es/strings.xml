@@ -7,7 +7,7 @@
 
     <string name="boton_alta">Alta</string>
     <string name="boton_buscar">Buscar</string>
-    <string name="boton_consulta">Consulta</string>
+    <string name="boton_salir">Salir</string>
     <string name="boton_grabar">Grabar</string>
     <string name="boton_foto">Foto</string>
     <string name="boton_cancelar">Cancelar</string>

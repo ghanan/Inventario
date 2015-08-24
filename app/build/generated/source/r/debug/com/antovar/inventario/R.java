@@ -81,9 +81,9 @@ public final class R {
         public static final int boton_alta=0x7f040003;
         public static final int boton_buscar=0x7f040004;
         public static final int boton_cancelar=0x7f040005;
-        public static final int boton_consulta=0x7f040006;
-        public static final int boton_foto=0x7f040007;
-        public static final int boton_grabar=0x7f040008;
+        public static final int boton_foto=0x7f040006;
+        public static final int boton_grabar=0x7f040007;
+        public static final int boton_salir=0x7f040008;
         public static final int claves=0x7f040009;
         public static final int descripcion=0x7f04000a;
         public static final int directorio=0x7f04000b;

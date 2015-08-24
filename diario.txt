@@ -21,6 +21,8 @@ modificadas las cadenas de GestionClavesActivity
 commit
 modificadas las cadenas de activity_alta.xml
 commit
+modificadas las cadenas de menuinicial.xml
+commit
 
 23-ago
 adaptado el large

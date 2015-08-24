@@ -5,9 +5,9 @@
     <string name="directorio">DirectorioCasa</string>
     <string name="fichero">InventarioCasa.csv</string>
 
-    <string name="boton_alta">Alta</string>
-    <string name="boton_buscar">Buscar</string>
-    <string name="boton_consulta">Consulta</string>
+    <string name="boton_alta">New</string>
+    <string name="boton_buscar">Find</string>
+    <string name="boton_salir">Exit</string>
     <string name="boton_grabar">Grabar</string>
     <string name="boton_foto">Foto</string>
     <string name="boton_cancelar">Cancel</string>
