@@ -16,6 +16,9 @@
     <string name="boton_disparar">Disparar</string>
     <string name="boton_cancelar">Cancelar</string>
     <string name="boton_aceptar">Aceptar</string>
+    <string name="boton_regrabar">Re-grabar</string>
+    <string name="boton_anadir">Añadir</string>
+    <string name="boton_borrar">Borrar</string>
 
     <string name="descripcion">descripción</string>
     <string name="notas">notas</string>

@@ -16,6 +16,9 @@
     <string name="boton_disparar">Take</string>
     <string name="boton_cancelar">Cancel</string>
     <string name="boton_aceptar">OK</string>
+    <string name="boton_regrabar">Save changes</string>
+    <string name="boton_anadir">Save as new</string>
+    <string name="boton_borrar">Delete</string>
 
     <string name="descripcion">description</string>
     <string name="notas">notes</string>

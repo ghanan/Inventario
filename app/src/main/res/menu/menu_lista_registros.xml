@@ -3,6 +3,6 @@
 xmlns:tools="http://schemas.android.com/tools"
 tools:context="com.antovar.inventario.ListaRegistrosActivity">
 <item android:id="@+id/volver"
-    android:title="Volver"
+    android:title="@string/boton_cancelar"
     android:showAsAction="always" />
 </menu>

@@ -29,6 +29,10 @@ modificadas las cadenas de menu_buscar.xml
 modificadas las cadenas de menu_foto.xml
 cambio roden en menugestionclaves
 commit
+modificadas las cadenas de menu_lista_registros
+modificadas las cadenas de menu_modificar
+commit
+push
 
 23-ago
 adaptado el large
