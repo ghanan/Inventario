@@ -44,7 +44,7 @@
     <string name="title_activity_lista_registros">Registros</string>
     <string name="title_activity_foto">FotoActivity</string>
 
-    <string name="intro_nuevo">Introduce nuevo valor:</string>
+    <string name="intro_nuevo">Introduce nuevo valor</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

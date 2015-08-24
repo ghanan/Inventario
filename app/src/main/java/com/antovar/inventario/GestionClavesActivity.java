@@ -53,14 +53,16 @@ public class GestionClavesActivity extends Activity {
         listClaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (((String) parent.getItemAtPosition(position)).equals("NUEVA")) {
+//                if (((String) parent.getItemAtPosition(position)).equals("NUEVA")) {
+                if (((String) parent.getItemAtPosition(position)).equals(getString(R.string.nuevo))) {
                     final EditText entrada = new EditText(contexto);
                     entrada.setText("");
 //                          .setMessage("introduce nueva clave")
                     new AlertDialog.Builder(contexto)
-                            .setTitle("Introduce nueva clave")
+//                            .setTitle("Introduce nueva clave")
+                            .setTitle(getString(R.string.intro_nuevo))
                             .setView(entrada)
-                            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(getString(R.string.boton_aceptar), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
 //                                    System.out.println(entrada.getText().toString());
                                     // para evitar errores en el split anado "<cr>."
@@ -73,7 +75,7 @@ public class GestionClavesActivity extends Activity {
                                     }
                                 }
                             })
-                            .setNegativeButton("Cancelar", null)
+                            .setNegativeButton(getString(R.string.boton_cancelar), null)
                             .show();
                 } else
                     if (posClavesMarcadas.contains(position)) {

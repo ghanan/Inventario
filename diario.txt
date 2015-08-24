@@ -17,6 +17,8 @@ modificadas las cadenas de alta_activity
 commit
 modificadas las cadenas de FotoActivity
 commit
+modificadas las cadenas de GestionClavesActivity
+commit
 
 23-ago
 adaptado el large
