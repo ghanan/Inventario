@@ -2,18 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.antovar.inventario.AltaActivity">
     <item android:id="@+id/grabar"
-        android:title="GRABAR"
+        android:title="@string/boton_grabar"
         android:showAsAction="always" />
     <item android:id="@+id/volver"
-        android:title="Volver"
+        android:title="@string/boton_volver"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/limpiar"
-        android:title="Limpiar"
+        android:title="@string/boton_limpiar"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/foto"
-        android:title="Foto"
+        android:title="@string/boton_foto"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/sinfoto"
-        android:title="Quitar Foto"
+        android:title="@string/boton_sinfoto"
         android:showAsAction="ifRoom" />
 </menu>
