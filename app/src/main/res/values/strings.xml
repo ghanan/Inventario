@@ -46,7 +46,10 @@
     <string name="msg_error_modificando">Error writing changed</string>
     <string name="msg_no_registros">Not found</string>
     <string name="msg_error_crea_fich_foto">Error saving image file: </string>
+    <string name="msg_no_hay_inventarios">No inventories</string>
+    <string name="msg_no_abierto">Inventory not open</string>
 
+    <string name="title_no_abierto">Not open</string>
     <string name="title_activity_alta">Inventario</string>
     <string name="title_activity_gestion_claves">Claves</string>
     <string name="title_activity_lista_registros">Registros</string>

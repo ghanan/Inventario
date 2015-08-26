@@ -16,14 +16,18 @@ public class MenuInicial extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menuinicial);
         bdatos = (BDatos)getApplicationContext();
-        comprueba_almacenamiento();
+//        comprueba_almacenamiento();
+        //if (bdatos.nombredb.equals("")
+        //setTitle(bdatos.nombredb.equals("") ? bdatos.nombredb : R.string.title_no_abierto);
+        setTitle(bdatos.nombredb.equals("") ? getString(R.string.title_no_abierto) : bdatos.nombredb);
+        if (!bdatos.disponible) Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
     }
 
-    private void comprueba_almacenamiento() {
-        if (!bdatos.disponible) {
-            Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
-        }
-    }
+//    private void comprueba_almacenamiento() {
+//        if (!bdatos.disponible) {
+//            Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
+//        }
+//    }
 
     public void onButtonClick(View v) {
         if (v.getId() == R.id.botonSalir) {
@@ -31,7 +35,11 @@ public class MenuInicial extends Activity {
             return;
         }
         if (!bdatos.disponible) {
-            Toast.makeText(this, R.string.msg_no_puedo_escribir_ext, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (bdatos.nombredb.equals("")) {
+            Toast.makeText(this, getString(R.string.msg_no_abierto), Toast.LENGTH_LONG).show();
             return;
         }
         Intent pantalla_alta = new Intent(this, AltaActivity.class);

@@ -45,11 +45,13 @@
     <string name="msg_error_leyendo">Error reading from file</string>
     <string name="msg_error_modificando">Error writing changed</string>
     <string name="msg_fich_creado">Creado fichero </string>
+    <string name="msg_no_abierto">Inventory not open</string>
     <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
     <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
     <string name="msg_no_creado_dir">I can\'t create folder </string>
     <string name="msg_no_creado_fich">I can\'t create file </string>
     <string name="msg_no_existe_fichero">No existe el fichero </string>
+    <string name="msg_no_hay_inventarios">No inventories</string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
     <string name="msg_no_registros">Not found</string>
     <string name="msg_nombreVacio">Falta nombre</string>
@@ -61,6 +63,7 @@
     <string name="title_activity_foto">FotoActivity</string>
     <string name="title_activity_gestion_claves">Claves</string>
     <string name="title_activity_lista_registros">Registros</string>
+    <string name="title_no_abierto">Not open</string>
     <!-- From: file:/home/atc/AndroidStudioProjects/Inventario/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light">

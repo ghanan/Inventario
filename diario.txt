@@ -2,6 +2,7 @@
 DUDAS
 
 PENDIENTE
+eliminar los System.out.println
 borrar layout->activity_alta.xml
 que solo sea portrait
 asegurar que se puede instalar en froyo
@@ -13,6 +14,8 @@ longpress en una clave busca directamente registros con esa clave
 INMEDIATO
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 puede que no funcione quitar foto
+poner como título de actividad el nombre del inventario
+menu en menuinicial para abrir, nuevo, borrar y about
 
 26-ago
 commit para crear rama multidb
@@ -23,6 +26,12 @@ bdatos
  añado dirDB y dirs_db
  saco de oncreate la apertura de la db
  si solo hay una, la abre
+commit
+bdatos
+ añado control de no hay inventario (relleno log)
+menuinicial
+ comprobacion/toast inventaario no abierto
+ pone título o no abierto
 commit
 
 24-ago

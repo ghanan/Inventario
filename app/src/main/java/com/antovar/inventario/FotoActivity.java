@@ -35,7 +35,7 @@ public class FotoActivity extends Activity {
     }
 
     private void toma_foto() {
-        nombre_foto = bdatos.dir + "/" + nombreFoto();
+        nombre_foto = bdatos.dirDB + "/" + nombreFoto();
         la_foto = new File(nombre_foto);
         try {
             la_foto.createNewFile();
