@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.antovar.inventario.MenuInicial">
+    <item android:id="@+id/grabar"
+        android:title="@string/boton_grabar"
+        android:showAsAction="always" />
+    <item android:id="@+id/volver"
+        android:title="@string/boton_volver"
+        android:showAsAction="ifRoom" />
+</menu>
+

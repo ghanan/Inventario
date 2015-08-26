@@ -30,6 +30,7 @@ public class FotoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foto);
         bdatos = (BDatos)getApplicationContext();
+        setTitle(bdatos.nombredb);
         cuadro = (ImageView) findViewById(R.id.fotoView);
         toma_foto();
     }

@@ -32,6 +32,7 @@ public class GestionClavesActivity extends Activity {
         setContentView(R.layout.gestion_claves);
         final Context contexto = this;
         bdatos = (BDatos) getApplicationContext();
+        setTitle(bdatos.nombredb);
         // lee las claves actuales que le pasan
         Bundle extras = getIntent().getExtras();
         String actuales = extras.getString("clavesOri");

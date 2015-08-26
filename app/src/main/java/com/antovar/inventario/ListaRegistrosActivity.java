@@ -26,6 +26,7 @@ public class ListaRegistrosActivity extends Activity {
         setContentView(R.layout.activity_lista_registros);
         //final Context contexto = this;
         bdatos = (BDatos) getApplicationContext();
+        setTitle(bdatos.nombredb);
         //Bundle extras = getIntent().getExtras();
         //String lista = extras.getString("lista");
         rellena_registros();

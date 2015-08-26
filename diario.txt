@@ -33,6 +33,10 @@ menuinicial
  comprobacion/toast inventaario no abierto
  pone título o no abierto
 commit
+pongo título a todas las pantallas
+menuInicial
+ creo y asocio el menu_inicial sin configurar
+commit
 
 24-ago
 modificadas las cadenas de alta_activity

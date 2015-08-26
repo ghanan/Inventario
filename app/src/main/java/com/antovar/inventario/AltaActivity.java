@@ -68,6 +68,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         Bundle extras = getIntent().getExtras();
         alta = extras.getBoolean("alta");
         bdatos = (BDatos)getApplicationContext();
+        setTitle(bdatos.nombredb);
         //bdatos = (BDatos)getApplication();
         this.nombre = (EditText) findViewById(R.id.nombre);
         this.nota = (EditText) findViewById(R.id.nota);
