@@ -6,11 +6,24 @@ borrar layout->activity_alta.xml
 que solo sea portrait
 asegurar que se puede instalar en froyo
 cambiar la versión de so de los emuladores
-
+ver si animar los cajones al guardar o al rellenar
+usar la cámara para cambiar la resolución y la calidad
+longpress en una clave busca directamente registros con esa clave
 
 INMEDIATO
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 puede que no funcione quitar foto
+
+26-ago
+commit para crear rama multidb
+creada y cambiado a rama multidb
+bdatos
+ borro método leecadenas
+ cambio dir por dirAPP
+ añado dirDB y dirs_db
+ saco de oncreate la apertura de la db
+ si solo hay una, la abre
+commit
 
 24-ago
 modificadas las cadenas de alta_activity

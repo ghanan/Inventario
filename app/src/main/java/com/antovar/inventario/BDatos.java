@@ -40,16 +40,21 @@ public class BDatos extends Application {
 	public final int iFOTO = 8;
 	public final String FS = ";";
 	public final String CS = ",";
-	public String NUEVO;
+	private final String PREFIJO = "INV_";
+	//public String NUEVO;
 
-    private final String nombredb = "InventarioCasa";
+    private final String nombreapp = "Inventario";
+    public String nombredb = "";
     public boolean disponible = false;
     public String log = "";
     //private Activity vista;
-    public File dir;
+    //public File dir;
+    public File dirAPP;
+    public File dirDB;
     private File fichero;
     private FileWriter fw;
 	private int numRegistros = 0;
+	private ArrayList<String> dirs_db = new ArrayList<>();
 	private String[] aLinea = new String[nCAMPOS]; //registro de trabajo
 	public ArrayList<String> aNombre = new ArrayList<>(); //para cargar datos en mem
 	public ArrayList<String> aNota = new ArrayList<>();
@@ -79,32 +84,29 @@ public class BDatos extends Application {
 		super.onCreate();
 		ctx = getApplicationContext();
 		makeActionOverflowMenuShown();
-		lee_cadenas();
         if (!isExternalStorageWritable()) {
 //            log = "Sin acceso a almcenamiento externo";
 			log = getString(R.string.msg_sin_almacenamiento);
             return;
         }
         File path = Environment.getExternalStorageDirectory();
-        dir = new File(path, nombredb);
-        if (!dir.mkdir() && !dir.isDirectory()) {
+        dirAPP = new File(path, nombreapp);
+        if (!dirAPP.mkdir() && !dirAPP.isDirectory()) {
 //            log = "No se puede crear el directorio " + nombredb;
-            log = getString(R.string.msg_no_creado_dir) + nombredb;
+            log = getString(R.string.msg_no_creado_dir) + nombreapp;
             return;
         }
-        fichero = new File(dir, nombredb + ".csv");
-        if (!fichero.exists()) {
-            try { fichero.createNewFile(); }
-            catch (IOException e) {
-//                log = "No se puede crear el fichero " + nombredb + ".csv";
-				log = getString(R.string.msg_no_creado_fich) + nombredb + ".csv";
-                return;
-            }
-        }
-		if (!lee_fichero_a_arrays()) return;
-		rellena_arrays();
-        disponible = true;
-    }
+		for (File fich: dirAPP.listFiles())
+			if (fich.isDirectory())
+				if (fich.getName().length() > PREFIJO.length())
+					if (fich.getName().startsWith(PREFIJO))
+						dirs_db.add(fich.getName().substring(PREFIJO.length(),fich.getName().length()));
+		if (dirs_db.size() == 1) {
+			nombredb = dirs_db.get(0);
+			dirDB = new File(dirAPP, PREFIJO+nombredb);
+			abrir_bd();
+		}
+	}
 
 	private void makeActionOverflowMenuShown() {
 		//devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu
@@ -127,6 +129,21 @@ public class BDatos extends Application {
         }
         return false;
     }
+
+	private void abrir_bd() {
+		fichero = new File(dirDB, nombredb + ".csv");
+		if (!fichero.exists()) {
+			try { fichero.createNewFile(); }
+			catch (IOException e) {
+//                log = "No se puede crear el fichero " + nombredb + ".csv";
+				log = getString(R.string.msg_no_creado_fich) + nombredb + ".csv";
+				return;
+			}
+		}
+		if (!lee_fichero_a_arrays()) return;
+		rellena_arrays();
+		disponible = true;
+	}
 
     public boolean alta(String reg) {
         try {
@@ -157,7 +174,7 @@ public class BDatos extends Application {
 	public boolean modificar(String reg, String nueva_foto, boolean borrar) {
 		try {
 			//fw = new FileWriter(fichero+"-mod", false);
-			fw = new FileWriter(new File(dir, nombredb + ".mod"), false);
+			fw = new FileWriter(new File(dirDB, nombredb + ".mod"), false);
 		} catch (IOException e) {
 //			log = "Error en modificar al abrir fichero";
 			log = getString(R.string.msg_error_crear_fwriter);
@@ -175,7 +192,7 @@ public class BDatos extends Application {
 			}
 		}
 		if (borrar) {
-			borra_foto(dir + "/" + aFoto.get(registro));
+			borra_foto(dirDB + "/" + aFoto.get(registro));
 		} else {
 			try {
 				fw.append(reg + "\n");
@@ -185,7 +202,7 @@ public class BDatos extends Application {
 				return false;
 			}
             if (!aFoto.get(registro).equals(".") && !aFoto.get(registro).equals(nueva_foto)) {
-                borra_foto(dir + "/" + aFoto.get(registro));
+                borra_foto(dirDB + "/" + aFoto.get(registro));
             }
         }
 		for (int i=registro+1; i<aNombre.size(); i++) {
@@ -206,8 +223,8 @@ public class BDatos extends Application {
 			log = getString(R.string.msg_error_cerrando);
 			return false;
 		}
-		File modi = new File(dir, nombredb + ".mod");
-		File back = new File(dir, nombredb + ".bck");
+		File modi = new File(dirDB, nombredb + ".mod");
+		File back = new File(dirDB, nombredb + ".bck");
 		if (back.exists()) {
 			if (!back.delete()) System.out.println("no borrado bck");
 			return false;
@@ -316,7 +333,7 @@ public class BDatos extends Application {
 			if (!destino.contains(valor)) destino.add(valor);
 		}
 		Collections.sort(destino, String.CASE_INSENSITIVE_ORDER);
-		destino.add(NUEVO);
+		destino.add(getString(R.string.nuevo));
 	}
 
 	// para cuando se añade un valor nuevo a mano
@@ -361,7 +378,4 @@ public class BDatos extends Application {
 		return aLinea[i];
 	}
 
-	private void lee_cadenas() {
-		NUEVO = ctx.getResources().getText(R.string.nuevo).toString();
-	}
 }
