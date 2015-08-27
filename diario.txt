@@ -4,18 +4,28 @@ DUDAS
 PENDIENTE
 eliminar los System.out.println
 borrar layout->activity_alta.xml
+buscar cadenas en ingles sin traducir
+probar a definirlo toto static en BDatos y no tener que importar contextos en activities
 que solo sea portrait
 asegurar que se puede instalar en froyo
 cambiar la versión de so de los emuladores
 ver si animar los cajones al guardar o al rellenar
 usar la cámara para cambiar la resolución y la calidad
 longpress en una clave busca directamente registros con esa clave
+probar a abrir pero faltando el csv
 
 INMEDIATO
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 puede que no funcione quitar foto
-poner como título de actividad el nombre del inventario
 menu en menuinicial para abrir, nuevo, borrar y about
+
+27-ago
+creo los textos del menu_inicial
+cambio a static muchas constantes
+creo constantes para los nombre de intents
+creo constante para definir que lista debe mostras ListaRegistrosAct
+llamo en el menu inicial abrir inventario
+parece que funciona abrir inventario reutilizando ListaRegistros
 
 26-ago
 commit para crear rama multidb

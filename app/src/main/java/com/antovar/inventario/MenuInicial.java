@@ -54,6 +54,16 @@ public class MenuInicial extends Activity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == BDatos.INTENT_INVENTARIOS && resultCode == 1) {
+            bdatos.abrir_bd();
+            if (bdatos.disponible) setTitle(bdatos.nombredb);
+            //String nuevasClaves = data.getExtras().getString("claves");
+        }
+    }
+
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_inicial, menu);
         return true;
@@ -62,7 +72,14 @@ public class MenuInicial extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.volver) {
+        if (id == R.id.abrir) {
+            Intent listaInventarios = new Intent(this, ListaRegistrosActivity.class);
+            listaInventarios.putExtra("lista", BDatos.LISTA_INVENTARIOS);
+            startActivityForResult(listaInventarios, BDatos.INTENT_INVENTARIOS);
+        }
+//        if (id == R.id.borrar) {
+//        if (id == R.id.acerca) {
+        if (id == R.id.nuevo) {
             finish();
         }
         return true;

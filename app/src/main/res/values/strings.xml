@@ -5,7 +5,7 @@
     <string name="directorio">DirectorioCasa</string>
     <string name="fichero">InventarioCasa.csv</string>
 
-    <string name="boton_alta">New</string>
+    <string name="boton_alta">New Item</string>
     <string name="boton_buscar">Find</string>
     <string name="boton_salir">Exit</string>
     <string name="boton_grabar">Save</string>
@@ -20,6 +20,11 @@
     <string name="boton_anadir">Save as new</string>
     <string name="boton_borrar">Delete</string>
 
+    <string name="menu_abrir">Open</string>
+    <string name="menu_nuevo">New Inv.</string>
+    <string name="menu_borrar">Delete Inv.</string>
+    <string name="menu_acerca">About</string>
+
     <string name="descripcion">description</string>
     <string name="notas">notes</string>
     <string name="claves">keys</string>
@@ -31,7 +36,7 @@
     <string name="msg_no_existe_fichero">No existe el fichero </string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
     <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
-    <string name="msg_no_creado_dir">I can\'t create folder </string>
+    <string name="msg_no_creado_dir">I can\'t create folder</string>
     <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
     <string name="msg_no_creado_fich">I can\'t create file </string>
     <string name="msg_dir_creado">Creado directorio </string>
@@ -45,7 +50,7 @@
     <string name="msg_error_cerrando">Error closing file</string>
     <string name="msg_error_modificando">Error writing changed</string>
     <string name="msg_no_registros">Not found</string>
-    <string name="msg_error_crea_fich_foto">Error saving image file: </string>
+    <string name="msg_error_crea_fich_foto">Error saving image file</string>
     <string name="msg_no_hay_inventarios">No inventories</string>
     <string name="msg_no_abierto">Inventory not open</string>
 

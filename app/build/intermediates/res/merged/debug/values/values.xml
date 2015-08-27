@@ -15,7 +15,7 @@
     <string name="action_settings">Settings</string>
     <string name="app_name">Inventario</string>
     <string name="boton_aceptar">OK</string>
-    <string name="boton_alta">New</string>
+    <string name="boton_alta">New Item</string>
     <string name="boton_anadir">Save as new</string>
     <string name="boton_borrar">Delete</string>
     <string name="boton_buscar">Find</string>
@@ -34,9 +34,13 @@
     <string name="fichero">InventarioCasa.csv</string>
     <string name="hello_world">Hello world!</string>
     <string name="intro_nuevo">Type new value:</string>
+    <string name="menu_abrir">Open</string>
+    <string name="menu_acerca">About</string>
+    <string name="menu_borrar">Delete Inv.</string>
+    <string name="menu_nuevo">New Inv.</string>
     <string name="msg_dir_creado">Creado directorio </string>
     <string name="msg_error_cerrando">Error closing file</string>
-    <string name="msg_error_crea_fich_foto">Error saving image file: </string>
+    <string name="msg_error_crea_fich_foto">Error saving image file</string>
     <string name="msg_error_crear_freader">Error opening file to read</string>
     <string name="msg_error_crear_fwriter">Error opening file to write</string>
     <string name="msg_error_escribiendo">Error writing to file</string>
@@ -48,7 +52,7 @@
     <string name="msg_no_abierto">Inventory not open</string>
     <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
     <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
-    <string name="msg_no_creado_dir">I can\'t create folder </string>
+    <string name="msg_no_creado_dir">I can\'t create folder</string>
     <string name="msg_no_creado_fich">I can\'t create file </string>
     <string name="msg_no_existe_fichero">No existe el fichero </string>
     <string name="msg_no_hay_inventarios">No inventories</string>

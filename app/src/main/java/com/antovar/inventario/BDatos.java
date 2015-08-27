@@ -27,23 +27,26 @@ import android.widget.Spinner;
 
 public class BDatos extends Application {
 
-    public final int nCAMPOS = 9;
-    public final int iNOMBRE = 0;
-    public final int iNOTA = 1;
-    public final int iCUARTO = 2;
-    public final int iMUEBLE = 3;
-    public final int iCUERPO = 4;
-    public final int iHUECO = 5;
-    public final int iFILA_COL = 6;
-    public final int iCLAVES = 7;
+    public final static int nCAMPOS = 9;
+    public final static int iNOMBRE = 0;
+    public final static int iNOTA = 1;
+    public final static int iCUARTO = 2;
+    public final static int iMUEBLE = 3;
+    public final static int iCUERPO = 4;
+    public final static int iHUECO = 5;
+    public final static int iFILA_COL = 6;
+    public final static int iCLAVES = 7;
     // el campo foto no puede estar vacío, rellenar con un punto
-    public final int iFOTO = 8;
-    public final String FS = ";";
-    public final String CS = ",";
-    private final String PREFIJO = "INV_";
-    //public String NUEVO;
+    public final static int iFOTO = 8;
+    public final static String FS = ";";
+    public final static String CS = ",";
+    private final static String PREFIJO = "INV_";
+    public final static int INTENT_REGISTROS = 4;
+    public final static int INTENT_INVENTARIOS = 5;
+    public final static boolean LISTA_REGISTROS = true;
+    public final static boolean LISTA_INVENTARIOS = false;
 
-    private final String nombreapp = "Inventario";
+    private final static String nombreapp = "Inventario";
     public String nombredb = "";
     public boolean disponible = false;
     public String log = "";
@@ -54,7 +57,7 @@ public class BDatos extends Application {
     private File fichero;
     private FileWriter fw;
     private int numRegistros = 0;
-    private ArrayList<String> dirs_db = new ArrayList<>();
+    //private ArrayList<String> dirs_db = new ArrayList<>();
     private String[] aLinea = new String[nCAMPOS]; //registro de trabajo
     public ArrayList<String> aNombre = new ArrayList<>(); //para cargar datos en mem
     public ArrayList<String> aNota = new ArrayList<>();
@@ -66,6 +69,7 @@ public class BDatos extends Application {
     public ArrayList<String> aFila_col = new ArrayList<>();
     public ArrayList<String> aFoto = new ArrayList<>();
 
+    public List<String> inventarios = new ArrayList<>();
     public List<String> cuartos = new ArrayList<>();
     public List<String> muebles = new ArrayList<>();
     public List<String> cuerpos = new ArrayList<>();
@@ -91,21 +95,15 @@ public class BDatos extends Application {
         }
         File path = Environment.getExternalStorageDirectory();
         dirAPP = new File(path, nombreapp);
-        System.out.println(dirAPP.toString());
         if (!dirAPP.mkdir() && !dirAPP.isDirectory()) {
 //            log = "No se puede crear el directorio " + nombredb;
-            log = getString(R.string.msg_no_creado_dir) + nombreapp;
+            log = getString(R.string.msg_no_creado_dir) + " " + nombreapp;
             return;
         }
-        for (File fich: dirAPP.listFiles())
-            if (fich.isDirectory())
-                if (fich.getName().length() > PREFIJO.length())
-                    if (fich.getName().startsWith(PREFIJO))
-                        dirs_db.add(fich.getName().substring(PREFIJO.length(),fich.getName().length()));
-
-        if (dirs_db.size() == 0) log = getString(R.string.msg_no_hay_inventarios);
-        if (dirs_db.size() == 1) {
-                nombredb = dirs_db.get(0);
+        rellena_inventarios();
+        if (inventarios.size() == 0) log = getString(R.string.msg_no_hay_inventarios);
+        if (inventarios.size() == 1) {
+                nombredb = inventarios.get(0);
                 dirDB = new File(dirAPP, PREFIJO+nombredb);
                 abrir_bd();
             }
@@ -133,13 +131,22 @@ public class BDatos extends Application {
         return false;
     }
 
-    private void abrir_bd() {
+    public void rellena_inventarios() {
+        for (File fich: dirAPP.listFiles())
+            if (fich.isDirectory())
+                if (fich.getName().length() > PREFIJO.length())
+                    if (fich.getName().startsWith(PREFIJO))
+                        inventarios.add(fich.getName().substring(PREFIJO.length(),fich.getName().length()));
+        Collections.sort(inventarios, String.CASE_INSENSITIVE_ORDER);
+    }
+
+    public void abrir_bd() {
         fichero = new File(dirDB, nombredb + ".csv");
         if (!fichero.exists()) {
             try { fichero.createNewFile(); }
             catch (IOException e) {
 //                log = "No se puede crear el fichero " + nombredb + ".csv";
-                log = getString(R.string.msg_no_creado_fich) + nombredb + ".csv";
+                log = getString(R.string.msg_no_creado_fich) + " " + nombredb + ".csv";
                 return;
             }
         }

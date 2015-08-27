@@ -30,7 +30,7 @@ import android.widget.*;
 public class AltaActivity extends Activity implements OnItemSelectedListener {
 
 	final static int EDICION_CLAVES = 1;
-	final static int SELEC_REGISTRO = 2;
+	//final static int SELEC_REGISTRO = 2;
 	final static int HACER_FOTO = 3;
     private Menu elMenu;
     boolean alta;
@@ -150,7 +150,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (requestCode == EDICION_CLAVES && resultCode == 1) {
             String nuevasClaves = data.getExtras().getString("claves");
             claves.setText(nuevasClaves);
-        } else if (requestCode == SELEC_REGISTRO && resultCode == 1) {
+        } else if (requestCode == bdatos.INTENT_REGISTROS && resultCode == 1) {
             muestra_selecionado();
         } else if (requestCode == HACER_FOTO && resultCode == 1) {
             if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
@@ -347,7 +347,8 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             muestra_selecionado();
         } else {
             Intent intentRegistros = new Intent(AltaActivity.this, ListaRegistrosActivity.class);
-            startActivityForResult(intentRegistros, SELEC_REGISTRO);
+            intentRegistros.putExtra("lista", bdatos.LISTA_REGISTROS);
+            startActivityForResult(intentRegistros, bdatos.INTENT_REGISTROS);
         }
     }
 

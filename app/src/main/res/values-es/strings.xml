@@ -20,6 +20,11 @@
     <string name="boton_anadir">Añadir</string>
     <string name="boton_borrar">Borrar</string>
 
+    <string name="menu_abrir">Abrir</string>
+    <string name="menu_nuevo">Nuevo Inv.</string>
+    <string name="menu_borrar">Borrar Inv.</string>
+    <string name="menu_acerca">Acerca de</string>
+
     <string name="descripcion">descripción</string>
     <string name="notas">notas</string>
     <string name="claves">claves</string>
@@ -31,9 +36,9 @@
     <string name="msg_no_existe_fichero">No existe el fichero </string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
     <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
-    <string name="msg_no_creado_dir">No se pudo crear el directorio </string>
+    <string name="msg_no_creado_dir">No se pudo crear el directorio</string>
     <string name="msg_no_acceso_dir">Sin acceso al directorio</string>
-    <string name="msg_no_creado_fich">No puedo crear el fichero </string>
+    <string name="msg_no_creado_fich">No puedo crear el fichero</string>
     <string name="msg_error_crear_fwriter">Error al abrir para escribir</string>
     <string name="msg_error_crear_freader">Error al abrir para leer</string>
     <string name="msg_error_leyendo">Error al leer del fichero</string>
@@ -43,7 +48,7 @@
     <string name="msg_error_cerrando">Error al cerrar fichero</string>
     <string name="msg_error_modificando">Error al escribir modificación</string>
     <string name="msg_no_registros">No hay registros</string>
-    <string name="msg_error_crea_fich_foto">Error al crear fichero imagen: </string>
+    <string name="msg_error_crea_fich_foto">Error al crear fichero imagen</string>
     <string name="msg_no_hay_inventarios">No hay inventarios</string>
     <string name="msg_no_abierto">No se ha abierto inventario</string>
 
