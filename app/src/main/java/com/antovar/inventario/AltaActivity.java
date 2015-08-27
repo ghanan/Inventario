@@ -150,7 +150,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (requestCode == EDICION_CLAVES && resultCode == 1) {
             String nuevasClaves = data.getExtras().getString("claves");
             claves.setText(nuevasClaves);
-        } else if (requestCode == bdatos.INTENT_REGISTROS && resultCode == 1) {
+        } else if (requestCode == BDatos.INTENT_REGISTROS && resultCode == BDatos.INTENT_REGISTROS) {
             muestra_selecionado();
         } else if (requestCode == HACER_FOTO && resultCode == 1) {
             if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);

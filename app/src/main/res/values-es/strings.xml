@@ -33,7 +33,7 @@
 
     <string name="msg_nombreVacio">Falta descripción</string>
     <string name="msg_sin_almacenamiento">Sin acceso a almacenamiento externo</string>
-    <string name="msg_no_existe_fichero">No existe el fichero </string>
+    <string name="msg_no_existe_fichero">No existe el fichero de datos</string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
     <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
     <string name="msg_no_creado_dir">No se pudo crear el directorio</string>
@@ -51,6 +51,7 @@
     <string name="msg_error_crea_fich_foto">Error al crear fichero imagen</string>
     <string name="msg_no_hay_inventarios">No hay inventarios</string>
     <string name="msg_no_abierto">No se ha abierto inventario</string>
+    <string name="msg_nombre_repe">El nombre ya existe</string>
 
     <string name="title_no_abierto">Sin abrir</string>
     <string name="title_activity_alta">Inventario</string>
@@ -59,6 +60,7 @@
     <string name="title_activity_foto">FotoActivity</string>
 
     <string name="intro_nuevo">Introduce nuevo valor</string>
+    <string name="nombre_nuevo">Nombre del nuevo inventario</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

@@ -54,12 +54,14 @@
     <string name="msg_no_acceso_ext">Sin acceso a tarjeta</string>
     <string name="msg_no_creado_dir">I can\'t create folder</string>
     <string name="msg_no_creado_fich">I can\'t create file </string>
-    <string name="msg_no_existe_fichero">No existe el fichero </string>
+    <string name="msg_no_existe_fichero">Data file not found:</string>
     <string name="msg_no_hay_inventarios">No inventories</string>
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
     <string name="msg_no_registros">Not found</string>
     <string name="msg_nombreVacio">Falta nombre</string>
+    <string name="msg_nombre_repe">The name exists</string>
     <string name="msg_sin_almacenamiento">I can\'t access to external storage</string>
+    <string name="nombre_nuevo">New inventory name</string>
     <string name="notas">notes</string>
     <string name="nuevo">NEW</string>
     <string name="salir">Salir</string>

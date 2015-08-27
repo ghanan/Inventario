@@ -89,23 +89,21 @@ public class BDatos extends Application {
         ctx = getApplicationContext();
         makeActionOverflowMenuShown();
         if (!isExternalStorageWritable()) {
-//            log = "Sin acceso a almcenamiento externo";
             log = getString(R.string.msg_sin_almacenamiento);
             return;
         }
         File path = Environment.getExternalStorageDirectory();
         dirAPP = new File(path, nombreapp);
         if (!dirAPP.mkdir() && !dirAPP.isDirectory()) {
-//            log = "No se puede crear el directorio " + nombredb;
             log = getString(R.string.msg_no_creado_dir) + " " + nombreapp;
             return;
         }
         rellena_inventarios();
         if (inventarios.size() == 0) log = getString(R.string.msg_no_hay_inventarios);
         if (inventarios.size() == 1) {
-                nombredb = inventarios.get(0);
-                dirDB = new File(dirAPP, PREFIJO+nombredb);
-                abrir_bd();
+//                nombredb = inventarios.get(0);
+//                dirDB = new File(dirAPP, PREFIJO+nombredb);
+                abrir_bd(inventarios.get(0));
             }
         }
 
@@ -140,19 +138,32 @@ public class BDatos extends Application {
         Collections.sort(inventarios, String.CASE_INSENSITIVE_ORDER);
     }
 
-    public void abrir_bd() {
-        fichero = new File(dirDB, nombredb + ".csv");
-        if (!fichero.exists()) {
-            try { fichero.createNewFile(); }
-            catch (IOException e) {
-//                log = "No se puede crear el fichero " + nombredb + ".csv";
-                log = getString(R.string.msg_no_creado_fich) + " " + nombredb + ".csv";
-                return;
-            }
+    public void abrir_bd(String nombre) {
+        File _dirDB = new File(dirAPP, PREFIJO+nombre);
+        File _fichero = new File(_dirDB, nombre + ".csv");
+        if (!_fichero.exists()) {
+            log = getString(R.string.msg_no_existe_fichero) + " " + nombre + ".csv";
+            return;
         }
-        if (!lee_fichero_a_arrays()) return;
+        dirDB = _dirDB;
+        fichero = _fichero;
+        if (!lee_fichero_a_arrays()) {
+            disponible = false;
+            return;
+        }
         rellena_arrays();
+        nombredb = nombre;
         disponible = true;
+    }
+
+    public void crea_db(String nombre) {
+        try { fichero.createNewFile(); }
+        catch (IOException e) {
+//                log = "No se puede crear el fichero " + nombredb + ".csv";
+            log = getString(R.string.msg_no_creado_fich) + " " + nombredb + ".csv";
+            return;
+        }
+
     }
 
     public boolean alta(String reg) {

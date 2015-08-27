@@ -103,7 +103,7 @@ public final class R {
         public static final int menu_acerca=0x7f040017;
         public static final int menu_borrar=0x7f040018;
         public static final int menu_nuevo=0x7f040019;
-        public static final int msg_dir_creado=0x7f040036;
+        public static final int msg_dir_creado=0x7f040038;
         public static final int msg_error_cerrando=0x7f04001a;
         public static final int msg_error_crea_fich_foto=0x7f04001b;
         public static final int msg_error_crear_freader=0x7f04001c;
@@ -113,7 +113,7 @@ public final class R {
         public static final int msg_error_escribiendo_inicio=0x7f040020;
         public static final int msg_error_leyendo=0x7f040021;
         public static final int msg_error_modificando=0x7f040022;
-        public static final int msg_fich_creado=0x7f040037;
+        public static final int msg_fich_creado=0x7f040039;
         public static final int msg_no_abierto=0x7f040023;
         public static final int msg_no_acceso_dir=0x7f040024;
         public static final int msg_no_acceso_ext=0x7f040025;
@@ -124,15 +124,17 @@ public final class R {
         public static final int msg_no_puedo_escribir_ext=0x7f04002a;
         public static final int msg_no_registros=0x7f04002b;
         public static final int msg_nombreVacio=0x7f04002c;
-        public static final int msg_sin_almacenamiento=0x7f04002d;
-        public static final int notas=0x7f04002e;
-        public static final int nuevo=0x7f04002f;
-        public static final int salir=0x7f040030;
-        public static final int title_activity_alta=0x7f040031;
-        public static final int title_activity_foto=0x7f040032;
-        public static final int title_activity_gestion_claves=0x7f040033;
-        public static final int title_activity_lista_registros=0x7f040034;
-        public static final int title_no_abierto=0x7f040035;
+        public static final int msg_nombre_repe=0x7f04002d;
+        public static final int msg_sin_almacenamiento=0x7f04002e;
+        public static final int nombre_nuevo=0x7f04002f;
+        public static final int notas=0x7f040030;
+        public static final int nuevo=0x7f040031;
+        public static final int salir=0x7f040032;
+        public static final int title_activity_alta=0x7f040033;
+        public static final int title_activity_foto=0x7f040034;
+        public static final int title_activity_gestion_claves=0x7f040035;
+        public static final int title_activity_lista_registros=0x7f040036;
+        public static final int title_no_abierto=0x7f040037;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;

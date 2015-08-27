@@ -48,9 +48,9 @@ public class ListaRegistrosActivity extends Activity {
             listRegistros.setAdapter(registrosAdapter);
             listRegistros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
-                    bdatos.nombredb = bdatos.inventarios.get(position);
+                    //bdatos.nombredb = bdatos.inventarios.get(position);
                     Intent intent = new Intent();
-                    intent.putExtra("seleccionado", true);
+                    intent.putExtra("seleccionado", bdatos.inventarios.get(position));
                     setResult(bdatos.INTENT_INVENTARIOS, intent);
                     finish();
                 }

@@ -26,6 +26,11 @@ creo constantes para los nombre de intents
 creo constante para definir que lista debe mostras ListaRegistrosAct
 llamo en el menu inicial abrir inventario
 parece que funciona abrir inventario reutilizando ListaRegistros
+commit
+varias modificaciones en crear, abrir, etc.
+añadidos algunos strings
+parece que abre bien, falta crear
+commit
 
 26-ago
 commit para crear rama multidb

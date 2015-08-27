@@ -67,7 +67,7 @@ public class GestionClavesActivity extends Activity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
 //                                    System.out.println(entrada.getText().toString());
                                     // para evitar errores en el split anado "<cr>."
-                                    String nueva = (entrada.getText().toString() + "\n.").split("\n")[0];
+                                    String nueva = (entrada.getText().toString() + "\n.").split("\n")[0].trim();
                                     if (!nueva.equals("")) {
                                         bdatos.anade_clave(nueva);
                                         ((BaseAdapter) listClaves.getAdapter()).notifyDataSetChanged();
