@@ -29,7 +29,7 @@ public class MenuInicial extends Activity {
         //if (bdatos.nombredb.equals("")
         //setTitle(bdatos.nombredb.equals("") ? bdatos.nombredb : R.string.title_no_abierto);
         setTitle(bdatos.nombredb.equals("") ? getString(R.string.title_no_abierto) : bdatos.nombredb);
-        if (!bdatos.disponible) Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
+        //if (!bdatos.disponible) Toast.makeText(this, bdatos.log, Toast.LENGTH_LONG).show();
     }
 
 //    private void comprueba_almacenamiento() {
@@ -93,20 +93,20 @@ public class MenuInicial extends Activity {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             String nombre = (entrada.getText().toString() + "\n.").split("\n")[0].trim();
                             if (!nombre.equals("")) {
-                                boolean existe = false;
-                                for (String n : bdatos.inventarios)
-                                    if (n.toLowerCase().equals(nombre.toLowerCase())) {
-                                        Toast.makeText(este, R.string.msg_nombre_repe, Toast.LENGTH_LONG).show();
-                                        existe = true;
-                                        break;
-                                    }
-                                if (!existe) {
-                                    bdatos.crea_db(nombre);
-                                    if (bdatos.disponible) setTitle(bdatos.nombredb);
-                                }
+//                                boolean existe = false;
+//                                for (String n : bdatos.inventarios)
+//                                    if (n.toLowerCase().equals(nombre.toLowerCase())) {
+//                                        Toast.makeText(este, R.string.msg_nombre_repe, Toast.LENGTH_LONG).show();
+//                                        existe = true;
+//                                        break;
+//                                    }
+//                                if (!existe) {
+                                bdatos.crea_db(nombre, este);
+                                if (bdatos.disponible) setTitle(bdatos.nombredb);
+//                                }
                             }
                         }
-                })
+                    })
                     .setNegativeButton(getString(R.string.boton_cancelar), null)
                 .show();
         }

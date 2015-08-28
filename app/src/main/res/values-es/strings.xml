@@ -51,7 +51,7 @@
     <string name="msg_error_crea_fich_foto">Error al crear fichero imagen</string>
     <string name="msg_no_hay_inventarios">No hay inventarios</string>
     <string name="msg_no_abierto">No se ha abierto inventario</string>
-    <string name="msg_nombre_repe">El nombre ya existe</string>
+    <string name="msg_nombre_repe">El nombre ya existe:</string>
 
     <string name="title_no_abierto">Sin abrir</string>
     <string name="title_activity_alta">Inventario</string>

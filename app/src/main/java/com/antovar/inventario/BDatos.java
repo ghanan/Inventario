@@ -24,6 +24,7 @@ import android.text.style.*;
 //import android.util.Log;
 import android.view.ViewConfiguration;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class BDatos extends Application {
 
@@ -45,6 +46,7 @@ public class BDatos extends Application {
     public final static int INTENT_INVENTARIOS = 5;
     public final static boolean LISTA_REGISTROS = true;
     public final static boolean LISTA_INVENTARIOS = false;
+    public final static boolean INVENTARIO_CAMBIADO = true;
 
     private final static String nombreapp = "Inventario";
     public String nombredb = "";
@@ -156,14 +158,29 @@ public class BDatos extends Application {
         disponible = true;
     }
 
-    public void crea_db(String nombre) {
-        try { fichero.createNewFile(); }
+    public void crea_db(String nombre, Context ctx) {
+        File _dirDB = new File(dirAPP, PREFIJO+nombre);
+        if (_dirDB.exists()) {
+            Toast.makeText(ctx, getString(R.string.msg_nombre_repe) + " " + nombre, Toast.LENGTH_LONG).show();
+            log = getString(R.string.msg_nombre_repe) + " " + nombre;
+            return;
+        }
+        if (!_dirDB.mkdir()) {
+            Toast.makeText(ctx, R.string.msg_no_creado_dir, Toast.LENGTH_LONG).show();
+            log = getString(R.string.msg_no_creado_dir) + " " + PREFIJO+nombre;
+            return;
+        }
+        File _fichero = new File(_dirDB, nombre + ".csv");
+        try { _fichero.createNewFile(); }
         catch (IOException e) {
-//                log = "No se puede crear el fichero " + nombredb + ".csv";
+            Toast.makeText(ctx, R.string.msg_no_creado_fich, Toast.LENGTH_LONG).show();
             log = getString(R.string.msg_no_creado_fich) + " " + nombredb + ".csv";
             return;
         }
-
+        inventarios.add(nombre);
+        Collections.sort(inventarios, String.CASE_INSENSITIVE_ORDER);
+        disponible = false;
+        abrir_bd(nombre);
     }
 
     public boolean alta(String reg) {
@@ -247,15 +264,12 @@ public class BDatos extends Application {
         File modi = new File(dirDB, nombredb + ".mod");
         File back = new File(dirDB, nombredb + ".bck");
         if (back.exists()) {
-            if (!back.delete()) System.out.println("no borrado bck");
             return false;
         }
         if (!fichero.renameTo(back)) {
-            System.out.println("no renombrado orig a back");
             return false;
         }
         if (!modi.renameTo(fichero)) {
-            System.out.println("no renombrado mod to orig");
             return false;
         }
         if (borrar) elimina_de_arrays();
@@ -292,6 +306,7 @@ public class BDatos extends Application {
     }
 
     private boolean lee_fichero_a_arrays() {
+        limpia_arrays();
         FileReader fr;
         try { fr = new FileReader(fichero); }
         catch (IOException e) {
@@ -322,6 +337,25 @@ public class BDatos extends Application {
             return false;
         }
         return true;
+    }
+
+    private void limpia_arrays() {
+        aNombre.clear();
+        aNota.clear();
+        aCuarto.clear();
+        aMueble.clear();
+        aCuerpo.clear();
+        aHueco.clear();
+        aFila_col.clear();
+        aClaves.clear();
+        aFoto.clear();
+        cuartos.clear();
+        muebles.clear();
+        cuerpos.clear();
+        huecos.clear();
+        fila_cols.clear();
+        fotos.clear();
+        claves.clear();
     }
 
     private void procesa_linea(String linea) {

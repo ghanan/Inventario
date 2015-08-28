@@ -59,7 +59,7 @@
     <string name="msg_no_puedo_escribir_ext">No puedo escribir en tarjeta</string>
     <string name="msg_no_registros">Not found</string>
     <string name="msg_nombreVacio">Falta nombre</string>
-    <string name="msg_nombre_repe">The name exists</string>
+    <string name="msg_nombre_repe">The name exists:</string>
     <string name="msg_sin_almacenamiento">I can\'t access to external storage</string>
     <string name="nombre_nuevo">New inventory name</string>
     <string name="notas">notes</string>

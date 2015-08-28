@@ -1,3 +1,5 @@
+DOC
+puede crear los directorios que quiera que no empiecen por INV_
 
 DUDAS
 
@@ -18,6 +20,11 @@ INMEDIATO
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 puede que no funcione quitar foto
 menu en menuinicial para abrir, nuevo, borrar y about
+
+28-ago
+varios cambios
+parece que crea nuevos
+commit
 
 27-ago
 creo los textos del menu_inicial
