@@ -44,9 +44,10 @@ public class BDatos extends Application {
     private final static String PREFIJO = "INV_";
     public final static int INTENT_REGISTROS = 4;
     public final static int INTENT_INVENTARIOS = 5;
+    public final static int CAMBIO_INVENTARIO = 1;
+    public final static int BORRAR_INVENTARIO = 2;
     public final static boolean LISTA_REGISTROS = true;
     public final static boolean LISTA_INVENTARIOS = false;
-    public final static boolean INVENTARIO_CAMBIADO = true;
 
     private final static String nombreapp = "Inventario";
     public String nombredb = "";
@@ -171,8 +172,14 @@ public class BDatos extends Application {
             return;
         }
         File _fichero = new File(_dirDB, nombre + ".csv");
-        try { _fichero.createNewFile(); }
-        catch (IOException e) {
+//        try { _fichero.createNewFile(); }
+        try {
+            if (!_fichero.createNewFile()) {
+                Toast.makeText(ctx, R.string.msg_no_creado_fich, Toast.LENGTH_LONG).show();
+                log = getString(R.string.msg_no_creado_fich) + " " + nombredb + ".csv";
+                return;
+            }
+        } catch (IOException e) {
             Toast.makeText(ctx, R.string.msg_no_creado_fich, Toast.LENGTH_LONG).show();
             log = getString(R.string.msg_no_creado_fich) + " " + nombredb + ".csv";
             return;
@@ -181,6 +188,17 @@ public class BDatos extends Application {
         Collections.sort(inventarios, String.CASE_INSENSITIVE_ORDER);
         disponible = false;
         abrir_bd(nombre);
+    }
+
+    public void borrar_db(String nombre) {
+        File _dirDB = new File(dirAPP, PREFIJO+nombre);
+        for (File f: _dirDB.listFiles()) {
+            f.deleteOnExit();
+            f.delete();
+        }
+        _dirDB.deleteOnExit();
+        _dirDB.delete();
+        inventarios.remove(nombre);
     }
 
     public boolean alta(String reg) {
@@ -211,10 +229,8 @@ public class BDatos extends Application {
 
     public boolean modificar(String reg, String nueva_foto, boolean borrar) {
         try {
-            //fw = new FileWriter(fichero+"-mod", false);
             fw = new FileWriter(new File(dirDB, nombredb + ".mod"), false);
         } catch (IOException e) {
-//			log = "Error en modificar al abrir fichero";
             log = getString(R.string.msg_error_crear_fwriter);
             return false;
         }
@@ -224,7 +240,6 @@ public class BDatos extends Application {
                     + aMueble.get(i) + FS + aCuerpo.get(i) + FS + aHueco.get(i) + FS
                     + aFila_col.get(i) + FS + aClaves.get(i) + FS + aFoto.get(i) + "\n");
             } catch (IOException e) {
-//				log = "Error en modificar al escribir inicio fichero";
                 log = getString(R.string.msg_error_escribiendo_inicio);
                 return false;
             }
@@ -426,6 +441,7 @@ public class BDatos extends Application {
 
     public void borra_foto(String fichero) {
         File fich = new File(fichero);
+        fich.deleteOnExit();
         fich.delete();
     }
 

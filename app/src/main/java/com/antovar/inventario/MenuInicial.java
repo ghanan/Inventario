@@ -62,13 +62,15 @@ public class MenuInicial extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == BDatos.INTENT_INVENTARIOS && resultCode == BDatos.INTENT_INVENTARIOS) {
+        if (requestCode == BDatos.INTENT_INVENTARIOS && resultCode == BDatos.CAMBIO_INVENTARIO) {
             bdatos.abrir_bd(data.getExtras().getString("seleccionado"));
             if (bdatos.disponible) setTitle(bdatos.nombredb);
             //String nuevasClaves = data.getExtras().getString("claves");
+        } else if (requestCode == BDatos.INTENT_INVENTARIOS && resultCode == BDatos.BORRAR_INVENTARIO) {
+            bdatos.borrar_db(data.getExtras().getString("seleccionado"));
+            if (bdatos.disponible) setTitle(getString(R.string.msg_no_abierto));
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -82,6 +84,7 @@ public class MenuInicial extends Activity {
         if (id == R.id.abrir) {
             Intent listaInventarios = new Intent(this, ListaRegistrosActivity.class);
             listaInventarios.putExtra("lista", BDatos.LISTA_INVENTARIOS);
+            listaInventarios.putExtra("accion", BDatos.CAMBIO_INVENTARIO);
             startActivityForResult(listaInventarios, BDatos.INTENT_INVENTARIOS);
         } else if (id == R.id.nuevo) {
             final EditText entrada = new EditText(this);
@@ -110,7 +113,12 @@ public class MenuInicial extends Activity {
                     .setNegativeButton(getString(R.string.boton_cancelar), null)
                 .show();
         }
-//        if (id == R.id.borrar) {
+        else if (id == R.id.borrar) {
+            Intent listaInventarios = new Intent(this, ListaRegistrosActivity.class);
+            listaInventarios.putExtra("lista", BDatos.LISTA_INVENTARIOS);
+            listaInventarios.putExtra("accion", BDatos.BORRAR_INVENTARIO);
+            startActivityForResult(listaInventarios, BDatos.INTENT_INVENTARIOS);
+        }
 //        if (id == R.id.acerca) {
         return true;
 //        return super.onOptionsItemSelected(item);

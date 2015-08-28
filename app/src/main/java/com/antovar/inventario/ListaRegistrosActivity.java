@@ -24,7 +24,7 @@ public class ListaRegistrosActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_registros);
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
         Boolean listaRegistros = extras.getBoolean("lista");
         //final Context contexto = this;
         bdatos = (BDatos) getApplicationContext();
@@ -51,7 +51,8 @@ public class ListaRegistrosActivity extends Activity {
                     //bdatos.nombredb = bdatos.inventarios.get(position);
                     Intent intent = new Intent();
                     intent.putExtra("seleccionado", bdatos.inventarios.get(position));
-                    setResult(bdatos.INTENT_INVENTARIOS, intent);
+//                    setResult(bdatos.CAMBIO_INVENTARIO, intent);
+                    setResult(extras.getInt("accion"), intent);
                     finish();
                 }
             });

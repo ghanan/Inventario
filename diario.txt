@@ -20,10 +20,14 @@ INMEDIATO
 probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos)
 puede que no funcione quitar foto
 menu en menuinicial para abrir, nuevo, borrar y about
+falla al añadir clave teniendo otra marcada
 
 28-ago
 varios cambios
 parece que crea nuevos
+commit
+acabado borrar
+falla al añadir clave teniendo otra marcada
 commit
 
 27-ago
