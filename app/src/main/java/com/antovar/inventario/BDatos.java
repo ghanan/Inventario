@@ -23,6 +23,7 @@ import java.util.*;
 import android.text.style.*;
 //import android.util.Log;
 import android.view.ViewConfiguration;
+import android.widget.BaseAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -203,21 +204,18 @@ public class BDatos extends Application {
         try {
             fw = new FileWriter(fichero, true);
         } catch (IOException e) {
-//            log = "Error en alta al abrir fichero";
             log = getString(R.string.msg_error_crear_fwriter);
             return false;
         }
         try {
             fw.append(reg + "\n");
         } catch (IOException e) {
-//            log = "Error en alta al escribir en fichero";
             log = getString(R.string.msg_error_escribiendo);
             return false;
         }
         try {
             fw.close();
         } catch (IOException e) {
-//            log = "Error en alta al cerrar el fichero";
             log = getString(R.string.msg_error_cerrando);
             return false;
         }
@@ -412,8 +410,8 @@ public class BDatos extends Application {
         Collections.sort(lista, String.CASE_INSENSITIVE_ORDER);
         //lista.add("NUEVO");
         lista.add(getString(R.string.nuevo));
-        //desple.getAdapter().notifyDataSetChanged();
-        desple.setAdapter(desple.getAdapter());
+        ((BaseAdapter) desple.getAdapter()).notifyDataSetChanged();
+        //desple.setAdapter(desple.getAdapter());
         desple.setSelection(lista.indexOf(valor));
     }
 

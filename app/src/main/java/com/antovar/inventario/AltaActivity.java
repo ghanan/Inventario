@@ -244,17 +244,13 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         new AlertDialog.Builder(this)
             .setTitle(getString(R.string.intro_nuevo))
             //.setMessage("introduce nuevo "+sitio)
-                .setView(entrada)
+            .setView(entrada)
             .setPositiveButton(getString(R.string.boton_aceptar), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     if (sitio.equals("cuarto")) {
                         cuarto = entrada.getText().toString();
                         bdatos.add_valor(desple_cuarto, bdatos.cuartos, cuarto);
                         desple_cuarto.setSelection(adapta_cuarto.getPosition(cuarto));
-                        //System.out.println(bdatos.cuartos.indexOf(cuarto));
-                        //System.out.println(adapta_cuarto.getPosition(cuarto));
-                        //desple_cuarto.setTop(bdatos.cuartos.indexOf(cuarto));
-                        //desple_cuarto.setSelection(bdatos.cuartos.indexOf(cuarto));
                     } else if (sitio.equals("mueble")) {
                         mueble = entrada.getText().toString();
                         bdatos.add_valor(desple_mueble, bdatos.muebles, mueble);
@@ -283,7 +279,6 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
                 }
             })
             .show();
-        //return sitio;
     }
 
     @Override

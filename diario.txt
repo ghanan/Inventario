@@ -17,11 +17,8 @@ longpress en una clave busca directamente registros con esa clave
 probar a abrir pero faltando el csv
 
 INMEDIATO
-probar notifyDataSetChanged(); en lugar de reasignar el adapter (en bdatos) ver gestionClaves
 puede que no funcione quitar foto
 menu en menuinicial para abrir, nuevo, borrar y about
-falla al añadir clave teniendo otra marcada
-preguntar si se quiere borrar de verdad
 
 29-ago
 bdatos
@@ -30,6 +27,8 @@ commit
 pide confirmación al borrar inventario
 commit
 pide confirmación al borrar registro
+commit
+cambio SetAdapter por notifyDataSetChanged
 commit
 
 28-ago
