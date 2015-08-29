@@ -376,8 +376,17 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void borrar() {
-        //if (!foto_fichero.equals("")) bdatos.borra_foto(foto_fichero);
-        if (bdatos.modificar("", "", BORRAR)) limpia_pantalla(BORRAR);
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.msg_confirmacion) + " elemento")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.boton_aceptar), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if (bdatos.modificar("", "", BORRAR)) limpia_pantalla(BORRAR);
+                    }
+                })
+                .setNegativeButton(getString(R.string.boton_cancelar), null)
+                .show();
     }
 
     private void selecciona_por_claves() {

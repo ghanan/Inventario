@@ -29,6 +29,8 @@ bdatos
 commit
 pide confirmación al borrar inventario
 commit
+pide confirmación al borrar registro
+commit
 
 28-ago
 varios cambios
