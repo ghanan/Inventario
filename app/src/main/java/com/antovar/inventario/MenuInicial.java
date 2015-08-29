@@ -62,13 +62,26 @@ public class MenuInicial extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == BDatos.INTENT_INVENTARIOS && resultCode == BDatos.CAMBIO_INVENTARIO) {
-            bdatos.abrir_bd(data.getExtras().getString("seleccionado"));
-            if (bdatos.disponible) setTitle(bdatos.nombredb);
-            //String nuevasClaves = data.getExtras().getString("claves");
-        } else if (requestCode == BDatos.INTENT_INVENTARIOS && resultCode == BDatos.BORRAR_INVENTARIO) {
-            bdatos.borrar_db(data.getExtras().getString("seleccionado"));
-            if (bdatos.disponible) setTitle(getString(R.string.msg_no_abierto));
+        if (requestCode == BDatos.INTENT_INVENTARIOS &&
+                (resultCode == BDatos.CAMBIO_INVENTARIO || resultCode == BDatos.BORRAR_INVENTARIO)) {
+            final String seleccionado = data.getExtras().getString("seleccionado");
+            if (resultCode == BDatos.CAMBIO_INVENTARIO) {
+                bdatos.abrir_bd(seleccionado);
+                if (bdatos.disponible) setTitle(bdatos.nombredb);
+            } else {
+                new AlertDialog.Builder(this)
+                        .setTitle(getString(R.string.msg_confirmacion) + " " + seleccionado)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setCancelable(false)
+                        .setPositiveButton(getString(R.string.boton_aceptar), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                bdatos.borrar_db(seleccionado);
+                                if (bdatos.disponible) setTitle(getString(R.string.msg_no_abierto));
+                            }
+                        })
+                        .setNegativeButton(getString(R.string.boton_cancelar), null)
+                        .show();
+            }
         }
     }
 

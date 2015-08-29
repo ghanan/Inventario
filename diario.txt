@@ -27,6 +27,8 @@ preguntar si se quiere borrar de verdad
 bdatos
  relleno log cuando no se abre inventario en el arranque
 commit
+pide confirmación al borrar inventario
+commit
 
 28-ago
 varios cambios

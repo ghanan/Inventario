@@ -38,6 +38,7 @@
     <string name="menu_acerca">About</string>
     <string name="menu_borrar">Delete Inv.</string>
     <string name="menu_nuevo">New Inv.</string>
+    <string name="msg_confirmacion">Confirm delete of</string>
     <string name="msg_dir_creado">Creado directorio </string>
     <string name="msg_error_cerrando">Error closing file</string>
     <string name="msg_error_crea_fich_foto">Error saving image file</string>

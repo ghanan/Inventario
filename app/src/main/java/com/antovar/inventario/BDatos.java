@@ -195,6 +195,7 @@ public class BDatos extends Application {
         }
         _dirDB.deleteOnExit();
         _dirDB.delete();
+        if (nombredb.equals(nombre)) nombredb = "";
         inventarios.remove(nombre);
     }
 
