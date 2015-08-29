@@ -103,12 +103,9 @@ public class BDatos extends Application {
         }
         rellena_inventarios();
         if (inventarios.size() == 0) log = getString(R.string.msg_no_hay_inventarios);
-        if (inventarios.size() == 1) {
-//                nombredb = inventarios.get(0);
-//                dirDB = new File(dirAPP, PREFIJO+nombredb);
-                abrir_bd(inventarios.get(0));
-            }
-        }
+        else if (inventarios.size() == 1) abrir_bd(inventarios.get(0));
+        else log = getString(R.string.msg_no_abierto);
+    }
 
     private void makeActionOverflowMenuShown() {
         //devices with hardware menu button (e.g. Samsung Note) don't show action overflow menu

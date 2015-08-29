@@ -54,24 +54,20 @@ public class GestionClavesActivity extends Activity {
         listClaves.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                if (((String) parent.getItemAtPosition(position)).equals("NUEVA")) {
                 if (((String) parent.getItemAtPosition(position)).equals(getString(R.string.nuevo))) {
                     final EditText entrada = new EditText(contexto);
                     entrada.setText("");
-//                          .setMessage("introduce nueva clave")
                     new AlertDialog.Builder(contexto)
-//                            .setTitle("Introduce nueva clave")
                             .setTitle(getString(R.string.intro_nuevo))
+//                          .setMessage("introduce nueva clave")
                             .setView(entrada)
                             .setPositiveButton(getString(R.string.boton_aceptar), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
-//                                    System.out.println(entrada.getText().toString());
                                     // para evitar errores en el split anado "<cr>."
                                     String nueva = (entrada.getText().toString() + "\n.").split("\n")[0].trim();
                                     if (!nueva.equals("")) {
                                         bdatos.anade_clave(nueva);
                                         ((BaseAdapter) listClaves.getAdapter()).notifyDataSetChanged();
-                                        bdatos.claves.indexOf(nueva);
                                         posClavesMarcadas.add(bdatos.claves.indexOf(nueva));
                                     }
                                 }
@@ -88,7 +84,6 @@ public class GestionClavesActivity extends Activity {
                     }
             }
         });
-
     }
 
     // para llevar el control de las seleccionadas
