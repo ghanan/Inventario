@@ -137,8 +137,8 @@
 			<ImageView
 				android:id="@+id/view_foto"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:scaleType="fitStart"
+				android:layout_height="240dp"
+				android:scaleType="fitCenter"
 				android:background="#00000000" />
 
 		</LinearLayout>
