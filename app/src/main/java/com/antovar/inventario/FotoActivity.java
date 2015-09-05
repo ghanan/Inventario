@@ -44,28 +44,39 @@ public class FotoActivity extends Activity {
             Toast.makeText(this, getString(R.string.msg_error_crea_fich_foto) + " " + ex, Toast.LENGTH_LONG).show();
         }
         Uri uri_foto = Uri.fromFile(la_foto);
-//        Intent camara_Intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         Intent camara_Intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        camara_Intent.putExtra(MediaStore.EXTRA_OUTPUT, uri_foto);
+        //camara_Intent.putExtra(MediaStore.EXTRA_OUTPUT, uri_foto);
         startActivityForResult(camara_Intent, TOMA_FOTO);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		Intent intentRetorno = new Intent();
-		//if (requestCode == TOMA_FOTO && resultCode == RESULT_OK && intent != null){
-        if (resultCode == RESULT_OK){			
-            //Bundle extras = intent.getExtras();
-            //bitMap = (Bitmap) extras.get("data");
-            //cuadro.setImageBitmap(bitMap);
-			intentRetorno.putExtra("foto", nombre_foto);
-			setResult(1, intentRetorno);
+		if (requestCode == TOMA_FOTO && resultCode == RESULT_OK && intent != null){
+            Bundle extras = intent.getExtras();
+            bitMap = (Bitmap) extras.get("data");
+            cuadro.setImageBitmap(bitMap);
         } else {
 			if (la_foto.exists()) la_foto.delete();
-			setResult(0, intentRetorno);
+            setResult(0, intent);
+            finish();
 		}
-		finish();
     }
+//    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+//		Intent intentRetorno = new Intent();
+//		//if (requestCode == TOMA_FOTO && resultCode == RESULT_OK && intent != null){
+//        if (resultCode == RESULT_OK){
+//            //Bundle extras = intent.getExtras();
+//            //bitMap = (Bitmap) extras.get("data");
+//            //cuadro.setImageBitmap(bitMap);
+//			intentRetorno.putExtra("foto", nombre_foto);
+//			setResult(1, intentRetorno);
+//        } else {
+//			if (la_foto.exists()) la_foto.delete();
+//			setResult(0, intentRetorno);
+//		}
+//		finish();
+//    }
 
     private String nombreFoto() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddHHmmss");
@@ -75,27 +86,27 @@ public class FotoActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_foto, menu);
+        getMenuInflater().inflate(R.menu.menu_foto, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.disparar) {
-//            if (la_foto.exists()) la_foto.delete();
-//            toma_foto();
-//        } else {
-//            Intent intent = new Intent();
-//            if (id == R.id.guardar) {
-//                intent.putExtra("foto", nombre_foto);
-//                setResult(1, intent);
-//            } else { // cancelar
-//                if (la_foto.exists()) la_foto.delete();
-//                setResult(0, intent);
-//            }
-//            finish();
-//        }
+        int id = item.getItemId();
+        if (id == R.id.disparar) {
+            if (la_foto.exists()) la_foto.delete();
+            toma_foto();
+        } else {
+            Intent intent = new Intent();
+            if (id == R.id.guardar) {
+                intent.putExtra("foto", nombre_foto);
+                setResult(1, intent);
+            } else { // cancelar
+                if (la_foto.exists()) la_foto.delete();
+                setResult(0, intent);
+            }
+            finish();
+        }
         return true;
     }
 }

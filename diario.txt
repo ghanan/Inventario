@@ -24,6 +24,13 @@ menu en menuinicial para abrir, nuevo, borrar y about
 pull desde patc
 comento el inflar menu y hacer nada en las opciones
 commit
+creo rama Foto-completa
+paso a master
+descomento creación de menu y las opciones
+no paso uri
+si no toma foto, finish
+commit
+push
 
 4-ago
 en el móvil cambio FotoActivity para que no haga nada. Retorna tanto si se acepta la foto como si no.
