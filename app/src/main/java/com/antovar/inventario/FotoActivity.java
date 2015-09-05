@@ -75,27 +75,27 @@ public class FotoActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_foto, menu);
+        //getMenuInflater().inflate(R.menu.menu_foto, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.disparar) {
-            if (la_foto.exists()) la_foto.delete();
-            toma_foto();
-        } else {
-            Intent intent = new Intent();
-            if (id == R.id.guardar) {
-                intent.putExtra("foto", nombre_foto);
-                setResult(1, intent);
-            } else { // cancelar
-                if (la_foto.exists()) la_foto.delete();
-                setResult(0, intent);
-            }
-            finish();
-        }
+//        int id = item.getItemId();
+//        if (id == R.id.disparar) {
+//            if (la_foto.exists()) la_foto.delete();
+//            toma_foto();
+//        } else {
+//            Intent intent = new Intent();
+//            if (id == R.id.guardar) {
+//                intent.putExtra("foto", nombre_foto);
+//                setResult(1, intent);
+//            } else { // cancelar
+//                if (la_foto.exists()) la_foto.delete();
+//                setResult(0, intent);
+//            }
+//            finish();
+//        }
         return true;
     }
 }

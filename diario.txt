@@ -20,6 +20,15 @@ INMEDIATO
 puede que no funcione quitar foto
 menu en menuinicial para abrir, nuevo, borrar y about
 
+5-ago
+pull desde patc
+comento el inflar menu y hacer nada en las opciones
+commit
+
+4-ago
+en el móvil cambio FotoActivity para que no haga nada. Retorna tanto si se acepta la foto como si no.
+commit y push desde el móvil
+
 29-ago
 bdatos
  relleno log cuando no se abre inventario en el arranque
