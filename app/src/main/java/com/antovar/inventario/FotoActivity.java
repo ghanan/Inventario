@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -38,12 +39,12 @@ public class FotoActivity extends Activity {
     private void toma_foto() {
         nombre_foto = bdatos.dirDB + "/" + nombreFoto();
         la_foto = new File(nombre_foto);
-        try {
-            la_foto.createNewFile();
-        } catch (IOException ex) {
-            Toast.makeText(this, getString(R.string.msg_error_crea_fich_foto) + " " + ex, Toast.LENGTH_LONG).show();
-        }
-        Uri uri_foto = Uri.fromFile(la_foto);
+//        try {
+//            la_foto.createNewFile();
+//        } catch (IOException ex) {
+//            Toast.makeText(this, getString(R.string.msg_error_crea_fich_foto) + " " + ex, Toast.LENGTH_LONG).show();
+//        }
+//        Uri uri_foto = Uri.fromFile(la_foto);
         Intent camara_Intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         //camara_Intent.putExtra(MediaStore.EXTRA_OUTPUT, uri_foto);
         startActivityForResult(camara_Intent, TOMA_FOTO);
@@ -99,6 +100,24 @@ public class FotoActivity extends Activity {
         } else {
             Intent intent = new Intent();
             if (id == R.id.guardar) {
+                FileOutputStream out = null;
+                try {
+                    out = new FileOutputStream(nombre_foto);
+                    bitMap.compress(Bitmap.CompressFormat.JPEG, 70, out);
+                } catch (Exception e) {
+                    System.out.println("Error grabando foto " + e.toString());
+                    //Toast.makeText(this, getString(R.string.msg_nombreVacio), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Error grabando foto", Toast.LENGTH_LONG).show();
+                    //e.printStackTrace();
+                } finally {
+                    try {
+                        if (out != null) {
+                            out.close();
+                        }
+                    } catch (IOException e) {
+                        //e.printStackTrace();
+                    }
+                }
                 intent.putExtra("foto", nombre_foto);
                 setResult(1, intent);
             } else { // cancelar

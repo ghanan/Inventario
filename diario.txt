@@ -31,6 +31,10 @@ no paso uri
 si no toma foto, finish
 commit
 push
+en toma_foto no creo el fichero ni el uri
+grabo la foto
+commit
+push
 
 4-ago
 en el móvil cambio FotoActivity para que no haga nada. Retorna tanto si se acepta la foto como si no.
