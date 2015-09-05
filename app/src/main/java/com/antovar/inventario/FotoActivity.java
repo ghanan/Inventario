@@ -47,16 +47,24 @@ public class FotoActivity extends Activity {
 //        Intent camara_Intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         Intent camara_Intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         camara_Intent.putExtra(MediaStore.EXTRA_OUTPUT, uri_foto);
-        //startActivityForResult(camara_Intent, TOMA_FOTO);
+        startActivityForResult(camara_Intent, TOMA_FOTO);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == TOMA_FOTO && resultCode == RESULT_OK && intent != null){
-            Bundle extras = intent.getExtras();
-            bitMap = (Bitmap) extras.get("data");
-            cuadro.setImageBitmap(bitMap);
-        }
+		Intent intentRetorno = new Intent();
+		//if (requestCode == TOMA_FOTO && resultCode == RESULT_OK && intent != null){
+        if (resultCode == RESULT_OK){			
+            //Bundle extras = intent.getExtras();
+            //bitMap = (Bitmap) extras.get("data");
+            //cuadro.setImageBitmap(bitMap);
+			intentRetorno.putExtra("foto", nombre_foto);
+			setResult(1, intentRetorno);
+        } else {
+			if (la_foto.exists()) la_foto.delete();
+			setResult(0, intentRetorno);
+		}
+		finish();
     }
 
     private String nombreFoto() {
