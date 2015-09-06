@@ -15,10 +15,17 @@ ver si animar los cajones al guardar o al rellenar
 usar la cámara para cambiar la resolución y la calidad
 longpress en una clave busca directamente registros con esa clave
 probar a abrir pero faltando el csv
+que salga el teclado automáticamente
 
 INMEDIATO
 puede que no funcione quitar foto
 menu en menuinicial para abrir, nuevo, borrar y about
+
+6-ago
+push
+pongo 240dp y fitCenter en todas las resoluciones
+commit
+push
 
 5-ago
 pull desde patc
