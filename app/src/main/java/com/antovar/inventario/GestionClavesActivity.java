@@ -68,7 +68,9 @@ public class GestionClavesActivity extends Activity {
                                     if (!nueva.equals("")) {
                                         bdatos.anade_clave(nueva);
                                         ((BaseAdapter) listClaves.getAdapter()).notifyDataSetChanged();
-                                        posClavesMarcadas.add(bdatos.claves.indexOf(nueva));
+                                        int pos_nueva = bdatos.claves.indexOf(nueva);
+                                        incrementa_pos_claves_marcadas_posteriores(pos_nueva);
+                                        posClavesMarcadas.add(pos_nueva);
                                     }
                                 }
                             })
@@ -93,6 +95,16 @@ public class GestionClavesActivity extends Activity {
         for (String valor: sClaves.split(bdatos.CS)) {
             int pos = bdatos.claves.indexOf(valor);
             posClavesMarcadas.add(pos);
+        }
+    }
+
+    private void incrementa_pos_claves_marcadas_posteriores(int pos_nueva) {
+        int posicion = 0;
+        for (int pos: posClavesMarcadas) {
+            if (pos >= pos_nueva) {
+                posClavesMarcadas.set(posicion, pos+1);
+            }
+            posicion++;
         }
     }
 
