@@ -335,6 +335,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
         if (!nota.getText().toString().equals("")) seleccionar(bdatos.aNota, nota.getText().toString().toLowerCase());
         if (!cuarto.equals("")) seleccionar(bdatos.aCuarto, cuarto);
         if (!mueble.equals("")) seleccionar(bdatos.aMueble, mueble);
+        if (!cuerpo.equals("")) seleccionar(bdatos.aCuerpo, cuerpo);
         if (!hueco.equals("")) seleccionar(bdatos.aHueco, hueco);
         if (!fila_col.equals("")) seleccionar(bdatos.aFila_col, fila_col);
         if (bdatos.posRegistrosSelec.size() == 0) mensaje_no_hay();
@@ -349,6 +350,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
     }
 
     private void seleccionar(ArrayList campo, String cadena) {
+        //System.out.println(campo.toString() + " = " +cadena);
         if (bdatos.posRegistrosSelec.size() == 0) {
             for (int i = 0; i < campo.size(); i++) {
                 if (campo.get(i).toString().toLowerCase().contains(cadena))
