@@ -121,7 +121,7 @@ public class AltaActivity extends Activity implements OnItemSelectedListener {
             else mueble = item;
         } else if (parent.getId() == R.id.desplegable_cuerpo) {
             if (item.equals(getString(R.string.nuevo))) nuevo_sitio("cuerpo");
-            else mueble = item;
+            else cuerpo = item;
         } else if (parent.getId() == R.id.desplegable_hueco) {
             if (item.equals(getString(R.string.nuevo))) nuevo_sitio("hueco");
             else hueco = item;
